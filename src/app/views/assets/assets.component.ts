@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 
 @Component({
-  templateUrl: 'font-awesome.component.html'
+  templateUrl: 'flags.component.html'
 })
-export class FontAwesomeComponent {
+export class AssetsComponent {
 
   constructor() { }
 
