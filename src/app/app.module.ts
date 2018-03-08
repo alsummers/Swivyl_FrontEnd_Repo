@@ -20,7 +20,7 @@ import {
   AppAsideComponent,
   AppBreadcrumbsComponent,
   AppFooterComponent,
-  AppHeaderComponent,
+
   AppSidebarComponent,
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
@@ -33,7 +33,7 @@ const APP_COMPONENTS = [
   AppAsideComponent,
   AppBreadcrumbsComponent,
   AppFooterComponent,
-  AppHeaderComponent,
+
   AppSidebarComponent,
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
