@@ -11,6 +11,7 @@ import 'rxjs/add/operator/filter';
 
   <h6>Profile</h6>`
 })
+
 export class AppBreadcrumbsComponent {
   // breadcrumbs: Array<Object>;
   // constructor(
