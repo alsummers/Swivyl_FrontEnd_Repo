@@ -141,6 +141,7 @@
     &.active {
       color: $sidebar-nav-link-active-color;
       background: $sidebar-nav-link-active-bg;
+      border-left: lightgreen 0.4rem solid;
       @include borders($sidebar-nav-link-active-borders);
 
       i {

@@ -9,10 +9,6 @@ export const navigation = [
     }
   },
   {
-    title: true,
-    name: 'Theme'
-  },
-  {
     name: 'Colors',
     url: '/theme/colors',
     icon: 'icon-drop'
@@ -21,10 +17,6 @@ export const navigation = [
     name: 'Typography',
     url: '/theme/typography',
     icon: 'icon-pencil'
-  },
-  {
-    title: true,
-    name: 'Components'
   },
   {
     name: 'Base',
@@ -142,13 +134,6 @@ export const navigation = [
     }
   },
   {
-    divider: true
-  },
-  {
-    title: true,
-    name: 'Extras',
-  },
-  {
     name: 'Pages',
     url: '/pages',
     icon: 'icon-star',
@@ -178,14 +163,12 @@ export const navigation = [
   {
     name: 'Download CoreUI',
     url: 'http://coreui.io/angular/',
-    icon: 'icon-cloud-download',
     class: 'mt-auto',
     variant: 'success'
   },
   {
     name: 'Try CoreUI PRO',
     url: 'http://coreui.io/pro/angular/',
-    icon: 'icon-layers',
     variant: 'danger'
   }
 ];
