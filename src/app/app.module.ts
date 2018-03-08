@@ -7,8 +7,12 @@ import { AppComponent } from './app.component';
 // Import containers
 import {
   FullLayoutComponent,
-  SimpleLayoutComponent
+  SimpleLayoutComponent,
 } from './containers';
+
+import {
+  AppLoginRegisterComponent
+} from './app-login-register/app-login-register.component'
 
 const APP_CONTAINERS = [
   FullLayoutComponent,
@@ -24,7 +28,8 @@ import {
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   AppSidebarMinimizerComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
+  
 } from './components';
 
 const APP_COMPONENTS = [
@@ -35,7 +40,8 @@ const APP_COMPONENTS = [
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   AppSidebarMinimizerComponent,
-  APP_SIDEBAR_NAV
+  APP_SIDEBAR_NAV,
+  AppLoginRegisterComponent
 ]
 
 // Import directives
@@ -61,6 +67,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -73,7 +80,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AppComponent,
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
-    ...APP_DIRECTIVES
+    ...APP_DIRECTIVES,
+    AppLoginRegisterComponent
   ],
   providers: [{
     provide: LocationStrategy,
