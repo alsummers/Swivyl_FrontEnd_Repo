@@ -27,7 +27,6 @@ import {
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
-  AppSidebarMinimizerComponent,
   APP_SIDEBAR_NAV,
   
 } from './components';
@@ -39,7 +38,6 @@ const APP_COMPONENTS = [
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
-  AppSidebarMinimizerComponent,
   APP_SIDEBAR_NAV,
   AppLoginRegisterComponent
 ]
