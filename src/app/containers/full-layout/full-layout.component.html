@@ -1,17 +1,20 @@
-<app-header></app-header>
+
 <div class="app-body">
   <app-sidebar></app-sidebar>
   <!-- Main content -->
   <main class="main">
-    <!-- Breadcrumb -->
-    <ol class="breadcrumb">
-      <app-breadcrumbs></app-breadcrumbs>
-      <!-- Breadcrumb Menu-->
-      <li class="breadcrumb-menu d-md-down-none">
-        <!-- Todo add client name to welcome message using inline interpolation with {{}} -->
-        Welcome back: Matt Heffernan
-      </li>
-    </ol>
+      <app-header>
+          <!-- Breadcrumb -->
+          <ol class="breadcrumb">
+            <app-breadcrumbs></app-breadcrumbs>
+            <!-- Breadcrumb Menu-->
+            <li class="breadcrumb-menu d-md-down-none">
+              <!-- Todo add client name to welcome message using inline interpolation with {{}} -->
+              Welcome back: Matt Heffernan
+            </li>
+          </ol>
+        </app-header>
+    
     <div class="container-fluid">
       <router-outlet></router-outlet>
     </div><!-- /.conainer-fluid -->

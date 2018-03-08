@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 // Import Containers
@@ -6,6 +6,9 @@ import {
   FullLayoutComponent,
   SimpleLayoutComponent
 } from './containers';
+import {
+  AppLoginRegisterComponent,
+} from './app-login-register/app-login-register.component'
 
 export const routes: Routes = [
   {
@@ -62,6 +65,10 @@ export const routes: Routes = [
         loadChildren: './views/pages/pages.module#PagesModule',
       }
     ]
+  },
+  {
+    path: 'login',
+    component: AppLoginRegisterComponent
   }
 ];
 
