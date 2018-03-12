@@ -28,7 +28,7 @@ app-root {
   flex-direction: row;
   flex-grow: 1;
   overflow-x: hidden;
-  margin-top: ($navbar-height * 2);
+  margin-top: ($navbar-height * 1.75);
 
   .main {
     flex: 1;
@@ -75,7 +75,7 @@ app-root {
     z-index: $zindex-sticky - 1;
     width: $sidebar-width;
     height: calc(100vh - #{$navbar-height});
-    margin-top: - $navbar-height;
+    margin-top: - ($navbar-height / 1.25);
 
     .sidebar-nav {
       height: calc(100vh - #{$navbar-height});

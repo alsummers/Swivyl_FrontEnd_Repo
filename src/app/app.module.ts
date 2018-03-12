@@ -25,6 +25,7 @@ import {
   AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
+  AppLogoutComponent,
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
@@ -36,6 +37,7 @@ const APP_COMPONENTS = [
   AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
+  AppLogoutComponent,
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
@@ -84,7 +86,7 @@ import { AuthService } from './Services/auth.service';
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
-    AppLoginRegisterComponent,
+    AppLoginRegisterComponent
 
   ],
   providers: [
