@@ -1,6 +1,5 @@
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 // Import Containers
 import {
   FullLayoutComponent,
@@ -73,7 +72,9 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes),
+             
+  ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

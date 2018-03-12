@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
-
+import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 // Import containers
 import {
   FullLayoutComponent,
@@ -27,7 +28,6 @@ import {
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
-  AppSidebarMinimizerComponent,
   APP_SIDEBAR_NAV,
   
 } from './components';
@@ -39,7 +39,6 @@ const APP_COMPONENTS = [
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
-  AppSidebarMinimizerComponent,
   APP_SIDEBAR_NAV,
   AppLoginRegisterComponent
 ]
@@ -66,7 +65,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
-// import { ProfileComponent } from './views/profile/profile.component';
+import { AuthService } from './Services/auth.service';
 
 
 @NgModule({
@@ -75,7 +74,10 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     AppRoutingModule,
     BsDropdownModule.forRoot(),
     TabsModule.forRoot(),
-    ChartsModule
+    ChartsModule,
+    FormsModule,
+    HttpClientModule,
+    HttpModule
   ],
   declarations: [
     AppComponent,
@@ -83,12 +85,15 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
     AppLoginRegisterComponent,
-    // ProfileComponent
+
   ],
-  providers: [{
+  providers: [
+    {
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+    },
+    AuthService
+],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
