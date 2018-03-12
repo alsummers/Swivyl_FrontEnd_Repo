@@ -27,7 +27,7 @@ export const navigation = [
   {
     name: 'Profile',
     url: '/profile',
-    icon: 'icon-drop'
+    icon: 'icon-user'
   },
   // {
   //   name: 'Contact Agent',
