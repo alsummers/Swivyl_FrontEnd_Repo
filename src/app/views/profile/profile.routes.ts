@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes,
      RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile.component';
-import { CompanyProfileComponent } from './company-profile/company-profile/company-profile.component'
+import { CompanyWelcomeProfileComponent } from './company-profile/company-profile/company-profile.component'
 
 const routes: Routes = [
   {
@@ -13,8 +13,8 @@ const routes: Routes = [
     },
     children: [
       {
-        path: 'company',
-        component: CompanyProfileComponent,
+        path: 'company-welcome',
+        component: CompanyWelcomeProfileComponent,
       },
     ]
   }
