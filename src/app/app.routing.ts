@@ -24,12 +24,8 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'base',
-        loadChildren: './views/base/base.module#BaseModule'
-      },
-      {
-        path: 'buttons',
-        loadChildren: './views/buttons/buttons.module#ButtonsModule'
+        path: 'profile',
+        loadChildren: './views/profile/profile.module#ProfileModule'
       },
       {
         path: 'charts',
@@ -38,6 +34,10 @@ export const routes: Routes = [
       {
         path: 'dashboard',
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
+      },
+      {
+        path: 'assets',
+        loadChildren: './views/assets/assets.module#AssetsModule'
       },
       {
         path: 'notifications',

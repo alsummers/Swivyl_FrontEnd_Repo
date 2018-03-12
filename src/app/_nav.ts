@@ -8,14 +8,10 @@ export const navigation = [
       text: 'NEW'
     }
   },
-  {
-    name: 'Profile',
-    url: '/theme/colors',
-    icon: 'icon-drop'
-  },
+
   {
     name: 'Assets',
-    url: '/theme/typography',
+    url: '/assets',
     icon: 'icon-pencil'
   },
   {
@@ -29,15 +25,15 @@ export const navigation = [
     icon: 'icon-cursor'
   },
   {
-    name: 'Data Exchange',
-    url: '/charts',
-    icon: 'icon-pie-chart'
+    name: 'Profile',
+    url: '/profile',
+    icon: 'icon-drop'
   },
-  {
-    name: 'Contact Agent',
-    url: '/notifications',
-    icon: 'icon-bell'
-  },
+  // {
+  //   name: 'Contact Agent',
+  //   url: '/notifications',
+  //   icon: 'icon-bell'
+  // },
   {
     name: 'Messages',
     url: '/widgets',

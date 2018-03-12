@@ -66,6 +66,7 @@ import { AppRoutingModule } from './app.routing';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
+// import { ProfileComponent } from './views/profile/profile.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
-    AppLoginRegisterComponent
+    AppLoginRegisterComponent,
+    // ProfileComponent
   ],
   providers: [{
     provide: LocationStrategy,
