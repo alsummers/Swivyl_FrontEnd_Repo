@@ -6,6 +6,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { AssetsComponent } from './assets.component';
 import { AssetsRoutingModule } from './assets.routes';
+import { InsuredPropertyComponent } from './insured-property/insured-property.component';
+import { InsuredFleetComponent } from './insured-fleet/insured-fleet.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { AssetsRoutingModule } from './assets.routes';
     BsDropdownModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ AssetsComponent ]
+  declarations: [ AssetsComponent, InsuredPropertyComponent, InsuredFleetComponent ]
 })
 export class AssetsModule { }

@@ -20,7 +20,7 @@ export class AppLoginRegisterComponent implements OnInit {
   loginUser(e){
     e.preventDefault()
     var loginInfo ={
-      username: e.target.elements[0].value,
+      email: e.target.elements[0].value,
       password: e.target.elements[1].value
     }
     console.log(loginInfo)
