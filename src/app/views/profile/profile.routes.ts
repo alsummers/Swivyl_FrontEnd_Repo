@@ -15,7 +15,6 @@ const routes: Routes = [
       {
         path: 'company',
         component: CompanyProfileComponent,
-        outlet: 'companyprofile'
       },
     ]
   }
