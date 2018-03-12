@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, NgForm, FormsModule } from '@angular/forms'
+import { AuthService } from '../Services/auth.service'
+import { HttpModule } from '@angular/http';
+import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 
 @Component({
   selector: 'app-app-login-register',
@@ -7,10 +11,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./app-login-register.component.scss']
 })
 export class AppLoginRegisterComponent implements OnInit {
-
-  constructor() { }
+//sanitze inputs
+  constructor(private authService: AuthService) { }
 
   ngOnInit() {
-  }
 
+  }
+  loginUser(e){
+    e.preventDefault()
+    var loginInfo ={
+      username: e.target.elements[0].value,
+      password: e.target.elements[1].value
+    }
+    console.log(loginInfo)
+    return this.authService.login(loginInfo)
+  }
 }
