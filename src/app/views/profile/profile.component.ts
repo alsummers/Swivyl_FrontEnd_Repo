@@ -2,13 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  templateUrl: 'assets.component.html'
+  templateUrl: 'profile.component.html',
 })
-export class AssetsComponent implements OnInit {
+export class ProfileComponent implements OnInit {
 
+  ngOnInit() {
+  }
 
-  ngOnInit() {}
-  
-
-  
 }
