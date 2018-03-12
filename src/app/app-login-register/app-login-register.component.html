@@ -10,14 +10,15 @@
 
 <div class="jumbotron-fluid" id="landing-content">
   
-    <h3 class="display-3">Matt, welcome to Swivyl</h3>
-    <p class="lead">Let's Get Started</p>
-    <form class="form-group" action="">
-      <input type="text" >
-      <input type="password"hidden>
+    <h3 class="display-3">Welcome to Swivyl</h3>
+    <p class="lead landing-p">Let's Get Started</p>
+    <form (submit)="loginUser($event)" >
+      <input class="smoothe-corner" type="text" placeholder="Name" required>
+      <input class="smoothe-corner" type="password" placeholder="PassWord" required >
 
-      <button class="btn btn-dark">Confirm password</button>
+      <button class="smoothe-corner btn btn-dark">Confirm information</button>
     </form>
   
 </div>
+<div id="landing-footer"><p>Powered by &copy;Swivyl 2017!</p></div>
 
