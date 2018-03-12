@@ -24,7 +24,6 @@ import {
   AppAsideComponent,
   AppBreadcrumbsComponent,
   AppSidebarComponent,
-  AppHeaderComponent,
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
@@ -83,7 +82,7 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
     AppLoginRegisterComponent,
-    AppHeaderComponent
+  
   ],
   providers: [{
     provide: LocationStrategy,
