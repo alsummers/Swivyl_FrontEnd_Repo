@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes,
      RouterModule } from '@angular/router';
-
 import { ProfileComponent } from './profile.component';
+import { CompanyProfileComponent } from './company-profile/company-profile/company-profile.component'
 
 const routes: Routes = [
   {
@@ -10,7 +10,13 @@ const routes: Routes = [
     component: ProfileComponent,
     data: {
       title: 'Profile'
-    }
+    },
+    children: [
+      {
+        path: 'company',
+        component: CompanyProfileComponent,
+      },
+    ]
   }
 ];
 
