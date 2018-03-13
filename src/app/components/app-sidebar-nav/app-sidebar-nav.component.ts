@@ -5,7 +5,7 @@ import { navigation } from './../../_nav';
 import { logoutbutton } from './../../_logout'
 
 @Component({
-  selector: 'app-sidebar-nav',
+  selector: 'app-sidebar-nav', //Gonna add a logout button component
   template: `
     <nav class="sidebar-nav">
       <ul class="nav">
@@ -24,6 +24,7 @@ import { logoutbutton } from './../../_logout'
 export class AppSidebarNavComponent {
 
   public navigation = navigation;
+  public logoutbutton = logoutbutton;
 
   public isDivider(item) {
     return item.divider ? true : false
