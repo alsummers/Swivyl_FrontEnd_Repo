@@ -6,7 +6,9 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { ProfileComponent } from './profile.component';
 import { ProfileRoutingModule } from './profile.routes';
-import { CompanyProfileComponent } from './company-profile/company-profile/company-profile.component'
+import { CompanyWelcomeProfileComponent } from './company-profile/company-profile-welcome/company-profile.component';
+import { CompanyProfileEntityComponent } from './company-profile/company-profile-entity/company-profile-entity.component'
+import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component'
 
 @NgModule({
   imports: [
@@ -18,7 +20,9 @@ import { CompanyProfileComponent } from './company-profile/company-profile/compa
   ],
   declarations: [ 
     ProfileComponent,
-    CompanyProfileComponent
+    CompanyWelcomeProfileComponent,
+    CompanyProfileEntityComponent,
+    CompanyFleetComponent
    ]
 })
 export class ProfileModule { }
