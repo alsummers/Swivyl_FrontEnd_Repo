@@ -6,6 +6,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
+import { DashboardActivityComponent } from './dashboard-activity.component';
+import { DashboardQuickConnectComponent } from './dashboard-quickconnect.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,6 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
     BsDropdownModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ DashboardComponent ]
+  declarations: [ DashboardComponent, DashboardActivityComponent, DashboardQuickConnectComponent]
 })
 export class DashboardModule { }
