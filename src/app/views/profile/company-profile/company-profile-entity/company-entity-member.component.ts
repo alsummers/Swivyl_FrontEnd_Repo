@@ -28,7 +28,7 @@ import { Component, OnInit } from '@angular/core';
   </div>
 </div>
 <div class="row justify-content-end">
-<a routerLink="">NEXT</a>
+<a routerLink="../company-shareholder">NEXT</a>
 </div>`,
   
 })
