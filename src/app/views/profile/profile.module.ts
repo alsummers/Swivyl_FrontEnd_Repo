@@ -9,7 +9,12 @@ import { ProfileRoutingModule } from './profile.routes';
 import { CompanyWelcomeProfileComponent } from './company-profile/company-profile-welcome/company-profile.component';
 import { CompanyProfileEntityComponent } from './company-profile/company-profile-entity/company-profile-entity.component'
 import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component'
-import { InsuredFleetComponent } from '../assets/insured-fleet/insured-fleet.component'
+import { InsuredFleetComponent } from '../assets/insured-fleet/insured-fleet.component';
+import { CompanyProfileRiskComponent } from './company-profile/company-profile-risk/company-profile-risk.component'
+import { InsuredPropertyComponent } from '../assets/insured-property/insured-property.component'
+import { CompanyEntityNameComponent } from './company-profile/company-profile-entity/company-entity-name.component'
+import { CompanyEntityMemberComponent } from './company-profile/company-profile-entity/company-entity-member.component';
+import { CompanyShareholderComponent } from './company-profile/company-shareholder/company-shareholder.component'
 
 @NgModule({
   imports: [
@@ -24,7 +29,12 @@ import { InsuredFleetComponent } from '../assets/insured-fleet/insured-fleet.com
     CompanyWelcomeProfileComponent,
     CompanyProfileEntityComponent,
     CompanyFleetComponent,
-    InsuredFleetComponent
+    InsuredFleetComponent,
+    CompanyProfileRiskComponent,
+    InsuredPropertyComponent,
+    CompanyEntityNameComponent,
+    CompanyEntityMemberComponent,
+    CompanyShareholderComponent
    ]
 })
 export class ProfileModule { }

@@ -74,6 +74,7 @@ import { PropertyService } from './Services/property.service';
 
 
 
+
 @NgModule({
   imports: [
     BrowserModule,
@@ -91,7 +92,8 @@ import { PropertyService } from './Services/property.service';
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
-    AppLoginRegisterComponent
+    AppLoginRegisterComponent,
+  
 
   ],
   providers: [

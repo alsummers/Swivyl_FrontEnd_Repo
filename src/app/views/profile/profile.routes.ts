@@ -5,6 +5,9 @@ import { ProfileComponent } from './profile.component';
 import { CompanyWelcomeProfileComponent } from './company-profile/company-profile-welcome/company-profile.component'
 import { CompanyProfileEntityComponent } from './company-profile/company-profile-entity/company-profile-entity.component'
 import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component';
+import { CompanyProfileRiskComponent } from './company-profile/company-profile-risk/company-profile-risk.component'
+import { CompanyShareholderComponent } from './company-profile/company-shareholder/company-shareholder.component';
+
 
 const routes: Routes = [
   {
@@ -29,6 +32,14 @@ const routes: Routes = [
       {
         path: 'fleet',
         component: CompanyFleetComponent
+      },
+      {
+        path: 'risk',
+        component: CompanyProfileRiskComponent
+      },
+      {
+        path: 'company-shareholder',
+        component: CompanyShareholderComponent
       }
       
     ]
