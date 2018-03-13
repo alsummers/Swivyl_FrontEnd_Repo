@@ -9,6 +9,7 @@ import { ProfileRoutingModule } from './profile.routes';
 import { CompanyWelcomeProfileComponent } from './company-profile/company-profile-welcome/company-profile.component';
 import { CompanyProfileEntityComponent } from './company-profile/company-profile-entity/company-profile-entity.component'
 import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component'
+import { InsuredFleetComponent } from '../assets/insured-fleet/insured-fleet.component'
 
 @NgModule({
   imports: [
@@ -22,7 +23,8 @@ import { CompanyFleetComponent } from './company-profile/company-fleet/company-f
     ProfileComponent,
     CompanyWelcomeProfileComponent,
     CompanyProfileEntityComponent,
-    CompanyFleetComponent
+    CompanyFleetComponent,
+    InsuredFleetComponent
    ]
 })
 export class ProfileModule { }
