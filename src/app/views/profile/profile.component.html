@@ -1,24 +1,49 @@
 <div class="container">
+  <div class="row">
+    <div class="col">
     <div class="card">
         <div class="card-body">
           <h5 class="card-title">    
             <ul class="nav nav-pills nav-fill dark">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Active</a>
+          <a class="nav-link" data-toggle="pills" routerLink="company">Company Profile</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" data-toggle="pills" href="#">Industry Info</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link" data-toggle="pills" href="#">Risk Assets</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link disabled" href="#">Disabled</a>
+          <a class="nav-link" data-toggle="pills" href="#">Fleet Management</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="pills" href="#">Broker/Carrier Info</a>
+          </li>
       </ul></h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-dark">Go somewhere</a>
+<router-outlet></router-outlet>
         </div>
       </div>
-
+    </div>
+</div>
+<div class="row">
+  <div class="col">
+      <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Activity Timeline</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <a href="#" class="card-link">View all history</a>
+          </div>
+        </div>
+  </div>
+  <div class="col">
+      <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Quick Connect</h4>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <button class="btn btn-dark">Save</button>
+          </div>
+        </div>
+  </div>
+</div>
 </div>
