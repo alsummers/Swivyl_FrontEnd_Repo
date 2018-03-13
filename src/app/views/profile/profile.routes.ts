@@ -23,7 +23,7 @@ const routes: Routes = [
         ]
       },
       {
-        path: '/company-entity',
+        path: 'company-entity',
         component: CompanyProfileEntityComponent
       },
       {
