@@ -8,7 +8,11 @@ export const navigation = [
       text: 'NEW'
     }
   },
-
+  {
+    name: 'Profile',
+    url: '/profile',
+    icon: 'icon-drop'
+  },
   {
     name: 'Assets',
     url: '/assets',
@@ -25,15 +29,16 @@ export const navigation = [
     icon: 'icon-cursor'
   },
   {
-    name: 'Profile',
-    url: '/profile',
-    icon: 'icon-user'
+
+    name: 'Data Exchange',
+    url: '/buttons',
+    icon: 'icon-cursor'
   },
-  // {
-  //   name: 'Contact Agent',
-  //   url: '/notifications',
-  //   icon: 'icon-bell'
-  // },
+  {
+    name: 'Contact Agent',
+    url: '/notifications',
+    icon: 'icon-bell'
+  },
   {
     name: 'Messages',
     url: '/widgets',

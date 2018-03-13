@@ -18,6 +18,10 @@ export class AuthService {
       this._router.navigate(['/dashboard'])
     })
   }
+  logout(e){
+    console.log(e)
+    localStorage.removeItem('id_token')
+  }
 
   setHeader(): HttpHeaders {
     return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('id_token')}` )

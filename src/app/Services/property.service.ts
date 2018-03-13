@@ -5,10 +5,9 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable'
 import {Subject} from 'rxjs/Subject';
 
-
 @Injectable()
-export class AssetsService {
+export class PropertyService {
 
-  constructor() { }
+  constructor(private _http: HttpClient, private _router:Router) { }
 
 }
