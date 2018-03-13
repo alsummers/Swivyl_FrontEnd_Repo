@@ -19,6 +19,17 @@ import { logoutbutton } from './../../_logout'
           </ng-template>
         </ng-template>
       </ul>
+    </nav>
+    <nav class="btn-group logoutSupport" style="width:100%">
+        <ng-template ngFor let-navitem [ngForOf]="logoutbutton">
+          <li *ngIf="isDivider(navitem)"></li>
+          <ng-template [ngIf]="isTitle(navitem)">
+            <app-sidebar-nav-title [title]='navitem'></app-sidebar-nav-title>
+          </ng-template>
+          <ng-template [ngIf]="!isDivider(navitem)&&!isTitle(navitem)">
+            <app-sidebar-nav-item [item]='navitem'></app-sidebar-nav-item>
+          </ng-template>
+        </ng-template>
     </nav>`
 })
 export class AppSidebarNavComponent {

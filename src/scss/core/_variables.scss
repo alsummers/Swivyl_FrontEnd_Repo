@@ -87,7 +87,7 @@ $mobile-sidebar-width:                220px !default;
 
 // Sidebar Header
 
-$sidebar-header-height:               auto !default;
+$sidebar-header-height:               180px !default;
 $sidebar-header-bg:                   url(http://via.placeholder.com/300.png/09f/fff) !default;
 $sidebar-header-padding-y:            .75rem !default;
 $sidebar-header-padding-x:            1rem !default;
@@ -134,8 +134,8 @@ $sidebar-nav-dropdown-indicator-hover:str-replace(url("data:image/svg+xml;charse
 
 $sidebar-footer-height:               auto !default;
 $sidebar-footer-bg:                   $gray-800 !default;
-$sidebar-footer-padding-y:            .75rem !default;
-$sidebar-footer-padding-x:            3rem !default;
+$sidebar-footer-padding-y:            0.25rem !default;
+$sidebar-footer-padding-x:            0.25rem !default;
 $sidebar-footer-borders:              0 !default;
 
 // Sidebar Minimizer

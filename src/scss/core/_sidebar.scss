@@ -34,6 +34,24 @@
     text-align: center;
     background: $sidebar-header-bg;
   }
+  .companyHeaderTag { //Box where the compnay logo and username is
+
+  }
+
+  .companyLogo { // Company Logo/Image
+    height: 100px;
+    width: 100px;
+    float: left;
+    margin: 30px 0 30px 5px
+  }
+
+  .userFirst { //User First Name
+margin: 60px 0 0 0;
+  }
+
+  .userLast { //User Last Name
+
+  }
 
   .sidebar-form .form-control {
     color: $sidebar-form-color;
@@ -259,7 +277,15 @@
     flex: 0 0 $sidebar-footer-height;
     padding: $sidebar-footer-padding-y $sidebar-footer-padding-x;
     background: $sidebar-footer-bg;
+    font-size: 8pt;
+    text-align: center;
     @include borders($sidebar-footer-borders);
+  }
+
+  .logoutSupport {
+    text-align: center;
+    font-size: 10pt;
+    
   }
 
   .sidebar-minimizer {
