@@ -41,18 +41,18 @@ $navbar-height:                       55px !default;
 $navbar-bg:                           #fff !default;
 $navbar-border: (
   bottom: (
-    size:                             1px,
+    size:                             0px,
     style:                            solid,
     color:                            $border-color
   )
 )  !default;
-$navbar-brand-width:                  155px !default;
-$navbar-brand-bg:                     #fff !default;
-$navbar-brand-logo:                   url('../img/logo.png') !default;
+$navbar-brand-width:                  220px !default;
+$navbar-brand-bg:                     $gray-800 !default;
+$navbar-brand-logo:                   url('../img/logo.png') !default; //Change this to the Swivyl Image
 $navbar-brand-logo-size:              70px auto !default;
 $navbar-brand-border: (
   bottom: (
-    size:                             1px,
+    size:                             0px,
     style:                            solid,
     color:                            $border-color
   )
