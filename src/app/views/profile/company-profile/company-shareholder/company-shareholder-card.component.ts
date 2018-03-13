@@ -7,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
     <div class="col-sm-8">
     <div class="row">
 <div class="container">
-<div class="row">
+<div class="row"> <!-- delete when using ngFor -->
+<!-- <div class="form-row" *ngFor="let shareholder of shareholders"> -->
       <div class="col">
         <div class ="card">
           <span>{{fleets.year}}</span>
@@ -39,12 +40,12 @@ import { Component, OnInit } from '@angular/core';
         <div class="card">
           <span>{{vehicle.id}}</span>
         </div>
+        </div>
         <div class="col-sm-2">
         <div class="card">
           <span>{{vehicle.id}}</span>
         </div>
       </div>
-      </div> 
     </div>
   </div>
   `
