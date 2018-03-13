@@ -29,6 +29,7 @@ export const navigation = [
     icon: 'icon-cursor'
   },
   {
+
     name: 'Data Exchange',
     url: '/buttons',
     icon: 'icon-cursor'
@@ -37,6 +38,7 @@ export const navigation = [
     name: 'Contact Agent',
     url: '/notifications',
     icon: 'icon-bell'
+
   },
   {
     name: 'Messages',
