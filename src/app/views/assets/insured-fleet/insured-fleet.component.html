@@ -2,41 +2,61 @@
 
 
 <!-- List of cars -->
+      <!-- <ng-template ngIf="fleet"> -->
         <div class="container">
-          <form>
-            <div class="form-row">
-              <div class="col">
-                <label for="Year">Year</label>
-                <input type="number" class="form-control" placeholder="Year">
-              </div>
-              <div class="col">
-                <label for="Make">Make</label>
-                <input type="text" class="form-control" placeholder="Make">
-              </div>
-              <div class="col">
-                <label for="Model">Model</label>
-                <input type="text" class="form-control" placeholder="Model">
-              </div>
-              <div class="col">
-                <label for="VIN">VIN#</label>
-                <input type="text" class="form-control" placeholder="VIN">
-              </div>
-              <div class="col">
-                <label for="Driver">Driver</label>
-                <input type="text" class="form-control" placeholder="Driver name">
-              </div>
-              <div class="col">
-                <label for="ZIP">Garaging Zip</label>
-                <input type="number" class="form-control" placeholder="zip">
-              </div> 
-              <div class="col">
-                <label for="Date">Date Added</label>
-                <input type="date" class="form-control" placeholder="mm/dd/yyyy">
-              </div>
-              <div class="col">
-                <label for="Title">Titled To</label>
-                <input type="text" class="form-control" placeholder="Title">
+          <div class="form-row">
+            <div class="col">
+              <label for="Year">Year</label>
+              <div class ="card">
+                <!-- toDo use ngForOf to iterate over all of these -->
+                <span>{{fleets.year}}</span>
               </div>
             </div>
-          </form>
+            <div class="col">
+              <label for="Make">Make</label>
+              <div class="card">
+                  <span>{{vehicle.id}}</span>
+              </div>
+            </div>
+            <div class="col">
+              <label for="Model">Model</label>
+              <div class="card">
+                <span>{{vehicle.id}}</span>
+              </div>
+            </div>
+            <div class="col">
+              <label for="VIN">VIN#</label>
+              <div class="card">
+                <span>{{vehicle.id}}</span>
+                </div>
+            </div>
+            <div class="col">
+              <label for="Driver">Driver</label>
+              <div class="card">
+                <span>{{vehicle.id}}</span>
+              </div>
+            </div>
+            <div class="col">
+              <label for="ZIP">Garaging Zip</label>
+              <div class="card">
+                <span>{{vehicle.id}}</span>
+              </div>
+            </div> 
+            <div class="col">
+              <label for="Date">Date Added</label>
+              <div class="card">
+                <span>{{vehicle.id}}</span>
+              </div>
+            </div>
+            <div class="col">
+              <label for="Title">Titled To</label>
+              <div class="card">
+                <span>{{vehicle.id}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <img (click)="refreshList($event)" id="refresh-fleet" src="https://d30y9cdsu7xlg0.cloudfront.net/png/12184-200.png" alt="refresh">
+      
+      
 <!-- end of cars -->
