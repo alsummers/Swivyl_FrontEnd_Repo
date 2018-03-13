@@ -133,9 +133,9 @@ $sidebar-nav-dropdown-indicator-hover:str-replace(url("data:image/svg+xml;charse
 // Sidebar Footer
 
 $sidebar-footer-height:               auto !default;
-$sidebar-footer-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-footer-bg:                   $gray-800 !default;
 $sidebar-footer-padding-y:            .75rem !default;
-$sidebar-footer-padding-x:            1rem !default;
+$sidebar-footer-padding-x:            3rem !default;
 $sidebar-footer-borders:              0 !default;
 
 // Sidebar Minimizer

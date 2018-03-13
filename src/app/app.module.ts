@@ -26,6 +26,7 @@ import {
   AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
+  AppLogoutComponent,
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
@@ -37,6 +38,7 @@ const APP_COMPONENTS = [
   AppAsideComponent,
   AppHeaderComponent,
   AppSidebarComponent,
+  AppLogoutComponent,
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
@@ -89,7 +91,7 @@ import { PropertyService } from './Services/property.service';
     ...APP_CONTAINERS,
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
-    AppLoginRegisterComponent,
+    AppLoginRegisterComponent
 
   ],
   providers: [
