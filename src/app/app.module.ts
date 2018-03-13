@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+
 // Import containers
 import {
   FullLayoutComponent,
@@ -68,6 +69,9 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AuthService } from './Services/auth.service';
+import { FleetService } from './Services/fleet.service';
+import { PropertyService } from './Services/property.service';
+
 
 
 @NgModule({
@@ -79,7 +83,8 @@ import { AuthService } from './Services/auth.service';
     ChartsModule,
     FormsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    CommonModule
   ],
   declarations: [
     AppComponent,
@@ -94,7 +99,9 @@ import { AuthService } from './Services/auth.service';
     provide: LocationStrategy,
     useClass: HashLocationStrategy
     },
-    AuthService
+    AuthService,
+    FleetService,
+    PropertyService
 ],
   bootstrap: [ AppComponent ]
 })

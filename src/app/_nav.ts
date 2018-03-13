@@ -38,7 +38,6 @@ export const navigation = [
     name: 'Contact Agent',
     url: '/notifications',
     icon: 'icon-bell'
-
   },
   {
     name: 'Messages',

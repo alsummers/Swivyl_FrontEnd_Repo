@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './company-profile.component.html',
   
 })
-export class CompanyProfileComponent implements OnInit {
+export class CompanyWelcomeProfileComponent implements OnInit {
 
   constructor() { }
 
