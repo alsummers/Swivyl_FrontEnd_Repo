@@ -24,10 +24,6 @@ const routes: Routes = [
         component: CompanyWelcomeProfileComponent,
       },
       {
-        path: 'company-setup',
-        component: CompanyProfileSetupComponent
-      },
-      {
         path: 'company-entity',
         component: CompanyProfileEntityComponent
       },
