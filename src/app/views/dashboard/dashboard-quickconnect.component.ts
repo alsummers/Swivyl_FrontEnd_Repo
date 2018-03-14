@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
       <div class="card-body">
         <h4 class="card-title">Quick Connect</h4>
         <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <button class="btn btn-dark">Save</button>
+        <button id="submit" class="btn btn-dark">Submit</button>
       </div>
     </div>
 </div>
