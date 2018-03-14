@@ -18,13 +18,21 @@ export class AuthService {
       this._router.navigate(['/dashboard'])
     })
   }
+  Register(userInfo){
+    console.log(userInfo)
+    return this._http.post(`${Sql_Url}/register`, userInfo).subscribe(e => {
+      this.login(userInfo)
+      this._router.navigate(['/dasboard'])
+    })
+  }
   logout(e){
     console.log(e)
     localStorage.removeItem('id_token')
+    this._router.navigate(['/login'])  
   }
 
   setHeader(): HttpHeaders {
-    return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('id_token')}` )
+    return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('id_token')}`)
   }
 
 
