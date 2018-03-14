@@ -99,6 +99,26 @@
   }
 }
 
+.searchbar {
+  border-radius: .5rem !important;
+  background-color: #fff;
+  padding: 0.25rem 0.25rem;
+  border: 0;
+}
+
+.searchbar-btn {
+  border-radius: .5rem;
+  width: 3rem;
+  font-weight: bold;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  margin-left: 1rem;
+}
+
+.searchbar-input {
+  border: 0;
+  height: 2rem;
+}
+
 // Cards with color accent
 @each $color, $value in $theme-colors {
   .card-accent-#{$color} {
