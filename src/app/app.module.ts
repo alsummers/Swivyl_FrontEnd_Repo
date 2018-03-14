@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { LocationStrategy, HashLocationStrategy, CommonModule } from '@angular/common';
+import { LocationStrategy, HashLocationStrategy, CommonModule, NgIf, NgForOf } from '@angular/common';
 import { FormsModule } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
@@ -84,8 +84,7 @@ import { PropertyService } from './Services/property.service';
     ChartsModule,
     FormsModule,
     HttpClientModule,
-    HttpModule,
-    CommonModule
+    HttpModule
   ],
   declarations: [
     AppComponent,
