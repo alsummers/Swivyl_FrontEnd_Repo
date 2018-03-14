@@ -11,8 +11,8 @@ import { CompanyProfileRiskComponent } from './company-profile/company-profile-r
 import { CompanyEntityNameComponent } from './company-profile/company-profile-entity/company-entity-name.component'
 import { CompanyEntityMemberComponent } from './company-profile/company-profile-entity/company-entity-member.component';
 import { CompanyShareholderComponent } from './company-profile/company-shareholder/company-shareholder.component'
-import { InsuredFleetComponent} from '../../components/insured-fleet/insured-fleet.component'
-import { InsuredPropertyComponent } from '../../components/insured-property/insured-property.component';
+import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component';
+
 @NgModule({
   imports: [
     FormsModule,
@@ -22,14 +22,11 @@ import { InsuredPropertyComponent } from '../../components/insured-property/insu
     ButtonsModule.forRoot()
   ],
   declarations: [ 
-    InsuredFleetComponent,
-    InsuredPropertyComponent,
     ProfileComponent,
-
     CompanyWelcomeProfileComponent,
     CompanyProfileEntityComponent,
     CompanyProfileRiskComponent,
-    
+    CompanyFleetComponent,
     CompanyEntityNameComponent,
     CompanyEntityMemberComponent,
     CompanyShareholderComponent

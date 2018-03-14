@@ -8,6 +8,6 @@ import {Subject} from 'rxjs/Subject';
 @Injectable()
 export class UserService {
 
-  constructor() { }
+  constructor(private _http: HttpClient, private _router:Router) { }
 
 }
