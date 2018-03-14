@@ -69,6 +69,9 @@ import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { AuthService } from './Services/auth.service';
 import { FleetService } from './Services/fleet.service';
 import { PropertyService } from './Services/property.service';
+import { EntityService } from './Services/entity.service';
+import { CompanyService } from './Services/company.service';
+import { UserService } from './Services/user.service';
 
 
 
@@ -100,7 +103,10 @@ import { PropertyService } from './Services/property.service';
     },
     AuthService,
     FleetService,
-    PropertyService
+    PropertyService,
+    EntityService,
+    CompanyService,
+    UserService
 ],
   bootstrap: [ AppComponent ]
 })
