@@ -6,7 +6,7 @@ export const navigation = [
   },
   {
     name: 'Profile',
-    url: '/profile',
+    url: '/profile/company-welcome',
     icon: 'icon-drop'
   },
   {
