@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-quick-connect',
   template: `
-  <div class="col">
-    <div class="card">
+    <div class="card dashboard-card">
       <div class="card-body">
         <h4 class="card-title">Quick Connect</h4>
         <div class="row justify-content-center">
@@ -17,7 +16,6 @@ Need to contact your broker? Enter your message here.
         <button id="submit" class="btn btn-dark">Submit</button>
       </div>
     </div>
-</div>
 </div>
   `
 })
