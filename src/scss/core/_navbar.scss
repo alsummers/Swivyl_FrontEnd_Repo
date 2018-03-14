@@ -24,6 +24,7 @@
   .navbar-toggler {
     min-width: 50px;
     padding: $navbar-toggler-padding-y 0;
+    margin-left: -1.6rem;
 
     &:hover .navbar-toggler-icon {
       background-image: $navbar-toggler-icon-hover;
@@ -33,7 +34,6 @@
   .navbar-toggler-icon {
     height: 23px;
     background-image: $navbar-toggler-icon;
-    margin-left: -3.15rem;
   }
 
   .navbar-nav {

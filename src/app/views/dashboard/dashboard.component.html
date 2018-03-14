@@ -12,25 +12,30 @@
         </div>
         <div class="card-footer">Card footer</div>
       </div>
-    </div><!--/.col-->
+    </div>
     <div class="col-sm-6 col-md-6">
-      <div class="card">
-        <div class="card-body">
+      <div class="card searchbar">
+        <div class="card-body searchbar">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
-                <span class="input-group-addon" id="basic-addon2"><button type="button" class="btn btn-dark">Go</button></span>
-              </div>
+              <style>::placeholder {
+                  color: blue;
+                  opacity: 0.35;
+                  font-weight: bold;
+              }</style>
+                <input type="text" class="form-control searchbar-input" placeholder="Search" aria-label="Search" aria-describedby="basic-addon2">
+                <span class="input-group-addon" id="basic-addon2"><button type="button" class="btn btn-dark searchbar-btn">Go</button></span>
+            </div>
         </div>
       </div>
     </div>
-  </div>
-    <div class="row">
-          <div class="col-sm-6 col-md-6">
-<app-activity-timeline></app-activity-timeline>
-        </div>
-          <div class="col-sm-6 col-md-6">
- <app-quick-connect></app-quick-connect>
-        </div>
- </div><!--/.col-->
-  
+    <div class="col-sm-6 col-md-6">
+    </div>
+    <div class="col-sm-6 col-md-6">
+      <app-activity-timeline></app-activity-timeline>
+    </div>
+    <div class="col-sm-6 col-md-6">
+      </div>
+    <div class="col-sm-6 col-md-6">
+      <app-quick-connect></app-quick-connect>
+    </div>
 </div>
