@@ -15,6 +15,7 @@ import { CompanyShareholderComponent } from './company-profile/company-sharehold
 import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component';
 
 import { CompanyShareholderCardComponent } from './company-profile/company-shareholder/company-shareholder-card.component';
+import { CompanyProfileSetupComponent } from './company-profile/company-profile-setup/company-profile-setup.component';
 
 
 
@@ -35,7 +36,8 @@ import { CompanyShareholderCardComponent } from './company-profile/company-share
     CompanyEntityNameComponent,
     CompanyEntityMemberComponent,
     CompanyShareholderComponent,
-    CompanyShareholderCardComponent
+    CompanyShareholderCardComponent,
+    CompanyProfileSetupComponent
    ]
 })
 export class ProfileModule { }

@@ -8,9 +8,36 @@ h4{
     color: #263238
 }
 #profile-nav .nav-link{
-    color: #263238
+    color: #263238;
+    padding: 2rem
 }
-#profile-nav .nav-link:active{
+#profile-nav .nav-link.active{
     background-color: #263238;
     color: white;
+    padding: 2rem;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+.welcome{
+    display: block;
+    height: 25rem;
+    padding-top: 2rem;
+}
+.setup{
+    display: block;
+    height: 25rem;
+    padding-top: 2rem;
+}
+.entity{
+    display: block;
+    height: 25rem;
+    padding-top: 2rem;
+}
+.shareholder{
+    display: block;
+    height: 25rem;
+    padding-top: 2rem;
+}
+.next-page{
+    color: yellowgreen;
 }
