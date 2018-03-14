@@ -2,11 +2,7 @@ export const navigation = [
   {
     name: 'Dashboard',
     url: '/dashboard',
-    icon: 'icon-speedometer',
-    badge: {
-      variant: 'info',
-      text: 'NEW'
-    }
+    icon: 'icon-speedometer'
   },
   {
     name: 'Profile',
@@ -44,7 +40,7 @@ export const navigation = [
     url: '/widgets',
     icon: 'icon-calculator',
     badge: {
-      variant: 'number',
+      variant: 'danger',
       text: '7'
     }
   },

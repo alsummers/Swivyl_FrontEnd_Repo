@@ -27,9 +27,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
   </div>
 </div>
-<div class="row justify-content-end">
-<a routerLink="../company-shareholder">NEXT</a>
-</div>`,
+`,
   
 })
 export class CompanyEntityMemberComponent implements OnInit {

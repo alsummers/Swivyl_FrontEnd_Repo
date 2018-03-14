@@ -33,6 +33,7 @@
   .navbar-toggler-icon {
     height: 23px;
     background-image: $navbar-toggler-icon;
+    margin-left: -3.15rem;
   }
 
   .navbar-nav {
@@ -40,11 +41,18 @@
     align-items: center;
   }
 
+  .headerUser {
+    margin: 0.8rem 3rem 0 0;
+    font-size: 14px;
+  }
+  
+
   .nav-item {
     position: relative;
     min-width: 50px;
     margin: 0 !important;
     text-align: center;
+
 
     button {
       margin: 0 auto;

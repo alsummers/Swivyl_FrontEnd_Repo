@@ -11,7 +11,12 @@ import { CompanyProfileRiskComponent } from './company-profile/company-profile-r
 import { CompanyEntityNameComponent } from './company-profile/company-profile-entity/company-entity-name.component'
 import { CompanyEntityMemberComponent } from './company-profile/company-profile-entity/company-entity-member.component';
 import { CompanyShareholderComponent } from './company-profile/company-shareholder/company-shareholder.component'
+
 import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component';
+
+import { CompanyShareholderCardComponent } from './company-profile/company-shareholder/company-shareholder-card.component';
+
+
 
 @NgModule({
   imports: [
@@ -29,7 +34,8 @@ import { CompanyFleetComponent } from './company-profile/company-fleet/company-f
     CompanyFleetComponent,
     CompanyEntityNameComponent,
     CompanyEntityMemberComponent,
-    CompanyShareholderComponent
+    CompanyShareholderComponent,
+    CompanyShareholderCardComponent
    ]
 })
 export class ProfileModule { }
