@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { InsuredPropertyComponent } from '../../../../components/insured-property/insured-property.component'
+import { CompanyService } from '../../../../Services/company.service';
+
 
 @Component({
   
@@ -8,9 +9,14 @@ import { InsuredPropertyComponent } from '../../../../components/insured-propert
 })
 export class CompanyProfileEntityComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private _companyService: CompanyService ) { }
+  companyId: number
   ngOnInit() {
+    this._companyService.fetchcompany().subscribe(e => {
+      console.log(e[0].id)
+      this.companyId = e[0].id
+      
+    })
   }
-
+  
 }

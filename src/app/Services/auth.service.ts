@@ -9,13 +9,14 @@ import {Subject} from 'rxjs/Subject';
 const Sql_Url = "http://localhost:3000/api/client/login"
 @Injectable()
 export class AuthService {
-
   constructor(private _http: HttpClient, private _router:Router) {}
+  token: string 
   login(loginInfo){
-    console.log(loginInfo)
-    return this._http.post(`${Sql_Url}`, loginInfo).subscribe((e) => {
-      console.log(e)
-      this._router.navigate(['/dashboard'])
+    return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo:Response) => {
+      console.log(loginInfo)
+      
+      localStorage.setItem('token', `${loginInfo.client.token}`  )
+      this._router.navigate(['/profile/company-welcome'])
     })
   }
   Register(userInfo){
@@ -25,10 +26,9 @@ export class AuthService {
       this._router.navigate(['/dashboard'])
     })
   }
-  logout(){
-    console.log()
-    localStorage.removeItem('id_token')
-    this._router.navigate(['/login'])  
+  logout(){ 
+    localStorage.removeItem('token')
+    return this._router.navigate(['/login'])  
   }
 
   setHeader(): HttpHeaders {
@@ -39,4 +39,9 @@ export class AuthService {
 
 
 
+}
+interface Response {
+  client:{
+    token:String
+  }
 }
