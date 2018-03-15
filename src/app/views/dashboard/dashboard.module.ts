@@ -8,6 +8,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardActivityComponent } from './dashboard-activity.component';
 import { DashboardQuickConnectComponent } from './dashboard-quickconnect.component';
+import { DashboardToDoComponent } from './dashboard-to-do.component'
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { DashboardQuickConnectComponent } from './dashboard-quickconnect.compone
     BsDropdownModule,
     ButtonsModule.forRoot()
   ],
-  declarations: [ DashboardComponent, DashboardActivityComponent, DashboardQuickConnectComponent]
+  declarations: [ DashboardComponent, DashboardActivityComponent, DashboardQuickConnectComponent, DashboardToDoComponent]
 })
 export class DashboardModule { }

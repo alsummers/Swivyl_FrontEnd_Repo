@@ -1,12 +1,12 @@
 export const logoutbutton = [
   {
     name: 'Support',
-    url: 'http://coreui.io/angular/',
+    url: '/support',
     class: 'navHalf'
   },
   {
     name: 'Logout',
-    url: 'http://coreui.io/pro/angular/',
+    url: '/login',
     class: 'navHalf'
   }
 ];

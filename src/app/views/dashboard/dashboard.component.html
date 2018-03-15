@@ -3,34 +3,24 @@
 <div class="container">
 <div class="row">
     <div class="col-sm-6 col-md-6">
-      <div class="card">
-        <div class="card-header">
-          Card title
-        </div>
-        <div class="card-body">
-          Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-        </div>
-        <div class="card-footer">Card footer</div>
-      </div>
+      <app-to-do></app-to-do>
     </div>
     <div class="col-sm-6 col-md-6">
-      <div class="card searchbar">
-        <div class="card-body searchbar">
+      <div class="card searchbar dashboard-card">
             <div class="input-group">
               <style>::placeholder {
                   color: blue;
                   opacity: 0.35;
                   font-weight: bold;
               }</style>
-                <input type="text" class="form-control searchbar-input" placeholder="Search" aria-label="Search" aria-describedby="dashboard-search">
+                <input type="text" class="form-control searchbar-input dashboard-card" placeholder="Search" aria-label="Search" aria-describedby="dashboard-search">
                 <span class="input-group-addon" id="dashboard-search"><button type="button" class="btn btn-dark searchbar-btn">Go</button></span>
-            </div>
         </div>
       </div>
     </div>
     <div class="col-sm-6 col-md-6">
     </div>
-    <div class="col-sm-6 col-md-6">
+    <div class="col-sm-6 col-md-6 activity-timeline-dashboard">
       <app-activity-timeline></app-activity-timeline>
     </div>
     <div class="col-sm-6 col-md-6">

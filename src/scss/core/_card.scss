@@ -99,10 +99,34 @@
   }
 }
 
-.searchbar {
+.dashboard-card {
   border-radius: .5rem !important;
+}
+
+.dashboard-header {
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.dashboard-footer {
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
+.activity-timeline-dashboard {
+  margin-top: -10.5rem;
+}
+
+.activity-timeline {
+}
+
+.to-do {
+
+}
+
+.searchbar {
   background-color: #fff;
-  padding: 0.25rem 0.25rem;
+  padding: 0.5rem 0.5rem;
   border: 0;
 }
 
@@ -116,7 +140,6 @@
 
 .searchbar-input {
   border: 0;
-  height: 2rem;
 }
 
 // Cards with color accent
