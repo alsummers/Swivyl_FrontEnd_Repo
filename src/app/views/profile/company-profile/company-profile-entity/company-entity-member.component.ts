@@ -6,6 +6,33 @@ import { Component, OnInit } from '@angular/core';
   template: `  <div class="row justify-content-center">
   <h4>WHO IN YOUR COMPANY WILL NEED ACCESS TO SWIVYL?</h4>
   </div>
+  <div class="row justify-content-center" *ngFor="let user of users">
+  <div class="col-sm-8">
+  <div class="row">
+  <div class="col">
+  <div class="card">
+  <div class="card-body">
+    {{user.firstname}}
+  </div>
+</div>
+    </div>
+    <div class="col">
+    <div class="card">
+  <div class="card-body">
+    {{user.email}}
+  </div>
+</div>
+      </div>
+      <div class="col">
+      <div class="card">
+  <div class="card-body">
+    {{user.password}}
+  </div>
+</div>
+        </div>
+    </div>
+  </div>
+</div>
   <div class="row justify-content-center">
   <div class="col-sm-8">
   <div class="row">
