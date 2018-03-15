@@ -16,6 +16,9 @@ import { CompanyFleetComponent } from './company-profile/company-fleet/company-f
 
 import { CompanyShareholderCardComponent } from './company-profile/company-shareholder/company-shareholder-card.component';
 import { CompanyProfileSetupComponent } from './company-profile/company-profile-setup/company-profile-setup.component';
+import { CompanyService } from '../../Services/company.service';
+import { PropertyService } from '../../Services/property.service';
+import { FleetService } from '../../Services/fleet.service';
 
 
 
@@ -38,6 +41,12 @@ import { CompanyProfileSetupComponent } from './company-profile/company-profile-
     CompanyShareholderComponent,
     CompanyShareholderCardComponent,
     CompanyProfileSetupComponent
-   ]
+   ],
+   providers: [
+    FleetService,
+    PropertyService,
+    CompanyService
+],
+   
 })
 export class ProfileModule { }

@@ -23,7 +23,6 @@ export class AppLoginRegisterComponent implements OnInit {
       email: e.target.elements[0].value,
       password: e.target.elements[1].value
     }
-    console.log(loginInfo)
     return this.authService.login(loginInfo)
   }
 }
