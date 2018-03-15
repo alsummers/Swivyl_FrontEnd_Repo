@@ -6,6 +6,15 @@ import { Component, OnInit } from '@angular/core';
   template: `  <div class="row justify-content-center">
   <h4>WHAT IS YOUR ENTITY NAME?</h4>
   </div>
+  <div class="row justify-content-center" *ngFor="let entity of entities">
+  <div class="col-sm-5">
+  <div class="card">
+  <div class="card-body">
+    {{entity.name}}
+  </div>
+</div>
+  </div>
+</div>
   <div class="row justify-content-center">
   <div class="col-sm-5">
   <div class="input-group">
