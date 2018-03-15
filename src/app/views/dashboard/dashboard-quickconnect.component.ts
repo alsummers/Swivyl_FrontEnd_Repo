@@ -8,8 +8,7 @@ import { Router } from '@angular/router';
       <div class="card-body">
         <h4 class="card-title">Quick Connect</h4>
         <div class="row justify-content-center">
-        <textarea rows="4" cols="70">
-Need to contact your broker? Enter your message here.
+        <textarea rows="8" cols="82" placeholder="Need to contact your broker? Enter your message here.">
 </textarea>
 </div>
   <div class="row">
