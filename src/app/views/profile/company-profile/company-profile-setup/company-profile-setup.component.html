@@ -1,3 +1,4 @@
+<form (submit)="registerCompany($event)">
 <div class="setup container">
   <div class="row justify-content-center">
       <h4>PLEASE ENTER PROFILE NAME</h4>
@@ -10,13 +11,14 @@
     <h4>PLEASE UPLOAD PROFILE IMAGE</h4>
   </div>
   <div class="row justify-content-center">
-    <form>
+    
       <div class="form-group">
         <input type="file" class="form-control-file" id="exampleFormControlFile1">
       </div>
-    </form>
+    
   </div>
 <div class="row justify-content-end">
     <button class="btn btn-dark" type="submit" routerLink="../company-entity">NEXT</button>
 </div>
 </div>
+</form>

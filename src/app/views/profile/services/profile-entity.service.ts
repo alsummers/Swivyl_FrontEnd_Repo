@@ -7,11 +7,11 @@ import {Subject} from 'rxjs/Subject';
 const Sql_Api = "http://localhost:3000/api"
 
 @Injectable()
-export class EntityService {
+export class ProfileEntityService {
 
   constructor(private _http: HttpClient, private _router:Router) { }
   getHeaders(): HttpHeaders {
-    return new HttpHeaders().set( 'Authorization', localStorage.getItem('token') )
+    return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('id_token')}` )
   }
   createEntity(entityInfo){
     return this._http.post(`${Sql_Api}/entity`, entityInfo, {headers:this.getHeaders()})

@@ -11,7 +11,7 @@ export class FleetService {
   constructor(private _http: HttpClient, private _router:Router) { }
 
   setHeader(): HttpHeaders {
-    return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('id_token')}` )
+    return new HttpHeaders().set( 'Authorization', localStorage.getItem('token') )
   }
   createFleet(fleetInfo){
     return this._http.post(`${Sql_Api}/fleet`, fleetInfo ,{headers:this.setHeader() })
