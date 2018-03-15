@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { EntityService } from '../../../../Services/entity.service';
 import { CompanyService } from '../../../../Services/company.service';
+import { AuthService } from '../../../../Services/auth.service';
 
 
 @Component({
@@ -10,11 +11,13 @@ import { CompanyService } from '../../../../Services/company.service';
   <div class="row justify-content-center">
     <h4>WHAT IS YOUR ENTITY NAME?</h4>
   </div>
-  <div class="row justify-content-center" *ngFor="let entity of entities">
+  <div class="row justify-content-center" *ngFor="let entity of enteties">
   <div class="col-sm-5">
   <div class="card">
-  <div class="card-body">
-    {{entity.name}}
+  <div class="card-body" style="max-height:1rem; text-align:center">
+
+  <img src=""/>{{entity.entity_name}}<img src=""/>
+
   </div>
 </div>
   </div>
@@ -34,7 +37,8 @@ import { CompanyService } from '../../../../Services/company.service';
 })
 export class CompanyEntityNameComponent implements OnInit {
   companyId: number
-  constructor( private _entityService:EntityService, private _companyService: CompanyService ) { }
+  enteties: object
+  constructor( private _entityService:EntityService, private _companyService: CompanyService, private _auth: AuthService ) { }
 
   ngOnInit() {
     this._companyService.fetchcompany().subscribe(e => {
@@ -64,7 +68,10 @@ export class CompanyEntityNameComponent implements OnInit {
 
   }
   grabAllCompanyEntities(){
-    this._entityService.fetchAllEntities(this.companyId).subscribe(e=>{console.log(e)})
+    this._entityService.fetchAllEntities(this.companyId).subscribe(e=>{
+      console.log(e)
+      this.enteties = e
+    })
   }
   
   
