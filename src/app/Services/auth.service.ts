@@ -22,11 +22,11 @@ export class AuthService {
     console.log(userInfo)
     return this._http.post(`${Sql_Url}/register`, userInfo).subscribe(e => {
       this.login(userInfo)
-      this._router.navigate(['/dasboard'])
+      this._router.navigate(['/dashboard'])
     })
   }
-  logout(e){
-    console.log(e)
+  logout(){
+    console.log()
     localStorage.removeItem('id_token')
     this._router.navigate(['/login'])  
   }
