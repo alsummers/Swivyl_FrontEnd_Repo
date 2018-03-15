@@ -6,7 +6,7 @@ export const logoutbutton = [
   },
   {
     name: 'Logout',
-    url: 'http://coreui.io/pro/angular/',
+    url: '/login',
     class: 'navHalf'
   }
 ];
