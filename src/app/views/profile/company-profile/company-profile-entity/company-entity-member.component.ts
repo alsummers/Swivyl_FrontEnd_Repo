@@ -99,7 +99,7 @@ export class CompanyEntityMemberComponent implements OnInit {
 
       email = e.target.elements[1].value,
       password = e.target.elements[2].value
-    console.log(e.target.elements[3].value)
+      console.log(e.target.elements[3].value)
 
 
     var userInfo={
