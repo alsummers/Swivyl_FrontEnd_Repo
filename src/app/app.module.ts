@@ -29,7 +29,7 @@ import {
   AppSidebarFooterComponent,
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
-  APP_SIDEBAR_NAV,
+  APP_SIDEBAR_NAV
   
 } from './components';
 

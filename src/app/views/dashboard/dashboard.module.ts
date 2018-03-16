@@ -6,8 +6,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
-import { DashboardActivityComponent } from './dashboard-activity.component';
-import { DashboardQuickConnectComponent } from './dashboard-quickconnect.component';
+import { DashboardActivityComponent, DashboardQuickConnectComponent } from './dashboard-activity.module'
 import { DashboardToDoComponent } from './dashboard-to-do.component'
 
 @NgModule({
