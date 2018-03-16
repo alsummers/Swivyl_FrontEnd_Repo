@@ -39,8 +39,23 @@ h4{
     display: block;
     height: 25rem;
     padding-top: 2rem;
+    overflow: auto;
 }
 
 .next-page{
     color: yellowgreen;
 }
+.fa-trash {
+    opacity: 0;
+}
+.fa-pencil {
+    opacity: 0;
+}
+.entity-card:hover{
+    .fa-trash{
+    opacity: 1;
+    }
+    .fa-pencil{
+        opacity: 1;
+    }
+}    

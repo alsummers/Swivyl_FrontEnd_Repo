@@ -23,7 +23,11 @@ export class CompanyProfileSetupComponent {
   //     img: e.target.elements[1].value
   //   }
 
+
   //   return this._companyService.registerCompany(companyInfo)
+
+    // return this._companyService.registerCompany(companyInfo)
+
 
   // }
 }

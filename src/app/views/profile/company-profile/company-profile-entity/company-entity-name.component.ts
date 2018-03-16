@@ -14,10 +14,16 @@ import { AuthService } from '../../../../Services/auth.service';
   </div>
   <div class="row justify-content-center" *ngFor="let entity of enteties">
   <div class="col-sm-5">
-  <div class="card">
+  <div class="entity-card card">
   <div class="card-body" style="max-height:1rem; text-align:center">
 
-  <img src=""/>{{entity.entity_name}}<img src=""/>
+  <div class="row">
+  <div class="col-1"><i class="fa fa-trash" (click)="deleteEntity(entityInfo)"></i></div>
+
+  <div class="col">{{entity.entity_name}}</div>
+  
+  <div class="col-1"><i class="fa fa-pencil" (click)="updateEntity(entityInfo)"></i></div>
+  </div>
 
   </div>
 </div>
@@ -75,6 +81,7 @@ export class CompanyEntityNameComponent implements OnInit {
       this.enteties = e
     })
   }
+
   
   
 
