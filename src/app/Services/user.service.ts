@@ -10,15 +10,15 @@ export class UserService {
 
   constructor(private _http: HttpClient, private _router:Router) { }
   getHeaders(): HttpHeaders {
-    return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('token')}` )
+    return new HttpHeaders().set( 'Authorization', localStorage.getItem('token') )
   }
   createUser(userInfo){
-    this._http.post(`${Sql_Api}/register`, userInfo, {headers:this.getHeaders()})
+    return this._http.post(`${Sql_Api}/register`, userInfo, {headers:this.getHeaders()})
   }
   loginUser(userInfo){
-    this._http.post(`${Sql_Api}/login`, userInfo, {headers: this.getHeaders()})
+    return this._http.post(`${Sql_Api}/login`, userInfo, {headers: this.getHeaders()})
   }
   fetchAllUsers(companyId){
-    this._http.get(`${Sql_Api}`)
+    return this._http.get(`${Sql_Api}`)
   }
 }

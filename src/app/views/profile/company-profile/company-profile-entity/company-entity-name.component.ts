@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgModel } from '@angular/forms'
 import { EntityService } from '../../../../Services/entity.service';
 import { CompanyService } from '../../../../Services/company.service';
 import { AuthService } from '../../../../Services/auth.service';
@@ -44,6 +45,7 @@ export class CompanyEntityNameComponent implements OnInit {
     this._companyService.fetchcompany().subscribe(e => {
       console.log(e[0].id)
       this.companyId = e[0].id
+      localStorage.setItem('company', e[0].id)
       return this.grabAllCompanyEntities()
     })
     
