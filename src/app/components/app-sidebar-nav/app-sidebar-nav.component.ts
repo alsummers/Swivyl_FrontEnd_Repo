@@ -2,7 +2,11 @@ import { Component, ElementRef, Input, OnInit, Renderer2 } from '@angular/core';
 
 // Import navigation elements
 import { navigation } from './../../_nav';
+
+
+
 import { AuthService } from './../../Services/auth.service'
+
 
 @Component({
   selector: 'app-sidebar-nav', //Gonna add a logout button component
@@ -12,7 +16,7 @@ import { AuthService } from './../../Services/auth.service'
         <ng-template ngFor let-navitem [ngForOf]="navigation">
           <li *ngIf="isDivider(navitem)" class="nav-divider"></li>
           <ng-template [ngIf]="isTitle(navitem)">
-            <app-sidebar-nav-title [title]='navitem'></app-sidebar-nav-title>
+            
           </ng-template>
           <ng-template [ngIf]="!isDivider(navitem)&&!isTitle(navitem)">
             <app-sidebar-nav-item [item]='navitem'></app-sidebar-nav-item>
@@ -28,6 +32,9 @@ import { AuthService } from './../../Services/auth.service'
 export class AppSidebarNavComponent {
 
   public navigation = navigation;
+
+
+
 
   public isDivider(item) {
     return item.divider ? true : false
