@@ -17,7 +17,7 @@ import { AuthService } from '../../../../Services/auth.service';
   <div class="card-body" style="max-height:1rem; text-align:center">
 
   <div class="row">
-  <div class="col-1"><i class="fa fa-trash" (click)="deleteEntity(entityId)"></i></div>
+  <div class="col-1"><i class="fa fa-trash" (click)="deleteEntity(entityInfo)"></i></div>
 
   <div class="col">{{entity.entity_name}}</div>
   
