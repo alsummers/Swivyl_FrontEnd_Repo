@@ -44,17 +44,17 @@ import { NgModel } from '@angular/forms'
         <div class="row">
           <div class="col">
             <div class="input-group">
-              <input placeholder="First Name" type="text" class="form-control"  aria-describedby="basic-addon3">
+              <input placeholder=" Name Last " type="text" class="form-control"  aria-describedby="basic-addon3">
             </div>
           </div>
           <div class="col">
             <div class="input-group">
-              <input placeholder="@dmin123" type="password" class="form-control"  aria-describedby="basic-addon3">
+              <input placeholder="email@email.com" type="email" class="form-control"  aria-describedby="basic-addon3">
             </div>
           </div>
           <div class="col">
             <div class="input-group">
-              <input placeholder="email@email.com" type="email" class="form-control" aria-describedby="basic-addon3">
+              <input placeholder="@dmin123" type="password" class="form-control" aria-describedby="basic-addon3">
             </div>
           </div>
           <div class="col-sm-1">
@@ -82,13 +82,12 @@ export class CompanyEntityMemberComponent implements OnInit {
   constructor(private _entityService:EntityService, private _companyService:CompanyService, private _auth:AuthService, private _userService:UserService) { }
   companyId:string = localStorage.getItem('company')
   enteties:object 
+  supervisors: object
   ngOnInit() {
-    this._companyService.fetchcompany().subscribe((e)=>{
-      console.log(e[0].id)
-      this.companyId = e[0].id
-    })
-    return this._entityService.fetchAllEntities(this.companyId).subscribe(e =>{
+    this._entityService.fetchAllEntities(this.companyId).subscribe(e =>{
       this.enteties =e
+    
+    return this.fetchAllSupervisors()
     })
   }
   
@@ -104,8 +103,8 @@ export class CompanyEntityMemberComponent implements OnInit {
 
 
     var userInfo={
-      firstName:firstName,
-      lastName:lastName,
+      firstname:firstName,
+      lastname:lastName,
       email:email,
       password:password,
       entity:{
@@ -119,6 +118,12 @@ export class CompanyEntityMemberComponent implements OnInit {
     console.log(userInfo)
     console.log(this.companyId,this.enteties)
     return this._userService.createUser(userInfo).subscribe(e=>{
+      console.log(e)
+    })
+  }
+  fetchAllSupervisors(){
+
+    return this._userService.fetchAllUsers(this.companyId).subscribe(e=>{
       console.log(e)
     })
   }

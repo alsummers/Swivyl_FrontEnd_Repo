@@ -19,6 +19,6 @@ export class UserService {
     return this._http.post(`${Sql_Api}/login`, userInfo, {headers: this.getHeaders()})
   }
   fetchAllUsers(companyId){
-    return this._http.get(`${Sql_Api}`)
+    return this._http.get(`http://localhost:3000/api/user/compnay/${companyId}`, {headers: this.getHeaders()})
   }
 }
