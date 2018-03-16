@@ -106,22 +106,29 @@
 .dashboard-header {
   border-top-left-radius: .5rem;
   border-top-right-radius: .5rem;
+  border-bottom: 0;
 }
 
 .dashboard-footer {
   border-bottom-left-radius: .5rem;
   border-bottom-right-radius: .5rem;
+  border-top: 0;
 }
 
 .activity-timeline-dashboard {
-  margin-top: -10.5rem;
+  margin-top: -21.5rem;
 }
 
 .activity-timeline {
+  height: 20rem;
 }
 
 .to-do {
+  height: 25rem;
+}
 
+.quick-connect {
+  height: 20rem;
 }
 
 .searchbar {

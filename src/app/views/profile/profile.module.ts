@@ -14,6 +14,7 @@ import { CompanyEntityMemberComponent } from './company-profile/company-profile-
 import { CompanyShareholderComponent } from './company-profile/company-shareholder/company-shareholder.component'
 
 import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component';
+import { DashboardQuickConnectComponent, DashboardActivityComponent } from './activity-connect.module';
 
 import { CompanyShareholderCardComponent } from './company-profile/company-shareholder/company-shareholder-card.component';
 import { CompanyProfileSetupComponent } from './company-profile/company-profile-setup/company-profile-setup.component';
@@ -43,7 +44,9 @@ import { FleetService } from '../../Services/fleet.service';
     CompanyEntityMemberComponent,
     CompanyShareholderComponent,
     CompanyShareholderCardComponent,
-    CompanyProfileSetupComponent
+    CompanyProfileSetupComponent,
+    DashboardQuickConnectComponent,
+    DashboardActivityComponent
    ],
    providers: [
     FleetService,
