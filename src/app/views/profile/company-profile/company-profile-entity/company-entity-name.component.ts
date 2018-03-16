@@ -4,6 +4,7 @@ import { CompanyService } from '../../../../Services/company.service';
 import { AuthService } from '../../../../Services/auth.service';
 
 
+
 @Component({
   selector: "app-entity-name",
   template: `  
@@ -17,7 +18,7 @@ import { AuthService } from '../../../../Services/auth.service';
   <div class="card-body" style="max-height:1rem; text-align:center">
 
   <div class="row">
-  <div class="col-1"><i class="fa fa-trash" (click)="deleteEntity(entityInfo)"></i></div>
+  <div class="col-1" ><i class="fa fa-trash"  id="{{entity.id}}"(click)="removeEntity($event)"></i></div>
 
   <div class="col">{{entity.entity_name}}</div>
   
@@ -78,6 +79,12 @@ export class CompanyEntityNameComponent implements OnInit {
       console.log(e)
       this.enteties = e
     })
+  }
+  removeEntity(e){
+    this._entityService.deleteEntity(e.target.id).subscribe(e => {
+      this.grabAllCompanyEntities()
+    })
+    
   }
 
   
