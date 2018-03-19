@@ -18,6 +18,7 @@ export class AppLoginRegisterComponent implements OnInit {
 
   }
   loginUser(e){
+    //keep the page from reloading
     e.preventDefault()
     var loginInfo ={
       email: e.target.elements[0].value,
