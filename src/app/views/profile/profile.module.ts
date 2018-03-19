@@ -53,6 +53,6 @@ import { FleetService } from '../../Services/fleet.service';
     PropertyService,
     CompanyService
 ],
-   
+bootstrap: [ ProfileComponent, CompanyProfileRiskComponent ]
 })
 export class ProfileModule { }

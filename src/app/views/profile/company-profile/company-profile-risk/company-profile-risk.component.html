@@ -1,29 +1,117 @@
 <div class="risk container">
-        <div class="row justify-content-center">
+      <div class="row justify-content-center">
         <h4>WHAT ARE YOUR CURRENT ASSETS?</h4>
       </div>
       <div class="card-body">
-        <p>Location</p>
-          <form>
+<div>
+    <p>Location</p>
+  <div class="row address-form">
+    <div class="col">
+      <div type="text" class="card asset-address-info" >
+        <span></span>
+      </div>
+    </div>
+    <div class="col">
+      <div type="text" class="card asset-address-info">
+      </div>
+    </div>
+    <div class="col">
+      <div type="text" class="card asset-address-info">
+        
+      </div>
+    </div>
+    <div class="col">
+      <div type="text" class="card asset-address-info">
+        
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-start">
+    <div class="col-2">
+      <label>Building Sprinklers:</label>
+    </div>
+    <div class="col-1">
+      <select class=" bottom-form-input" id="sprinklers">
+        <option>No</option>
+        <option>Yes</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-2">
+      <label>Building Owner:</label>
+    </div>
+    <div class="col-1">
+      <input type="text" class=" bottom-form-input" placeholder="Owner name" aria-label="Owner name" aria-describedby="">
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-2">
+      <label>Building Sq Ft:</label>
+    </div>
+    <div class="col-1">
+      <input placeholder="EX:2800" type="number" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3">
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-2">
+      <label>Building Occupancy:</label>
+    </div>
+    <div class="col-1">
+      <input placeholder="# of Employees" type="text" class="bottom-form-input" aria-label="">
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-2">
+      <label>Location Employees:</label>
+    </div>
+    <div class="col-1">
+      
+    </div>
+  </div>
+
+  <div class="form-row justify-content-start">
+    <div class="col-2">
+      <label>Location Contents:</label>
+    </div>
+    <div class="input-group col-1"> 
+      <span class="input-group-addon">$</span>
+    </div>
+  </div>
+
+  <div class="row justify-content-start">
+    <div class="col-2">
+      <label>Location Inventory:</label>
+    </div>
+    
+  </div>
+</div>
+<hr>
+        <form>
+          <p>Location</p>
             <div class="row address-form">
               <div class="col">
                 <div type="text" class="card asset-address-info" >
-                    <input>
+                    <input placeholder="Street Address" >
                 </div>
               </div>
               <div class="col">
                 <div type="text" class="card asset-address-info">
-                  <input>
+                  <input placeholder="City, State" >
                 </div>
               </div>
               <div class="col">
                 <div type="text" class="card asset-address-info">
-               <input>
+               <input placeholder="State" >
                 </div>
               </div>
               <div class="col">
                 <div type="text" class="card asset-address-info">
-              <input>
+              <input placeholder="ZIP" >
                 </div>
               </div>
             </div>
@@ -53,7 +141,7 @@
                     <label>Building Sq Ft:</label>
                   </div>
                   <div class="col-1">
-                  <input type="text" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3">
+                  <input placeholder="EX:2800" type="number" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3">
                   </div>
                 </div>
                 
@@ -62,7 +150,7 @@
                     <label>Building Occupancy:</label>
                   </div>
                   <div class="col-1">
-                  <input type="text" class=" bottom-form-input" aria-label="">
+                  <input placeholder="# of Employees" type="text" class="bottom-form-input" aria-label="">
                   </div>
                 </div>
                 
@@ -71,17 +159,18 @@
                     <label>Location Employees:</label>
                   </div>
                   <div class="col-1">
-                  <input type="text" class=" bottom-form-input" aria-label="">
+                    <input  />
                   </div>
                 </div>
                 
-                <div class="row justify-content-start">
+                <div class="form-row justify-content-start">
                   <div class="col-2">
                     <label>Location Contents:</label>
                   </div>
-                  <div class="col-1">
-                  <input type="text" class=" bottom-form-input" aria-label="">
-                  </div>
+                  <div class="input-group col-1"> 
+                    <span class="input-group-addon">$</span>
+                    <input type="number" value="1000" min="0" step="0.01" data-number-to-fixed="2" data-number-stepfactor="100" class="form-control currency" id="c2" />
+                </div>
                 </div>
                 
                 <div class="row justify-content-start">
@@ -93,10 +182,14 @@
                   </div>
                 </div>
                 
+                <button class="row justify-content-start">+save</button>
           </form>
       </div>
+      <!-- <div class="row justify-content-start">
+        <a >+Save</a>
+      </div> -->
       <div class="row justify-content-end">
-      <a routerLink="../fleet">Next</a>
+        <a routerLink="../fleet">Next</a>
       </div>
       </div>
       
