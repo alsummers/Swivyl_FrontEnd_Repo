@@ -106,7 +106,7 @@ export class DashboardToDoComponent implements OnInit {
       dateDue: e.target.elements[1].value
       },
       company:{
-        id:this.companyId
+        uid:this.companyId
       }
     }
     e.target.reset()

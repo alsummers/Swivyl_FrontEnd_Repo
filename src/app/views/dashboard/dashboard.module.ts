@@ -15,6 +15,7 @@ import { DashboardToDoComponent } from './dashboard-to-do.component'
 import {ToDoService} from '../../Services/to-do.service';
 import { CompanyService } from '../../Services/company.service';
 import { AuthService } from '../../Services/auth.service';
+import { LogService } from '../../Services/log.service';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AuthService } from '../../Services/auth.service';
   providers: [
     AuthService,
     ToDoService,
-    CompanyService
+    CompanyService,
+    LogService
  
   ]
 })
