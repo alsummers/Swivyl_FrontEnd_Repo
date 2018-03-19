@@ -11,7 +11,7 @@ export class PropertyService {
 
   constructor(private _http: HttpClient, private _router:Router) { }
   getHeaders(): HttpHeaders {
-    return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('token')}` )
+    return new HttpHeaders().set( 'Authorization',localStorage.getItem('token') )
   }
   createProperty(propertyInfo){
     return this._http.post(`${Sql_Api}/property`, propertyInfo, {headers:this.getHeaders()})
