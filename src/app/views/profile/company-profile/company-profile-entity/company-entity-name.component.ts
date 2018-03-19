@@ -20,7 +20,7 @@ import { AuthService } from '../../../../Services/auth.service';
   <div class="card-body" style="max-height:1rem; text-align:center">
 
   <div class="row">
-  <div class="col-1" ><i class="fa fa-trash"  id="{{entity.id}}"(click)="removeEntity($event)"></i></div>
+  <div class="col-1" ><i class="fa fa-trash"  id="{{entity.uid}}" (click)="removeEntity($event)"></i></div>
 
   <div class="col">{{entity.entity_name}}</div>
   
@@ -60,29 +60,32 @@ import { AuthService } from '../../../../Services/auth.service';
   
 })
 export class CompanyEntityNameComponent implements OnInit {
-  companyId: number
+  companyId: string
   enteties: object
   closeResult: string
   constructor( private _entityService:EntityService, private _companyService: CompanyService, private _auth: AuthService, private modalService: NgbModal ) { }
 
   ngOnInit() {
-    this._companyService.fetchcompany().subscribe(e => {
-      console.log(e[0].id)
-      this.companyId = e[0].id
-      localStorage.setItem('company', e[0].id)
-      return this.grabAllCompanyEntities()
-    })
     
-      }
+    this._companyService.fetchcompany().subscribe(e => {
+      console.log(e[0])
+      this.companyId = e[0].uid
+      localStorage.setItem('company', e[0].uid)
+      return this.grabAllCompanyEntities()
+      // return console.log("Company",this.companyId)
+    })
+  }
   entitiyCreate(e){
-    console.log(this.companyId)
+    
     console.log(e.target.elements[0].value)
+    console.log('Create', this.companyId)
     var entityInfo = {
       entity:{
       name: e.target.elements[0].value
       },
       company:{
-        id:this.companyId
+        uid:this.companyId
+        
       }
     }
     e.target.reset()
