@@ -51,7 +51,6 @@ import { AuthService } from '../../../../Services/auth.service';
   </div>
   <div class="modal-body">
     <input class="form-control">
-    {{entity}}
   </div>
   <div class="modal-footer">
     <button type="button" class="btn btn-outline-dark" (click)="updateEntity($event)">Edit</button>
