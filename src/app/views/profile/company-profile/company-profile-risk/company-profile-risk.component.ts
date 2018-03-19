@@ -20,8 +20,11 @@ export class CompanyProfileRiskComponent implements OnInit {
   // both can be reassigned like this
   // properties = somethingThatIsAnObject
   constructor(private _entityService: EntityService, private _propertService: PropertyService) { }
-
+  //for ngOnInit put any functions such as the get all function that will populate the lists,
+  //you would also want to call any functions that store any data you may need
   ngOnInit() {
+
+
 
   }
   postProperty(e){
