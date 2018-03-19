@@ -86,9 +86,9 @@ export class DashboardToDoComponent implements OnInit {
 
   ngOnInit() {
     this._companyService.fetchcompany().subscribe(e => {
-      console.log(e[0].id)
-      this.companyId = e[0].id
-      localStorage.setItem('company', e[0].id)
+      console.log(e[0].uid)
+      this.companyId = e[0].uid
+      localStorage.setItem('company', e[0].uid)
       return this.grabAllCompanyTasks()
     })
   }
