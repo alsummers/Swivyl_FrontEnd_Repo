@@ -7,37 +7,39 @@ import { NgModel } from '@angular/forms'
 
 @Component({
   selector: "app-entity-member",
+  //the template works the same as normal html and can be used inplace of another document
+  //here it might have been better to use a seperate document \_('_')_/
   template: `  
   <div class="row justify-content-center">
     <h4>WHO IN YOUR COMPANY WILL NEED ACCESS TO SWIVYL?</h4>
   </div>
-  <div class="row justify-content-center" *ngFor="let user of users">
-  <div class="col-sm-8">
-  <div class="row">
-  <div class="col">
-  <div class="card">
-  <div class="card-body">
-    {{user.firstname}}
-  </div>
-</div>
+  
+ 
+  <div class="row justify-content-center" *ngFor="let user of supervisors">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          {{user.firstname}}
+        </div>
+      </div>
     </div>
     <div class="col">
-    <div class="card">
-  <div class="card-body">
-    {{user.email}}
-  </div>
-</div>
-      </div>
-      <div class="col">
       <div class="card">
-  <div class="card-body">
-    {{user.password}}
-  </div>
-</div>
+        <div class="card-body">
+          {{user.email}}
         </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          {{user.password}}
+        </div>
+      </div>
     </div>
   </div>
-</div>
+  
+
   <form (submit)="addSupervisor($event)">
     <div class="row justify-content-center">
       <div class="col-sm-8">
@@ -92,6 +94,7 @@ export class CompanyEntityMemberComponent implements OnInit {
   }
   
   addSupervisor(e){
+    // e is the event linked to the submit all elements are targetable through e.target.elements[#]
     let 
       nameWithSpaces= e.target.elements[0].value,
       firstName = nameWithSpaces.split(" ", 2)[0],
@@ -101,7 +104,10 @@ export class CompanyEntityMemberComponent implements OnInit {
       password = e.target.elements[2].value
       console.log(e.target.elements[3].value)
 
-
+    // since we need to include the company and the entity related 
+    //to the new users in question those need to be passed as properties of the request object
+    // since entity varies we need to include some way to target the specific entity, 
+    // currently I incuded a dropdown on user creation
     var userInfo={
       firstname:firstName,
       lastname:lastName,
@@ -122,9 +128,9 @@ export class CompanyEntityMemberComponent implements OnInit {
     })
   }
   fetchAllSupervisors(){
-
+    //call this function when the users need to be reloaded ie: when their info is updated or submited
     return this._userService.fetchAllUsers(this.companyId).subscribe(e=>{
-      console.log(e)
+      this.supervisors = e
     })
   }
 
