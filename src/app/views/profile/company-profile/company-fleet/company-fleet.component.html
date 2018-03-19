@@ -9,32 +9,24 @@
   
        
 <div  class="fleets container" >
-  <div class="row">
+  <!-- <div class="row">
     <div class="col">
-      <label for="Year">Year</label>
     </div>
     <div class="col">
-      <label for="Make">Make</label>
     </div>
     <div class="col">
-      <label for="Model">Model</label>
     </div>
     <div class="col">
-      <label for="VIN">VIN#</label>
     </div>
     <div class="col">
-      <label for="Driver">Driver</label>
     </div>
     <div class="col">
-      <label for="ZIP">Garaging Zip</label>
     </div>
     <div class="col">
-      <label for="Date">Date Added</label>
     </div>
     <div class="col">
-      <label for="Title">Titled To</label>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
   <div *ngFor="let fleet of fleets" class="form-row">
     <div class="col">
       <div class ="card">
@@ -42,44 +34,44 @@
         <span >{{fleet.year}}</span>
       </div>
     </div>
-    <div class="col">
-      
+
+    <div class="col">      
       <div class="card">
           <span>{{fleet.id}}</span>
       </div>
     </div>
-    <div class="col">
-      
+
+    <div class="col">      
       <div class="card">
         <span>{{fleet.id}}</span>
       </div>
     </div>
-    <div class="col">
-      
+
+    <div class="col">      
       <div class="card">
         <span>{{fleet.id}}</span>
         </div>
     </div>
-    <div class="col">
-      
+
+    <div class="col">      
       <div class="card">
         <span>{{fleet.id}}</span>
       </div>
     </div>
-    <div class="col">
-      
+
+    <div class="col">      
       <div class="card">
         <span>{{fleet.id}}</span>
       </div>
     </div> 
-    <div class="col">
-      
+
+    <div class="col">      
       <div class="card">
         <span>{{fleet.id}}</span>
       </div>
     </div>
-    <div class="col">
-      
+
+    <div class="col">      
       <div class="card">
         <span>{{fleet.id}}</span>
       </div>
@@ -88,54 +80,59 @@
   <form action="">
     <div class="form-row">
       <div class="col">
+          <label for="Year">Year</label>
         <div class="card">
-          <input placeholder="Year" type="number">
+          <input placeholder="Year" class="form-control" type="number" min="0">
         </div>
       </div>
       <div class="col">
-        
+          <label for="Make">Make</label>
         <div class="card">
-            <input placeholder="Make" type="text">
+            <input placeholder="Make" class="form-control" type="text">
         </div>
       </div>
       <div class="col">
-        
+          <label for="Model">Model</label>
         <div class="card">
-          <input placeholder="Model" type="text">
+          <input placeholder="Model" class="form-control" type="text">
         </div>
       </div>
       <div class="col">
-        
+          <label for="VIN">VIN#</label>
         <div class="card">
-          <input placeholder="Vin#" type="text">
-          </div>
+          <input placeholder="Vin#" class="form-control" type="text">
+        </div>
       </div>
+    </div>
+    <div class="form-row">
       <div class="col">
-        
+          <label for="Driver">Driver</label>
         <div class="card">
-          <input placeholder="Driver" type="text">
+          <input placeholder="Driver" class="form-control" type="text">
         </div>
       </div>
       <div class="col">
-        
+          <label for="ZIP">Garaging Zip</label>
         <div class="card">
-          <input placeholder="Garaging Zip" type="number">
+          <input placeholder="Garaging Zip" class="form-control" type="number" min="0">
         </div>
       </div> 
       <div class="col">
-        
+          <label for="Date">Date Added</label>
         <div class="card">
-          <input placeholder="mm/dd/yyyy" type="text">
+          <input placeholder="mm/dd/yyyy" class="form-control" type="number" min="0">
         </div>
       </div>
       <div class="col">
-        
+          <label for="Title">Titled To</label>
         <div class="card">
-          <input placeholder="Titled To" type="text">
+          <input placeholder="Titled To" class="form-control" type="text">
         </div>
       </div>
     </div>
     <button (click)="nothing()" type="submit" class="btn btn-pill">submit</button>
+
+
   </form>
 
 </div>
