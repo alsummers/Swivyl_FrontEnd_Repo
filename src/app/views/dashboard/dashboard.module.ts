@@ -10,6 +10,7 @@ import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardActivityComponent, DashboardQuickConnectComponent } from './dashboard-activity.module'
 import { DashboardToDoComponent } from './dashboard-to-do.component'
+import { DashboardSnapshotComponent } from './dashboard-snapshot.module'
 
 
 import {ToDoService} from '../../Services/to-do.service';
@@ -28,7 +29,7 @@ import { LogService } from '../../Services/log.service';
     ButtonsModule.forRoot(),
     NgbModule.forRoot()
   ],
-  declarations: [ DashboardComponent, DashboardActivityComponent, DashboardQuickConnectComponent, DashboardToDoComponent],
+  declarations: [ DashboardComponent, DashboardActivityComponent, DashboardSnapshotComponent, DashboardQuickConnectComponent, DashboardToDoComponent],
   providers: [
     AuthService,
     ToDoService,
