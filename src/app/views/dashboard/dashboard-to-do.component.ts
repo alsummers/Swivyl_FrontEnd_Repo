@@ -19,7 +19,7 @@ import { AuthService } from '../../Services/auth.service';
 
         <h6>UPCOMING:</h6>
         <div *ngFor="let task of tasks | slice:0:5">
-        {{task.dateDue}}: 
+        {{task.dateDue | date:"MM/dd/yy"}}: 
         {{task.description}} 
         </div>
         </div>
@@ -59,8 +59,8 @@ import { AuthService } from '../../Services/auth.service';
       <div class="modal-body">
       <h6>ALL TASKS:</h6>
       <div *ngFor="let task of tasks">
-      {{task.dateDue}}: 
-      {{task.description}} 
+      {{task.dateDue | date:"MM/dd/yy"}}: 
+      {{task.description}} <button class="btn btn-sm btn-dark">U</button> <button class="btn btn-sm btn-dark">X</button>
       </div>
 
       </div>

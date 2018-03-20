@@ -5,6 +5,7 @@ import { FormsModule, NgModel } from '@angular/forms'
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import {GoogleSignInComponent} from 'angular-google-signin';
 
 // Import containers
 import {
@@ -97,7 +98,7 @@ import { UserService } from './Services/user.service';
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
     AppLoginRegisterComponent,
-  
+    GoogleSignInComponent
 
   ],
   providers: [
