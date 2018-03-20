@@ -63,7 +63,7 @@ export class DashboardActivityComponent implements OnInit {
       log.clientName = clientName[0].firstname
     })
   }
-}
+} 
 
 interface LogInterface {
   clientUid: String;

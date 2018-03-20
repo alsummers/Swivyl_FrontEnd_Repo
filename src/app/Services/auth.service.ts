@@ -9,6 +9,7 @@ import {Subject} from 'rxjs/Subject';
 const Sql_Url = "http://localhost:3000/api/client/login"
 @Injectable()
 export class AuthService {
+  token: string
   constructor(private _http: HttpClient, private _router: Router) {}
   login(loginInfo){
     return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
