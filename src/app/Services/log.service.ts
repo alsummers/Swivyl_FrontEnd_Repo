@@ -10,7 +10,10 @@ export class LogService {
   setHeader(): HttpHeaders {
     return new HttpHeaders().set( 'Authorization', localStorage.getItem('token') )
   }
-  fetchAllLogs(companyId){
+  fetchAllLogs(companyId) {
     return this._http.get(`${Sql_Api}/log/all/${companyId}`, {headers: this.setHeader() })
+  }
+  fetchAllClients() {
+    return this._http.get(`${Sql_Api}/client/all`, {headers: this.setHeader()})
   }
 }
