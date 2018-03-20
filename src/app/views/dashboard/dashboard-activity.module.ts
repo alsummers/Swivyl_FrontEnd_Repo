@@ -12,31 +12,71 @@ import { AuthService } from '../../Services/auth.service';
     </div>
       <div class="card-body">
       <div *ngFor="let log of logs">
+      {{log.clientName}}
       {{log.message}}
       </div>
+      </div>
       <div class="card-footer to-do-footer dashboard-footer"><a href="#" class="card-link">View all activity</a></div>
-    </div>
   `
 })
 export class DashboardActivityComponent implements OnInit {
   companyId: number
-  logs: object
-  constructor(private _logService: LogService, private _companyService: CompanyService, private _auth: AuthService ) {}
+  logs: Object[]
+  clients: Object[]
+  constructor(private _logService: LogService, private _companyService: CompanyService, private _auth: AuthService) { }
   ngOnInit() {
     this._companyService.fetchcompany().subscribe(e => {
       console.log(e[0])
       this.companyId = e[0].uid
       localStorage.setItem('company', e[0].uid)
-       return this.grabAllCompanyLogs()
+      return this.grabAllCompanyLogs()
       // return console.log("Company",this.companyId)
     })
+
   }
-   grabAllCompanyLogs() {
-     this._logService.fetchAllLogs(this.companyId).subscribe(e => {
-      console.log(e)
-       this.logs = e
-     })
+  grabAllCompanyLogs() {
+    this._logService.fetchAllLogs(this.companyId).subscribe((e: Object[]) => {
+      console.log(typeof e)
+      this.logs = e
+      console.log(this.logs)
+      this.grabAllClients()
+
+    })
   }
+  grabAllClients() {
+    this._logService.fetchAllClients().subscribe((e: Object[]) => {
+      this.clients = e
+      console.log(typeof e, 'clients', this.clients)
+      this.getClientName()
+
+    })
+  }
+  getClientName() {
+    console.log('getclientname')
+    this.logs.map((log: LogInterface) => {
+      const clientName: any[] = this.clients.filter((client: Client) => {
+        console.log(client.firstname)
+        if (client.uid === log.clientUid) {
+          return client
+        }
+      })
+      log.clientName = clientName[0].firstname
+    })
+  }
+}
+
+interface LogInterface {
+  clientUid: String;
+  companyId: String;
+  description: String;
+  message: String;
+  uid: String;
+  clientName: string;
+
+}
+interface Client {
+  uid: String;
+  firstname: String;
 }
 
 @Component({
@@ -59,8 +99,8 @@ export class DashboardActivityComponent implements OnInit {
 export class DashboardQuickConnectComponent implements OnInit {
 
 
-  ngOnInit() {}
-  
+  ngOnInit() { }
 
-  
+
+
 }
