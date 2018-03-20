@@ -131,6 +131,16 @@
   height: 20rem;
 }
 
+.connect-box {
+  padding: 0 1.25rem;
+}
+
+.connect-textbox {
+  border: 0;
+  background-color: $body-bg;
+  border-radius: .5rem;
+}
+
 .searchbar {
   background-color: #fff;
   padding: 0.5rem 0.5rem;
