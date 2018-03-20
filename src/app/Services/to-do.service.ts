@@ -20,10 +20,10 @@ export class ToDoService {
   fetchCompanyTasks(companyId){
     return this._http.get(`${Sql_Api}/todo/all/${companyId}`, {headers: this.setHeader()})
   }
-  // updateTask(toDoTask){
-  //   return this._http.put(`${Sql_Api}/todo/${toDoTask.id}`, fleetInfo, {headers:this.setHeader()})
-  // }
-  // deleteTask(toDoTask){
-  //   return this._http.put(`${Sql_Api}/todo/${toDoTask.id}`, fleetInfo, {headers:this.setHeader()})
-  // }
+  updateTask(toDoTask){
+    return this._http.put(`${Sql_Api}/todo/${toDoTask.uid}`, toDoTask, {headers:this.setHeader()})
+  }
+  deleteTask(toDoTask){
+    return this._http.delete(`${Sql_Api}/todo/${toDoTask.uid}`, {headers:this.setHeader()})
+  }
 }
