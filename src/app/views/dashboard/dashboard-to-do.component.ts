@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
+import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {ToDoService} from '../../Services/to-do.service';
 import { CompanyService } from '../../Services/company.service';
 import { AuthService } from '../../Services/auth.service';
@@ -33,16 +33,16 @@ import { AuthService } from '../../Services/auth.service';
 
         <ng-template #content let-c="close" let-d="dismiss">
         <div class="modal-header">
-          <h4 class="modal-title">To-Do Task</h4>
+          <h4 class="modal-title">Add a Task</h4>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
         <form (submit)="taskCreate($event)">
-          <input type="text" placeholder="to-do task">
-          <input type="date" placeholder="due date">
-          <button type="submit">Submit</button>
+          <input type="text" placeholder="to-do task" class="btn btn-outline-dark">
+          <input type="date" placeholder="due date" class="btn btn-outline-dark">
+          <button type="submit" class="btn btn-outline-dark">Submit</button>
         </form>
 
         </div>
@@ -62,13 +62,13 @@ import { AuthService } from '../../Services/auth.service';
       <div *ngFor="let task of tasks">
         <div *ngIf="show">
           {{task.dateDue | date:"MM/dd/yy"}}: 
-          {{task.description}} <button class="btn btn-sm btn-dark" id="{{task.uid}}" (click)="show = !show">U</button> <button class="btn btn-sm btn-dark" id="{{task.uid}}" (click)="removeTask($event)">X</button>
+          {{task.description}} <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="show = !show">U</button> <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="removeTask($event)">X</button>
         </div>
-        <div *ngIf="!show">
+        <div *ngIf="!show" >
           <form (submit)="updateTask($event)">
-              <input type="date">
-              <input type="text" placeholder="{{task.description}}" id="{{task.uid}}">
-              <button type="submit" class="btn btn-outline-dark">Edit</button>
+              <input type="date" class="btn btn-outline-dark">
+              <input type="text" placeholder="{{task.description}}" id="{{task.uid}}" (keyup)="onKey($event)" class="btn btn-outline-dark">
+              <button type="submit" class="btn btn-outline-dark" *ngIf="edit">Edit</button>
               <button type="button" class="btn btn-outline-dark" (click)="show = !show">Go Back</button>
           </form>  
         </div>
@@ -94,8 +94,9 @@ export class DashboardToDoComponent implements OnInit {
   companyId: number;
   tasks: object;
   show: boolean = true;
-
-  constructor(private modalService: NgbModal, private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService ) {}
+  edit: boolean = false;
+  taskValue: string = ''
+  constructor(private modalService: NgbModal, private modalActive: NgbActiveModal,private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService ) {}
 
   ngOnInit() {
     this._companyService.fetchcompany().subscribe(e => {
@@ -109,10 +110,21 @@ export class DashboardToDoComponent implements OnInit {
   open(content) {
     this.modalService.open(content)
   }
+  close(result: any) {}
+
+  onKey(event: any) {
+    if(event.target.value.length > 0) {
+      this.edit = true
+    } else {
+      this.edit = false
+    }
+  }
 
   taskCreate(e){
     console.log(this.companyId)
+   close()
     // console.log(e.target.elements[0].value)
+  
     var toDoTask = {
       todo: {
       description: e.target.elements[0].value,
@@ -129,7 +141,7 @@ export class DashboardToDoComponent implements OnInit {
       let tasks = this.grabAllCompanyTasks()
       console.log('tasks', tasks)
     })
-
+  
       }
 
       grabAllCompanyTasks(){
