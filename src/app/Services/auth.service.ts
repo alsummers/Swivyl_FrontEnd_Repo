@@ -12,10 +12,10 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router:Router) {}
   token: string 
   public redirectUrl: string
+
   login(loginInfo){
-    return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo:Response) => {
-      console.log(loginInfo)
-      
+    return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
+      console.log(loginInfo.client.firstName)
       localStorage.setItem('token', `${loginInfo.client.token}`  )
       this._router.navigate(['/profile/company-welcome'])
     })
@@ -29,7 +29,7 @@ export class AuthService {
   }
   logout(){ 
     localStorage.removeItem('token')
-    return this._router.navigate(['/login'])  
+    return this._router.navigate(['/login'])
   }
 
   setHeader(): HttpHeaders {
