@@ -29,9 +29,7 @@
         <div class="col">
           <label for="Date">Date Added</label>
         </div>
-        <div class="col">
-          <label for="Title">Titled To</label>
-        </div>
+
       </div>
       <div *ngFor="let fleet of fleets" class="form-row">
         <div class="col">
@@ -87,7 +85,7 @@
         <div class="form-row">
           <div class="col">
             <div class="card">
-              <input placeholder="Year" type="number">
+              <input placeholder="Year" type="number" min="0">
             </div>
           </div>
           <div class="col">
@@ -117,7 +115,7 @@
           <div class="col">
             
             <div class="card">
-              <input placeholder="Garaging Zip" type="number">
+              <input placeholder="Garaging Zip" type="number" min="0">
             </div>
           </div> 
           <div class="col">
@@ -133,7 +131,7 @@
             </div>
           </div>
         </div>
-        <button (click)="nothing()" type="submit" class="btn btn-pill">submit</button>
+        <button class="row justify-content-start">save</button>
       </form>
       <a>+ Add Vehicle</a>
     </div>
