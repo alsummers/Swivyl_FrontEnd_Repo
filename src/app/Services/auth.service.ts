@@ -13,7 +13,7 @@ export class AuthService {
   constructor(private _http: HttpClient, private _router: Router) {}
   login(loginInfo){
     return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
-      console.log(loginInfo.client.firstName)
+      
       localStorage.setItem('token', `${loginInfo.client.token}`  )
       this._router.navigate(['/profile/company-welcome'])
     })
