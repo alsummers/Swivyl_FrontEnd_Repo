@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
 import { LogService } from '../../Services/log.service';
 import { CompanyService } from '../../Services/company.service';
 import { AuthService } from '../../Services/auth.service';
@@ -11,20 +12,37 @@ import { AuthService } from '../../Services/auth.service';
           ACTIVITY TIMELINE
     </div>
     <div class="card-body">
-      <div *ngFor="let log of logs">
+      <div *ngFor="let log of logs | slice: 0:8">
+      {{log.createdAt | date:"MM/dd/yy"}}
       {{log.clientName}}
       {{log.message}}
       </div>
     </div>
-    <div class="card-footer to-do-footer dashboard-footer"><a href="#" class="card-link">View all activity</a></div>
+    <div class="card-footer to-do-footer dashboard-footer">
+    <button class="btn btn-lg btn-dark" (click)="open(viewall)">View All Activity</button>
+        </div>
   </div>
+  <ng-template #viewall let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Activity Timeline</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div *ngFor="let log of logs">
+      {{log.clientName}}
+      {{log.message}}
+      </div>
+      </div>
+    </ng-template>
   `
 })
 export class DashboardActivityComponent implements OnInit {
   companyId: number
   logs: Object[]
   clients: Object[]
-  constructor(private _logService: LogService, private _companyService: CompanyService, private _auth: AuthService) { }
+  constructor(private modalService: NgbModal, private _logService: LogService, private _companyService: CompanyService, private _auth: AuthService) { }
   ngOnInit() {
     this._companyService.fetchcompany().subscribe(e => {
       console.log(e[0])
@@ -63,6 +81,9 @@ export class DashboardActivityComponent implements OnInit {
       })
       log.clientName = clientName[0].firstname
     })
+  }
+   open(content) {
+    this.modalService.open(content)
   }
 } 
 
