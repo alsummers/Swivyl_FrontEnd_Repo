@@ -15,7 +15,6 @@ export class AuthService {
 
   login(loginInfo){
     return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
-      
       localStorage.setItem('token', `${loginInfo.client.token}`  )
       this._router.navigate(['/profile/company-welcome'])
     })
