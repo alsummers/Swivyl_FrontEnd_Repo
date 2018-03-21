@@ -9,24 +9,6 @@
   
        
 <div  class="fleets container" >
-  <!-- <div class="row">
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div>
-    <div class="col">
-    </div> -->
-  <!-- </div> -->
   <div *ngFor="let fleet of fleets" class="form-row">
     <div class="col">
       <div class ="card">
@@ -82,7 +64,8 @@
       <div class="col">
           <label for="Year">Year</label>
         <div class="card">
-          <input placeholder="Year" class="form-control" type="number" min="0">
+          
+          <input placeholder="Year" class="form-control" type="number" min="2000">
         </div>
       </div>
       <div class="col">
@@ -114,13 +97,13 @@
       <div class="col">
           <label for="ZIP">Garaging Zip</label>
         <div class="card">
-          <input placeholder="Garaging Zip" class="form-control" type="number" min="0">
+          <input placeholder="Garaging Zip" class="form-control" type="text">
         </div>
       </div> 
       <div class="col">
           <label for="Date">Date Added</label>
         <div class="card">
-          <input placeholder="mm/dd/yyyy" class="form-control" type="number" min="0">
+            <input id="date" class="form-control" type="date">
         </div>
       </div>
       <div class="col">
@@ -130,7 +113,12 @@
         </div>
       </div>
     </div>
-    <button (click)="nothing()" type="submit" class="btn btn-pill">submit</button>
+    <div class="row">    
+        <div class="col">
+          <button type="submit" className="mb-4 btn btn-primary">Save</button>
+          <button type="add" (click)="addVehicle()" className="mb-4 btn btn-primary">Add Vehicle</button> 
+        </div>
+      </div>
 
 
   </form>
