@@ -21,9 +21,9 @@ export class ToDoService {
     return this._http.get(`${Sql_Api}/todo/all/${companyId}`, {headers: this.setHeader()})
   }
   updateTask(toDoTask){
-    return this._http.put(`${Sql_Api}/todo/${toDoTask.uid}`, toDoTask, {headers:this.setHeader()})
+    return this._http.put(`${Sql_Api}/todo`, toDoTask, {headers:this.setHeader()})
   }
-  deleteTask(toDoTask){
-    return this._http.delete(`${Sql_Api}/todo/${toDoTask.uid}`, {headers:this.setHeader()})
+  deleteTask(toDoId){
+    return this._http.delete(`${Sql_Api}/todo/${toDoId}`, {headers:this.setHeader()})
   }
 }

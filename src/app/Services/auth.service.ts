@@ -9,8 +9,10 @@ import {Subject} from 'rxjs/Subject';
 const Sql_Url = "http://localhost:3000/api/client/login"
 @Injectable()
 export class AuthService {
-  token: string
-  constructor(private _http: HttpClient, private _router: Router) {}
+  constructor(private _http: HttpClient, private _router:Router) {}
+  token: string 
+  public redirectUrl: string
+
   login(loginInfo){
     return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
       localStorage.setItem('token', `${loginInfo.client.token}`  )
@@ -31,6 +33,10 @@ export class AuthService {
 
   setHeader(): HttpHeaders {
     return new HttpHeaders().set( 'Authorization', localStorage.getItem('token'))
+  }
+  public isLoggedIn(): Observable<boolean>{
+    return this._http.get(`${Sql_Url}`).map((res: Response) => res)
+    .catch((err: any) => Observable.throw(err || 'Server Error'))
   }
 
 
