@@ -3,14 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { ChartsModule } from 'ng2-charts/ng2-charts';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import {CommonModule} from '@angular/common';
 import { SlicePipe } from '@angular/common';
 import { DashboardComponent } from './dashboard.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardActivityComponent, DashboardQuickConnectComponent } from './dashboard-activity.module'
 import { DashboardToDoComponent } from './dashboard-to-do.component'
-import { DashboardSnapshotComponent } from './dashboard-snapshot.module'
+import { DashboardSnapshotComponent } from './dashboard-snapshot.component'
 
 
 import {ToDoService} from '../../Services/to-do.service';
@@ -34,8 +34,8 @@ import { LogService } from '../../Services/log.service';
     AuthService,
     ToDoService,
     CompanyService,
-    LogService
- 
+    LogService,
+    NgbActiveModal
   ]
 })
 export class DashboardModule { }
