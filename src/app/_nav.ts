@@ -1,3 +1,5 @@
+import { LoggedInAuthGuard } from "./authguardservices";
+
 export const navigation = [
   {
     name: 'Dashboard',
@@ -7,7 +9,9 @@ export const navigation = [
   {
     name: 'Profile',
     url: '/profile/company-welcome',
-    icon: 'icon-drop'
+    icon: 'icon-drop',
+    canActivate: [LoggedInAuthGuard]
+    
   },
   {
     name: 'Assets',

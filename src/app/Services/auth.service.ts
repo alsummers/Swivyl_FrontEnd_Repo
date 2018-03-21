@@ -11,10 +11,11 @@ const Sql_Url = "http://localhost:3000/api/client/login"
 export class AuthService {
   constructor(private _http: HttpClient, private _router:Router) {}
   token: string 
+  public redirectUrl: string
+
   login(loginInfo){
-    return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo:Response) => {
-      console.log(loginInfo)
-      
+    return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
+      console.log(loginInfo.client.firstName)
       localStorage.setItem('token', `${loginInfo.client.token}`  )
       this._router.navigate(['/profile/company-welcome'])
     })
@@ -28,11 +29,15 @@ export class AuthService {
   }
   logout(){ 
     localStorage.removeItem('token')
-    return this._router.navigate(['/login'])  
+    return this._router.navigate(['/login'])
   }
 
   setHeader(): HttpHeaders {
-    return new HttpHeaders().set( 'Authorization', `Bearer ${localStorage.getItem('id_token')}`)
+    return new HttpHeaders().set( 'Authorization', localStorage.getItem('token'))
+  }
+  public isLoggedIn(): Observable<boolean>{
+    return this._http.get(`${Sql_Url}`).map((res: Response) => res)
+    .catch((err: any) => Observable.throw(err || 'Server Error'))
   }
 
 
