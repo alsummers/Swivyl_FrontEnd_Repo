@@ -13,14 +13,34 @@ import { AuthService } from '../../Services/auth.service';
           TO DO LIST
       </div>
         <div class="card-body">
+        <h6>To Do:</h6>
+        <div *ngFor="let task of tasks | slice:0:5">
+        <div *ngIf="task.dateDue == date">
+        {{task.dateDue | date:"M-dd-yyyy"}}: 
+        {{task.description}} 
+        </div>
+        </div>
+
+
+
         <h6>OVERDUE:</h6>
-      <span>Review claim</span><br /> <br /> <br />
+        <div *ngFor="let task of tasks | slice:0:5">
+        <div *ngIf="task.dateDue < date">
+        {{task.dateDue | date:"M-dd-yyyy"}}: 
+        {{task.description}} 
+        </div>
+        </div>
+
+
+        <br /> 
 
 
         <h6>UPCOMING:</h6>
-        <div *ngFor="let task of tasks | slice:0:5">
-        {{task.dateDue | date:"MM/dd/yy"}}: 
+        <div *ngFor="let task of tasks | slice:0:6">
+        <div *ngIf="task.dateDue > date">
+        {{task.dateDue | date:"M-dd-yyyy"}}: 
         {{task.description}} 
+        </div>
         </div>
         </div>
       <div class="card-footer to-do-footer dashboard-footer">
@@ -96,6 +116,9 @@ export class DashboardToDoComponent implements OnInit {
   show: boolean = true;
   edit: boolean = false;
   taskValue: string = ''
+  date: any = new Date().toLocaleDateString("sq-AL")
+ 
+
   constructor(private modalService: NgbModal, private modalActive: NgbActiveModal,private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService ) {}
 
   ngOnInit() {
@@ -105,6 +128,9 @@ export class DashboardToDoComponent implements OnInit {
       localStorage.setItem('company', e[0].uid)
       return this.grabAllCompanyTasks()
     })
+
+
+  
   }
   
   open(content) {
@@ -122,6 +148,7 @@ export class DashboardToDoComponent implements OnInit {
 
   taskCreate(e){
     console.log(this.companyId)
+    console.log(this.date)
    close()
     // console.log(e.target.elements[0].value)
   

@@ -17,6 +17,6 @@ export class PropertyService {
     return this._http.post(`${Sql_Api}/property`, propertyInfo, {headers:this.getHeaders()})
   }
   fetchAllProperty(entityId){
-    return this._http.get(`${Sql_Api}/property/all/${entityId}`)
+    return this._http.get(`${Sql_Api}/property/company/${entityId}`, {headers:this.getHeaders()})
   }
 }
