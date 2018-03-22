@@ -22,5 +22,8 @@ export class PropertyService {
   deleteProperty(propertyId){
     return this._http.delete(`${Sql_Api}/property/${propertyId}`, {headers:this.getHeaders()})
   }
+  updatePropertyInfo(propertyUpdatedInfo){
+    return this._http.put(`${Sql_Api}/property`, propertyUpdatedInfo, {headers:this.getHeaders()})
+  }
 
 }
