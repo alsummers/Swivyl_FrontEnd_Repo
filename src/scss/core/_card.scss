@@ -130,7 +130,7 @@
 
 .insured-card {
   height: 4.5rem;
-  width: 18em;
+  width: flex;
   margin: 0 auto 1rem;
   border-radius: .25rem;
   border: solid 1.75px black;
@@ -139,7 +139,7 @@
 .customize-insure {
   text-align: center;
   height: 4.5rem;
-  width: 18em;
+  width: flex;
   margin: 0 auto 1rem;
   padding: 1.5rem;
   a {
