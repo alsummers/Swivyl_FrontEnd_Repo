@@ -50,7 +50,7 @@ export class CompanyProfileRiskComponent implements OnInit {
       location_inventory: e.target.elements[10].value
       },
       entity: {
-        uid: e.target.elements[11]["0"].id
+        uid: e.target.elements[11].value
 
       },
       company: {

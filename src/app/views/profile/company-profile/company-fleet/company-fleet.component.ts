@@ -29,7 +29,7 @@ export class CompanyFleetComponent implements OnInit {
     })
   }
 
-  fleetCreate(e) {
+fleetCreate(e) {
     const fleetInfo = {
       fleets: {
         year: e.target.elements[0].value,
