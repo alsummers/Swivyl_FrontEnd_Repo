@@ -19,4 +19,8 @@ export class PropertyService {
   fetchAllProperty(entityId){
     return this._http.get(`${Sql_Api}/property/company/${entityId}`, {headers:this.getHeaders()})
   }
+  deleteProperty(propertyId){
+    return this._http.delete(`${Sql_Api}/property/${propertyId}`, {headers:this.getHeaders()})
+  }
+
 }
