@@ -4,108 +4,96 @@
       <div class="card-header text-white bg-dark dashboard-header">
         Insured Property
       </div>
-      <div class="card-body">
-        <p>Location</p>
-          <form>
-            <div class="row adress-form">
-              <div class="col">
-                <div type="text" class="card asset-address-info" >
-                  <span>
-  
-                  </span>
-                </div>
+      <div class="card-body" *ngFor="let property of properties">
+          <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Location Address:</label>
               </div>
               <div class="col">
-                <div type="text" class="card asset-address-info">
-                  <span>
-  
-                  </span>
-                </div>
-              </div>
-              <div class="col">
-                <div type="text" class="card asset-address-info">
-                  <span>
-  
-                  </span>
-                </div>
-              </div>
-              <div class="col">
-                <div type="text" class="card asset-address-info">
-                  <span>
-  
-                  </span>
-                </div>
+                {{property.address}}
               </div>
             </div>
-              <div class="row justify-content-start">
+
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Building Sprinklers:</label>
+              </div>
+              <div class="col">
+                {{property.building_sprink}}
+              </div>
+            </div>
+                
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Building Owner:</label>
+              </div>
+              <div class="col">
+                {{property.owner}} 
+              </div>
+            </div>
+                
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Building Sq Ft:</label>
+              </div>
+              <div class="col">
+                  {{property.sqft_of_building}} sqft 
+              </div>
+            </div>
+                
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Building Occupancy:</label>
+              </div>
+              <div class="col">
+                {{property.building_occ}}
+              </div>
+            </div>
+                
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Location Employees:</label>
+              </div>
+              <div class="col">
+                {{property.location_employees}}
+              </div>
+            </div>
+                
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Location Contents:</label>
+              </div>
+              <div class="col">
+                {{property.location_contents}}
+              </div>
+            </div>
+                
+            <div class="row justify-content-start">
+              <div class="col-2">
+                <label>Location Inventory:</label>
+              </div>
+              <div class="col">
+                {{property.location_inventory}}
+              </div>
+            </div>
+
+            <div class="row justify-content-start">
                 <div class="col-2">
-                  <label>Building Sprinklers:</label>
+                  <label>Entity:</label>
                 </div>
-                <div class="col-1">
-                  <select class=" bottom-form-input" id="sprinklers">
-                  <option>No</option>
-                  <option>Yes</option>
-                  </select>
+                <div class="col">
+                  {{property.entityId}}
                 </div>
               </div>
-                
-              <div class="row justify-content-start">
-                <div class="col-2">
-                  <label>Building Owner:</label>
-                </div>
-                <div class="col-1">
-                  <input type="text" class=" bottom-form-input" placeholder="Owner name" aria-label="Owner name" aria-describedby="">
-                </div>
-              </div>
-                
-                <div class="row justify-content-start">
-                  <div class="col-2">
-                    <label>Building Sq Ft:</label>
-                  </div>
-                  <div class="col-1">
-                  <input type="text" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3">
-                  </div>
-                </div>
-                
-                <div class="row justify-content-start">
-                  <div class="col-2">
-                    <label>Building Occupancy:</label>
-                  </div>
-                  <div class="col-1">
-                  <input type="text" class=" bottom-form-input" aria-label="">
-                  </div>
-                </div>
-                
-                <div class="row justify-content-start">
-                  <div class="col-2">
-                    <label>Location Employees:</label>
-                  </div>
-                  <div class="col-1">
-                  <input type="text" class=" bottom-form-input" aria-label="">
-                  </div>
-                </div>
-                
-                <div class="row justify-content-start">
-                  <div class="col-2">
-                    <label>Location Contents:</label>
-                  </div>
-                  <div class="col-1">
-                  <input type="text" class=" bottom-form-input" aria-label="">
-                  </div>
-                </div>
-                
-                <div class="row justify-content-start">
-                  <div class="col-2">
-                    <label>Location Inventory:</label>
-                  </div>
-                  <div class="col-1">
-                  <input type="text" class=" bottom-form-input" aria-label="Amount (to the nearest dollar)">
-                  </div>
-                </div>
-                
-          </form>
+           <hr>     
       </div>
       <a>+ Add Location</a>
     </div>
-  </div>      
-  </div>
+
+  </div> 
+</div>
+  
+
+
+
+

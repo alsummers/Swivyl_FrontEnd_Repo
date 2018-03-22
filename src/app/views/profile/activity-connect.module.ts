@@ -74,7 +74,6 @@ export class DashboardActivityComponent implements OnInit {
     console.log('getclientname')
     this.logs.map((log: LogInterface) => {
       const clientName: any[] = this.clients.filter((client: Client) => {
-        console.log(client.firstname)
         if (client.uid === log.clientUid) {
           return client
         }

@@ -1,4 +1,5 @@
   <div class="risk container">
+      <form (submit)="postProperty($event)">
         <div class="row justify-content-center">
           <h4>WHAT ARE YOUR CURRENT ASSETS?</h4>
         </div>
@@ -145,6 +146,18 @@
           <input placeholder="$" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
     </div>
   </div>
+
+ 
+      <div class="row justify-content-start">
+          <div class="col-2">
+            <label>Select Entity:</label>
+          </div>
+          <div class="col-1">
+            <select>
+              <option *ngFor="let entity of entities" id="{{entity.uid}}" >{{entity.entity_name}}</option>      
+            </select>
+        </div>
+      </div>
   <hr>
         <!-- <form>
           <p>Location</p>
@@ -307,10 +320,11 @@
 
       <div class="row">    
         <div class="col">
-          <button type="submit" className="mb-4 btn btn-primary">Save</button>
-          <button type="add" (click)="addLocation()" className="mb-4 btn btn-primary">Add Location</button> 
+          <!-- <button type="submit" className="mb-4 btn btn-primary">Save</button> -->
+          <button type="submit" className="mb-4 btn btn-primary">Add Location</button> 
         </div>
       </div>
+      </form>
       <!-- </div> -->
       <!-- <div class="row justify-content-start">
         <a >+Save</a>
