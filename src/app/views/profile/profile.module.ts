@@ -23,6 +23,7 @@ import { CompanyService } from '../../Services/company.service';
 import { PropertyService } from '../../Services/property.service';
 import { FleetService } from '../../Services/fleet.service';
 import { LogService } from '../../Services/log.service';
+import { ShareholderService } from '../../Services/shareholder.service';
 
 
 
@@ -56,7 +57,8 @@ import { LogService } from '../../Services/log.service';
     FleetService,
     PropertyService,
     CompanyService,
-    LogService
+    LogService,
+    ShareholderService
 ],
 bootstrap: [ ProfileComponent, CompanyProfileRiskComponent ]
 })

@@ -14,7 +14,6 @@ export class CompanyFleetComponent implements OnInit {
   companyId:string = localStorage.getItem('company')
     fleets: Object[]
   entities: object
-  users: object
  
 
   constructor(private _fleetService: FleetService, private _companyService: CompanyService, private _auth: AuthService, private _enitiyService: EntityService) { }
