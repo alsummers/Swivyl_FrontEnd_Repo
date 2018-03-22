@@ -6,7 +6,7 @@
       </div>
       <div class="card-body">
         <p>Location</p>
-          <form>
+          <form name="insured-property-form" ng-submit="submitForm()" id="insured-property-form" >
             <div class="row adress-form">
               <div class="col">
                 <div type="text" class="card asset-address-info" >
@@ -149,14 +149,16 @@
                   </div>
                 </div>
                 
-          </form>
-      </div>
+
       <div class="row">    
         <div class="col">
           <button type="submit" className="mb-4 btn btn-primary">Save</button>
-          <button type="add" (click)="addLocation()" className="mb-4 btn btn-primary">Add Location</button> 
+          <button type="reset" className="mb-4 btn btn-primary" id="reset-btn" ng-click="reset()">Add Location</button> 
         </div>
       </div>
+
+    </form>
+  </div>
       <!-- <a>+ Add Location</a> -->
     </div>
   </div>      
