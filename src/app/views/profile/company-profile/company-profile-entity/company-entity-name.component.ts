@@ -65,6 +65,7 @@ template: `
 `,
 })
 export class CompanyEntityNameComponent implements OnInit {
+
 companyId: string
 entities: object
 closeResult: string
@@ -141,7 +142,6 @@ return 'by clicking on a backdrop';
 return `with: ${reason}`;
 }
 }
-
 
 
 
