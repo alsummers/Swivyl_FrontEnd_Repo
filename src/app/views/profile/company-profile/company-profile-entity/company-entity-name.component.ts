@@ -56,6 +56,7 @@ import { AuthService } from '../../../../Services/auth.service';
     <button type="button" class="btn btn-outline-dark" (click)="updateEntity($event)">Edit</button>
   </div>
 </ng-template>
+<img src="{{companyImage}}" alt="Profile Image">
   `,
   
 })
@@ -63,18 +64,28 @@ export class CompanyEntityNameComponent implements OnInit {
   companyId: string
   enteties: object
   closeResult: string
-  constructor( private _entityService:EntityService, private _companyService: CompanyService, private _auth: AuthService, private modalService: NgbModal ) { }
-
+  companyStuff:object
+  companyImage:string
+  constructor(private _entityService:EntityService, private _companyService: CompanyService, private _auth: AuthService, private modalService: NgbModal ) { }
+  
   ngOnInit() {
     
     this._companyService.fetchcompany().subscribe(e => {
-      console.log(e[0])
+      
+      console.log(e)
+
+      
+      this.companyImage ='http://localhost:3000/profile/'+localStorage.getItem('img')
+      console.log(this.companyImage)
       this.companyId = e[0].uid
+      // console.log(this.companyId)
       localStorage.setItem('company', e[0].uid)
       return this.grabAllCompanyEntities()
       // return console.log("Company",this.companyId)
     })
+    this._companyService.getLogo()
   }
+  
   entitiyCreate(e){
     
     console.log(e.target.elements[0].value)
