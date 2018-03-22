@@ -18,7 +18,7 @@ import { AuthService } from '../../Services/auth.service';
       {{log.message}}
       </div>
     </div>
-    <div class="card-footer to-do-footer dashboard-footer">
+    <div class="card-footer dashboard-footer">
     <button class="btn btn-lg btn-dark" (click)="open(viewall)">View All Activity</button>
         </div>
   </div>
@@ -98,17 +98,21 @@ interface Client {
 @Component({
   selector: 'app-quick-connect',
   template: `
-    <div class="card dashboard-card quick-connect">
-      <div class="card-body">
-        <h4 class="card-title">Quick Connect</h4>
-        <div class="row justify-content-center">
-        <textarea rows="8" cols="75" placeholder="Need to contact your broker? Enter your message here.">
-</textarea>
-</div>
-  <div class="row">
-        <button id="submit" class="btn btn-dark">Submit</button>
-      </div>
-    </div>
+  <div class="card dashboard-card quick-connect">
+  <div class="card-header to-do-header dashboard-header">
+    <p class="card-title">QUICK CONNECT</p>
+  </div>
+  <div class="card-body connect-box">
+    <style>::placeholder {
+      color: blue;
+      opacity: 0.35;
+      font-weight: bold;
+  }</style>
+      <textarea class="connect-textbox" rows="8" cols="75" placeholder="Need to contact your broker?&#10;Enter your message here."></textarea>
+  </div>
+  <div class="card-footer dashboard-footer">
+  <button id="submit" class="btn btn-dark">Submit</button>
+  </div>
 </div>
   `
 })
