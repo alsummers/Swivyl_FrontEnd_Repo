@@ -76,23 +76,21 @@ export class CompanyEntityNameComponent implements OnInit {
     })
   }
   entitiyCreate(e){
-    
-    console.log(e.target.elements[0].value)
+
+    console.log('enitiy', e.target.elements[0].value)
     console.log('Create', this.companyId)
     var entityInfo = {
-      entity:{
+      entity: {
       name: e.target.elements[0].value
       },
-      company:{
-        uid:this.companyId
-        
+      company: {
+        uid: this.companyId
       }
     }
     e.target.reset()
-    this._entityService.createEntity(entityInfo).subscribe(e=>{
+    this._entityService.createEntity(entityInfo).subscribe(e => {
       console.log(e)
       this.grabAllCompanyEntities()
-      
     })
 
   }
