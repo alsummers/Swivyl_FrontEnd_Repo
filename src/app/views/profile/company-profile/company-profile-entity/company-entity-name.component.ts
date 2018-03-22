@@ -17,21 +17,21 @@ template: `
     <ng-template #content let-c="close" let-d="dismiss" >
     <form (submit)="updateEntity($event)" >
       <div class="modal-header">
-         <div>
+
           <div class="row">
-          <div class="col-lg-9">
-          <h4 class="modal-title">EDIT ENTITY</h4>
-          </div>
-          <div class="col-sm-3" style="margin-left:250px; justify-content:right">
-          <button type="button" class="close" style="padding:none" aria-label="Close" (click)="d('Cross click')">
-          <span aria-hidden="true">&times;</span>
-          </button>
-          </div>
-          </div>
+            <div class="col-sm-9">
+              <h4 class="modal-title">EDIT ENTITY</h4>
+            </div>
+            <div class="col-sm-3">
+              <button type="button" class="close" style="padding:0" aria-label="Close" (click)="d('Cross click')">
+              <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
           <div id="{{entity.uid}}" class="modal-body">
             <input class="form-control">
           </div>
-          <div class="modal-footer">
+          <div class="modal-footer" style="border-top:0">
             <button type="submit" class="btn btn-outline-dark" id="{{entity.uid}}">Edit</button>
           </div>
         </div>
