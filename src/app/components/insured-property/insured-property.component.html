@@ -1,13 +1,14 @@
 <div class="row justify-content-center">
     <div class="col-11">
-    <div class="card dashboard-card">
-      <div class="card-header text-white bg-dark dashboard-header">
+    <div class="card">
+      <div class="card-header text-white bg-dark">
         Insured Property
       </div>
       <div class="card-body" *ngFor="let property of properties">
           <div class="row justify-content-start">
               <div class="col-2">
                 <label>Location Address:</label>
+
               </div>
               <div class="col">
                 {{property.address}}
@@ -86,8 +87,11 @@
                 </div>
               </div>
            <hr>     
+
       </div>
-      <a>+ Add Location</a>
+    </form>
+  </div>
+      <!-- <a>+ Add Location</a> -->
     </div>
 
   </div> 

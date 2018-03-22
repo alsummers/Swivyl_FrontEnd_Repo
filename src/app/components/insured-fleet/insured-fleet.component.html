@@ -1,144 +1,125 @@
 
 
-
-<!-- List of cars -->
-
-      
-  
-       
-    <div  class="fleets container" >
-      <div class="row">
-        <div class="col">
-          <label for="Year">Year</label>
+<form name="insured-fleet-form" ng-submit="submitForm()" id="insured-fleet-form" ></form>       
+<div  class="fleets container" >
+    <div *ngFor="let fleet of fleets" class="form-row">
+      <div class="col">
+        <div class ="card">
+          <!-- toDo use ngForOf to iterate over all of these -->
+          <span >{{fleet.year}}</span>
         </div>
-        <div class="col">
-          <label for="Make">Make</label>
-        </div>
-        <div class="col">
-          <label for="Model">Model</label>
-        </div>
-        <div class="col">
-          <label for="VIN">VIN#</label>
-        </div>
-        <div class="col">
-          <label for="Driver">Driver</label>
-        </div>
-        <div class="col">
-          <label for="ZIP">Garaging Zip</label>
-        </div>
-        <div class="col">
-          <label for="Date">Date Added</label>
-        </div>
-
       </div>
-      <div *ngFor="let fleet of fleets" class="form-row">
+  
+      <div class="col">      
+        <div class="card">
+            <span>{{fleet.id}}</span>
+        </div>
+      </div>
+  
+      <div class="col">      
+        <div class="card">
+          <span>{{fleet.id}}</span>
+        </div>
+      </div>
+  
+      <div class="col">      
+        <div class="card">
+          <span>{{fleet.id}}</span>
+          </div>
+      </div>
+  
+      <div class="col">      
+        <div class="card">
+          <span>{{fleet.id}}</span>
+        </div>
+      </div>
+  
+      <div class="col">      
+        <div class="card">
+          <span>{{fleet.id}}</span>
+        </div>
+      </div> 
+  
+      <div class="col">      
+        <div class="card">
+          <span>{{fleet.id}}</span>
+        </div>
+      </div>
+  
+      <div class="col">      
+        <div class="card">
+          <span>{{fleet.id}}</span>
+        </div>
+      </div>
+    </div>
+    <form action="">
+      <div class="form-row">
         <div class="col">
-          <div class ="card">
-            <!-- toDo use ngForOf to iterate over all of these -->
-            <span >{{fleet.year}}</span>
+            <label for="Year">Year</label>
+          <div class="card">
+            
+            <input placeholder="Year" class="form-control" type="number" min="2000">
           </div>
         </div>
         <div class="col">
-          
+            <label for="Make">Make</label>
           <div class="card">
-              <span>{{fleet.id}}</span>
+              <input placeholder="Make" class="form-control" type="text">
           </div>
         </div>
         <div class="col">
-          
+            <label for="Model">Model</label>
           <div class="card">
-            <span>{{fleet.id}}</span>
+            <input placeholder="Model" class="form-control" type="text">
           </div>
         </div>
         <div class="col">
-          
+            <label for="VIN">VIN#</label>
           <div class="card">
-            <span>{{fleet.id}}</span>
-            </div>
+            <input placeholder="Vin#" class="form-control" type="text">
+          </div>
         </div>
+      </div>
+      <div class="form-row">
         <div class="col">
-          
+            <label for="Driver">Driver</label>
           <div class="card">
-            <span>{{fleet.id}}</span>
+            <input placeholder="Driver" class="form-control" type="text">
           </div>
         </div>
         <div class="col">
-          
+            <label for="ZIP">Garaging Zip</label>
           <div class="card">
-            <span>{{fleet.id}}</span>
+            <input placeholder="Garaging Zip" class="form-control" type="text">
           </div>
         </div> 
         <div class="col">
-          
+            <label for="Date">Date Added</label>
           <div class="card">
-            <span>{{fleet.id}}</span>
+              <input id="date" class="form-control" type="date">
           </div>
         </div>
         <div class="col">
-          
+            <label for="Title">Titled To</label>
           <div class="card">
-            <span>{{fleet.id}}</span>
+            <input placeholder="Titled To" class="form-control" type="text">
           </div>
         </div>
       </div>
-      <form action="">
-        <div class="form-row">
+      <div class="row">    
           <div class="col">
-            <div class="card">
-              <input placeholder="Year" type="number" min="0">
-            </div>
-          </div>
-          <div class="col">
-            
-            <div class="card">
-                <input placeholder="Make" type="text">
-            </div>
-          </div>
-          <div class="col">
-            
-            <div class="card">
-              <input placeholder="Model" type="text">
-            </div>
-          </div>
-          <div class="col">
-            
-            <div class="card">
-              <input placeholder="Vin#" type="text">
-              </div>
-          </div>
-          <div class="col">
-            
-            <div class="card">
-              <input placeholder="Driver" type="text">
-            </div>
-          </div>
-          <div class="col">
-            
-            <div class="card">
-              <input placeholder="Garaging Zip" type="number" min="0">
-            </div>
-          </div> 
-          <div class="col">
-            
-            <div class="card">
-              <input placeholder="mm/dd/yyyy" type="text">
-            </div>
-          </div>
-          <div class="col">
-            
-            <div class="card">
-              <input placeholder="Titled To" type="text">
-            </div>
+            <button type="submit" className="mb-4 btn btn-primary">Save</button>
+            <button type="reset" className="mb-4 btn btn-primary" id="reset-btn" ng-click="reset()">Add Vehicle</button> 
           </div>
         </div>
-        <button class="row justify-content-start">save</button>
-      </form>
-      <a>+ Add Vehicle</a>
-    </div>
-    <!-- File upload for CSV, not for MVP -->
-    <!-- <form action="">
-      <input class="" type="file"/>
-      <button  class="btn btn-dark" type="submit" >Upload</button>
-    </form> -->
-
-<!-- end of cars -->
+  
+  
+    </form>
+  
+  </div>
+  <!-- File upload for CSV, not for MVP -->
+  <!-- <form action="">
+    <input class="" type="file"/>
+    <button  class="btn btn-dark" type="submit" >Upload</button>
+  </form> -->
+  

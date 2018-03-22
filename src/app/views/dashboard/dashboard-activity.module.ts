@@ -12,7 +12,7 @@ import { AuthService } from '../../Services/auth.service';
           ACTIVITY TIMELINE
     </div>
     <div class="card-body">
-      <div *ngFor="let log of logs | slice: 0:8">
+      <div *ngFor="let log of logs | slice: 0:6">
       {{log.createdAt | date:"MM/dd/yy"}}
       {{log.clientName}}
       {{log.message}}
@@ -31,6 +31,7 @@ import { AuthService } from '../../Services/auth.service';
       </div>
       <div class="modal-body">
       <div *ngFor="let log of logs">
+      {{log.createdAt | date:"MM/dd/yy"}}
       {{log.clientName}}
       {{log.message}}
       </div>
@@ -55,9 +56,7 @@ export class DashboardActivityComponent implements OnInit {
   }
   grabAllCompanyLogs() {
     this._logService.fetchAllLogs(this.companyId).subscribe((e: Object[]) => {
-      console.log(typeof e)
       this.logs = e
-      console.log(this.logs)
       this.grabAllClients()
 
     })
@@ -65,16 +64,14 @@ export class DashboardActivityComponent implements OnInit {
   grabAllClients() {
     this._logService.fetchAllClients().subscribe((e: Object[]) => {
       this.clients = e
-      console.log(typeof e, 'clients', this.clients)
       this.getClientName()
 
     })
   }
   getClientName() {
-    console.log('getclientname')
     this.logs.map((log: LogInterface) => {
       const clientName: any[] = this.clients.filter((client: Client) => {
-        // console.log(client.firstname)
+
         if (client.uid === log.clientUid) {
           return client
         }
