@@ -76,8 +76,6 @@ export class CompanyEntityNameComponent implements OnInit {
     })
   }
   entitiyCreate(e){
-
-    console.log('enitiy', e.target.elements[0].value)
     console.log('Create', this.companyId)
     var entityInfo = {
       entity: {
