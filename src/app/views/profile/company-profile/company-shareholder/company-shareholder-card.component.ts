@@ -5,10 +5,11 @@ import { AuthService } from '../../../../Services/auth.service';
 import { ShareholderService } from '../../../../Services/shareholder.service';
 
 
-//ngFor is to iterate over sharholders and display them as cards everytime it is created (via next button)
 @Component({
   selector: 'app-shareholder-card',
-  templateUrl: './company-shareholder-card.component.html'
+  templateUrl: './company-shareholder-card.component.html',
+  styles: ['button{margin: 5px}']
+  
 })
 export class CompanyShareholderCardComponent implements OnInit {
   companyId: string = localStorage.getItem('company')
