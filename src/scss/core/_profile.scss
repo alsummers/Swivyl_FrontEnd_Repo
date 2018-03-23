@@ -7,6 +7,9 @@
 h4{
     color: #263238
 }
+.profile{
+    margin: 0 3.5rem 2rem
+}
 #profile-nav .nav-link{
     color: #263238;
     padding: 2rem
@@ -15,8 +18,12 @@ h4{
     background-color: #263238;
     color: white;
     padding: 2rem;
-    border-top-left-radius: .25rem;
-    border-top-right-radius: .25rem;
+}
+.left-nav {
+    border-top-left-radius: .5rem;
+}
+.right-nav {
+    border-top-right-radius: .5rem;
 }
 .welcome{
     display: block;

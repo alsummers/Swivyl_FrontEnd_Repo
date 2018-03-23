@@ -28,6 +28,10 @@ export class FleetService {
   updateFleet(fleetInfo){
     return this._http.put(`${Sql_Api}/fleet/${fleetInfo.id}`, fleetInfo, {headers:this.setHeader()})
   }
+
+  deleteFleet(fleetId){
+    return this._http.delete(`${Sql_Api}/fleet/${fleetId}`, {headers:this.setHeader()})
+  }
 }
   
 
