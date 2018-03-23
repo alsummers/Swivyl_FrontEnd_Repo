@@ -56,7 +56,7 @@ import { AuthService } from '../../../../Services/auth.service';
     <button type="button" class="btn btn-outline-dark" (click)="updateEntity($event)">Edit</button>
   </div>
 </ng-template>
-<img src="{{companyImage}}" alt="Profile Image">
+
   `,
   
 })
