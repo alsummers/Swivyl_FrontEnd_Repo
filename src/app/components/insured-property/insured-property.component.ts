@@ -38,6 +38,9 @@ export class InsuredPropertyComponent implements OnInit {
   properties: any
   entities: any
   currentId: any 
+  confirm: any
+  modalRef: any
+
   constructor(private _propertyService: PropertyService, private _entityService: EntityService, private _companyProperty: CompanyProfileRiskComponent, private modalService: NgbModal) { }
 
   ngOnInit() {
@@ -57,10 +60,12 @@ grabAllEntities() {
 }
 
 open(content) {
-  this.modalService.open(content)
+  this.modalRef =this.modalService.open(content)
   this.currentId = event.srcElement.id
   console.log('target id:', this.currentId)
 }
+
+closeModal() { this.modalRef.close(); }
 
 grabAllProperties() {
   this._propertyService.fetchAllProperty(this.companyId).subscribe(e =>{
@@ -70,17 +75,22 @@ grabAllProperties() {
 })
 }
 propertyCreate(e) {
-  e.preventDefault()
   this._companyProperty.postProperty(e)
   this.grabAllProperties()
+  this.closeModal()
 }
 
+
+
 removeProperty(e){
-  this._propertyService.deleteProperty(e.target.id).subscribe(e => {
+  if(this.confirm === 'true'){
+  this._propertyService.deleteProperty(this.currentId).subscribe(e => {
     this.grabAllProperties()
+    this.closeModal()
   })
-  
+  }
 }
+
 
 getEntityName() {
   this.properties.map((properties: PropertyInterface) => {
@@ -121,6 +131,9 @@ updateProperty(e) {
     console.log(e)
     let properties = this.grabAllProperties()
     console.log('properties', properties)
+    this.closeModal()
+    this.getEntityName()
+    this.grabAllEntities()
   })
 
 }

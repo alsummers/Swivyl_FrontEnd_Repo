@@ -10,7 +10,7 @@
               <div class="col-8">
               </div>
               <div class="col-4">
-                  <button class="btn btn-outline-dark" id="{{property.uid}}" (click)="open(updateLocation)">Update</button>  <button class="btn btn-outline-dark" id="{{property.uid}}" (click)="removeProperty($event)">Delete</button>
+                  <button class="btn btn-outline-dark" id="{{property.uid}}" (click)="open(updateLocation)">Update</button>  <button class="btn btn-outline-dark" id="{{property.uid}}" (click)="open(deleteLocation)">Delete</button>
                 </div>
           </div>
           <div class="row justify-content-start">
@@ -273,7 +273,7 @@
                 </div>
               </div>
                 <hr>
-                  <button type="submit" className="btn btn-outline-dark">Add Location</button> 
+                  <button type="submit" class="btn btn-outline-dark">Add Location</button> 
               </form>
         </div>    
 
@@ -281,106 +281,133 @@
 
   </ng-template>
 
-<ng-template #updateLocation let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Update Location</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body" *ngFor="let property of properties, ">
-    <div class="risk container" *ngIf='property.uid == currentId'>
-        <form (submit)="updateProperty($event)">
-          <p>Location</p>
-          <div class="col">
-            <div type="text" class="card asset-address-info" >
-                <input value="{{property.address}}" >
-            </div>
-          </div>
-            <div class="row justify-content-start">
-              <div class="col-2">
-                <label>Building Sprinklered:</label>
-              </div>
-              <div class="col-1">
-                <select class=" bottom-form-input" id="sprinklers">
-                  <option>No</option>
-                  <option>Yes</option>
-                </select>
+  <ng-template #updateLocation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Update Location</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body" *ngFor="let property of properties, ">
+      <div class="risk container" *ngIf='property.uid == currentId'>
+          <form (submit)="updateProperty($event)">
+            <p>Location</p>
+            <div class="col">
+              <div type="text" class="card asset-address-info" >
+                  <input value="{{property.address}}" >
               </div>
             </div>
-        
-            <div class="row justify-content-start">
-              <div class="col-2">
-                <label>Buildings Owner:</label>
-              </div>
-              <div class="col-1">
-                <input type="text" class=" bottom-form-input" value="{{property.building_owner}}" aria-label="Owner name" aria-describedby="">
-              </div>
-            </div>
-        
-            <div class="row justify-content-start">
-              <div class="col-2">
-                <label>Buildings Sq Ft:</label>
-              </div>
-              <div class="col-1">
-                  <input value="{{property.sqft_of_building}}" type="number" class="bottom-form-input" id="basic-url" step="50" aria-describedby="basic-addon3" min="0">
-              </div>
-            </div>
-        
-            <div class="row justify-content-start">
-              <div class="col-2">
-                <label>Buildings Occupancy:</label>
-              </div>
-              <div class="col-1">
-                  <input type="text" class=" bottom-form-input" value="{{property.building_occ}}" aria-label="Owner name" aria-describedby="">
-              </div>
-            </div>
-        
-            <div class="row justify-content-start">
-              <div class="col-2">
-                <label>Location Employees:</label>
-              </div>
-              <div class="col-1">
-                  <input value="{{property.location_employees}}" type="number" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3" min="0">
-              </div>
-            </div>
-        
-            <div class="row justify-content-start">
-              <div class="col-2">
-                <label>Location Contents:</label>
-              </div>
-              <div class="input-group col-1"> 
-                  <input value="{{property.location_contents}}" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
-              </div>
-            </div>
-        
-            <div class="row justify-content-start">
-              <div class="col-2">
-                <label>Location Inventory:</label>
-              </div>
-              <div class="input-group col-1">
-                  <input value="{{property.location_inventory}}" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
-            </div>
-          </div>
-        
-         
               <div class="row justify-content-start">
-                  <div class="col-2">
-                    <label>Select Entity:</label>
-                  </div>
-                  <div class="col-1">
-                    <select>
-                      <option *ngFor="let entity of entities" value="{{entity.uid}}" >{{entity.entity_name}}</option>      
-                    </select>
+                <div class="col-2">
+                  <label>Building Sprinklered:</label>
+                </div>
+                <div class="col-1">
+                  <select class=" bottom-form-input" id="sprinklers">
+                    <option>No</option>
+                    <option>Yes</option>
+                  </select>
                 </div>
               </div>
-                <hr>
-                  <button type="submit" className="btn btn-outline-dark">Update Location</button> 
-              </form>
-        </div>    
+          
+              <div class="row justify-content-start">
+                <div class="col-2">
+                  <label>Buildings Owner:</label>
+                </div>
+                <div class="col-1">
+                  <input type="text" class=" bottom-form-input" value="{{property.building_owner}}" aria-label="Owner name" aria-describedby="">
+                </div>
+              </div>
+          
+              <div class="row justify-content-start">
+                <div class="col-2">
+                  <label>Buildings Sq Ft:</label>
+                </div>
+                <div class="col-1">
+                    <input value="{{property.sqft_of_building}}" type="number" class="bottom-form-input" id="basic-url" step="50" aria-describedby="basic-addon3" min="0">
+                </div>
+              </div>
+          
+              <div class="row justify-content-start">
+                <div class="col-2">
+                  <label>Buildings Occupancy:</label>
+                </div>
+                <div class="col-1">
+                    <input type="text" class=" bottom-form-input" value="{{property.building_occ}}" aria-label="Owner name" aria-describedby="">
+                </div>
+              </div>
+          
+              <div class="row justify-content-start">
+                <div class="col-2">
+                  <label>Location Employees:</label>
+                </div>
+                <div class="col-1">
+                    <input value="{{property.location_employees}}" type="number" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3" min="0">
+                </div>
+              </div>
+          
+              <div class="row justify-content-start">
+                <div class="col-2">
+                  <label>Location Contents:</label>
+                </div>
+                <div class="input-group col-1"> 
+                    <input value="{{property.location_contents}}" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+                </div>
+              </div>
+          
+              <div class="row justify-content-start">
+                <div class="col-2">
+                  <label>Location Inventory:</label>
+                </div>
+                <div class="input-group col-1">
+                    <input value="{{property.location_inventory}}" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+              </div>
+            </div>
+          
+          
+                <div class="row justify-content-start">
+                    <div class="col-2">
+                      <label>Select Entity:</label>
+                    </div>
+                    <div class="col-1">
+                      <select>
+                        <option *ngFor="let entity of entities" value="{{entity.uid}}" >{{entity.entity_name}}</option>      
+                      </select>
+                  </div>
+                </div>
+                  <hr>
+                    <button type="submit" class="btn btn-outline-dark">Update Location</button> 
+                </form>
+          </div>    
 
+        </div>
+
+  </ng-template>
+
+  <ng-template #deleteLocation let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Delete Location</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <div class="risk container">
+            <form (submit)="removeProperty($event)">
+              <div class="row justify-content-center">
+                <h4>Are you do you want to delete?</h4>
+              </div>
+              <br>
+              <div class="row justify-content-end">
+                <div class="col-7"></div>
+                  <div class="col">
+                      <button type="submit" class="btn btn-outline-dark" value="delete" (click)="confirm = 'true'"> Delete </button> 
+                <button class="btn btn-outline-dark" (click)="confirm = 'false'" (click)="d('Cross click')"> Cancel </button>   
+               </div>
+              </div>
+            </form>
 
+        </div> 
+      </div>
   </ng-template>
   
 

@@ -9,6 +9,16 @@ interface FleetInterface {
   entityName: String;
   entityId: String;
   owner: String;
+  year: String;
+  make: String;
+  model: String;
+  vin_number: Number;
+  driver: String;
+  garaging_zip: Number;
+  date_added: String;
+  titled_to: String;
+  companyId: String;
+
 }
 
 interface Entity {
@@ -24,9 +34,11 @@ interface Entity {
 })
 export class InsuredFleetComponent implements OnInit {
   companyId:string = localStorage.getItem('company')
-  fleets:any
-  entities:any 
-  currentId: any 
+  fleets: any;
+  entities:any;
+  currentId: any; 
+  modalRef: any;
+  confirm: any;
 
 
   constructor(private _fleetService: FleetService, private _entityService: EntityService, private modalService: NgbModal, private _companyFleet: CompanyFleetComponent) { }
@@ -42,6 +54,7 @@ export class InsuredFleetComponent implements OnInit {
   grabAllEntities() {
     this._entityService.fetchAllEntities(this.companyId).subscribe(e =>{
       this.entities =e
+      console.log(this.entities)
       this.getEntityName()
   
     })
@@ -59,7 +72,7 @@ export class InsuredFleetComponent implements OnInit {
     })
   }
   open(content) {
-    this.modalService.open(content)
+    this.modalRef = this.modalService.open(content)
     this.currentId = event.srcElement.id
     console.log('target id:', this.currentId)
   }
@@ -72,16 +85,20 @@ export class InsuredFleetComponent implements OnInit {
   })
   }
 
+  closeFleetModal() { this.modalRef.close(); }
+
+
   fleetCreate(e) {
-    e.preventDefault()
     this._companyFleet.fleetCreate(e)
     this.grabAllFleets()
   }
   removeFleet(e){
-    this._fleetService.deleteFleet(e.target.id).subscribe(e => {
-      this.grabAllFleets()
-    })
-    
+    if(this.confirm === 'true'){
+      this._fleetService.deleteFleet(this.currentId).subscribe(e => {
+        this.grabAllFleets()
+        this.closeFleetModal()
+      })
+    }
   }
 
   updateFleet(e) {
@@ -108,6 +125,9 @@ export class InsuredFleetComponent implements OnInit {
       console.log(e)
       let fleets = this.grabAllFleets()
       console.log('fleets', fleets)
+      this.closeFleetModal()
+      this.getEntityName()
+      this.grabAllEntities()
     })
   
   }
