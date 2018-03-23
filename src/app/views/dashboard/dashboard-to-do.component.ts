@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
-import {ToDoService} from '../../Services/to-do.service';
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToDoService } from '../../Services/to-do.service';
 import { CompanyService } from '../../Services/company.service';
 import { AuthService } from '../../Services/auth.service';
 
@@ -85,12 +85,12 @@ import { AuthService } from '../../Services/auth.service';
           {{task.description}} <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="show = !show">U</button> <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="removeTask($event)">X</button>
         </div>
         <div *ngIf="!show" >
-          <form (submit)="updateTask($event)">
-              <input type="date" class="btn btn-outline-dark">
-              <input type="text" placeholder="{{task.description}}" id="{{task.uid}}" (keyup)="onKey($event)" class="btn btn-outline-dark">
-              <button type="submit" class="btn btn-outline-dark" *ngIf="edit">Edit</button>
-              <button type="button" class="btn btn-outline-dark" (click)="show = !show">Go Back</button>
-          </form>  
+        <form (submit)="updateTask($event)">
+        <input type="date" class="btn btn-outline-dark">
+        <input type="text" placeholder="{{task.description}}" id="{{task.uid}}" (keyup)="onKey($event)" class="btn btn-outline-dark">
+        <button type="submit" class="btn btn-outline-dark" id="{{task.uid}}" *ngIf="edit">Edit</button>
+        <button type="button" class="btn btn-outline-dark" (click)="show = !show">Go Back</button>
+        </form>  
         </div>
       </div>
      
@@ -117,9 +117,10 @@ export class DashboardToDoComponent implements OnInit {
   edit: boolean = false;
   taskValue: string = ''
   date: any = new Date().toLocaleDateString("sq-AL")
- 
+  currentId: any; 
 
-  constructor(private modalService: NgbModal, private modalActive: NgbActiveModal,private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService ) {}
+
+  constructor(private modalService: NgbModal, private modalActive: NgbActiveModal, private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService) { }
 
   ngOnInit() {
     this._companyService.fetchcompany().subscribe(e => {
@@ -130,93 +131,94 @@ export class DashboardToDoComponent implements OnInit {
     })
 
 
-  
+
   }
-  
+
   open(content) {
     this.modalService.open(content)
+    this.currentId = event.srcElement.id
   }
-  close(result: any) {}
+  close(result: any) { }
 
   onKey(event: any) {
-    if(event.target.value.length > 0) {
+    if (event.target.value.length > 0) {
       this.edit = true
     } else {
       this.edit = false
     }
   }
 
-  taskCreate(e){
+  taskCreate(e) {
     console.log(this.companyId)
     console.log(this.date)
-   close()
+    close()
     // console.log(e.target.elements[0].value)
-  
+
     var toDoTask = {
       todo: {
-      description: e.target.elements[0].value,
-      dateDue: e.target.elements[1].value,
-      
+        description: e.target.elements[0].value,
+        dateDue: e.target.elements[1].value,
+
       },
-      company:{
-        uid:this.companyId
+      company: {
+        uid: this.companyId
       }
     }
     e.target.reset()
-    this._toDoService.createToDo(toDoTask).subscribe(e=>{
+    this._toDoService.createToDo(toDoTask).subscribe(e => {
       console.log(e)
       let tasks = this.grabAllCompanyTasks()
       console.log('tasks', tasks)
     })
-  
-      }
 
-      grabAllCompanyTasks(){
-        this._toDoService.fetchCompanyTasks(this.companyId).subscribe(e=>{
-          console.log('what is this', e)
-          this.tasks = e
-        })
-      }
-  
+  }
 
-      // updateTask(e) {
-      //   console.log('e.target.id: ', e.target.id)
-      //   this._toDoService.updateTask(e.target.id).subscribe ( e => {
-      //     console.log('what is this e ', e)
-      //     this.grabAllCompanyTasks()
-      //   }
-      //   )
-        
-      // }
+  grabAllCompanyTasks() {
+    this._toDoService.fetchCompanyTasks(this.companyId).subscribe(e => {
+      console.log('what is this', e)
+      this.tasks = e
+    })
+  }
 
 
+  // updateTask(e) {
+  //   console.log('e.target.id: ', e.target.id)
+  //   this._toDoService.updateTask(e.target.id).subscribe ( e => {
+  //     console.log('what is this e ', e)
+  //     this.grabAllCompanyTasks()
+  //   }
+  //   )
 
-      updateTask(e) {
-        console.log(e)
-      var toDoTask = {
-        todo: {
+  // }
+
+
+
+  updateTask(e) {
+    console.log(e)
+    var toDoTask = {
+      todo: {
         description: e.target.elements[1].value,
         dateDue: e.target.elements[0].value,
-        uid: e.target.elements[1].id
-        },
-        company:{
-          uid:this.companyId
-        }
+        uid: this.currentId,
+      },
+      company: {
+        uid: this.companyId
       }
-      e.target.reset()
-      this._toDoService.updateTask(toDoTask).subscribe(e=>{
-        console.log(e)
-        let tasks = this.grabAllCompanyTasks()
-        console.log('tasks', tasks)
-      })
-
     }
+    e.target.reset()
+    this._toDoService.updateTask(toDoTask).subscribe(e => {
+      console.log(e)
+      let tasks = this.grabAllCompanyTasks()
+      console.log('tasks', tasks)
+    })
+
+  }
 
 
-      removeTask(e){
-        this._toDoService.deleteTask(e.target.id).subscribe(e => {
-          this.grabAllCompanyTasks()
-        })
-        
-      }
+  removeTask(e) {
+    this._toDoService.deleteTask(e.target.id).subscribe(e => {
+      this.grabAllCompanyTasks()
+    })
+
+  }
 }
