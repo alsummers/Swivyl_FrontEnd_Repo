@@ -3,7 +3,7 @@
             TO DO LIST
     </div>
 
-    <div class="card-body">
+    <div class="card-body" *ngIf="tasks.length >= 1">
         <h6>To Do:</h6>
         <div *ngFor="let task of tasks | slice:0:5">
             <div *ngIf="task.dateDue == date">

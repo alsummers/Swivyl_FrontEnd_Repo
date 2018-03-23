@@ -4,6 +4,7 @@ import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-
 import { ToDoService } from '../../Services/to-do.service';
 import { CompanyService } from '../../Services/company.service';
 import { AuthService } from '../../Services/auth.service';
+import { elementAt } from 'rxjs/operators/elementAt';
 
 @Component({
   selector: 'app-to-do',
@@ -20,6 +21,8 @@ export class DashboardToDoComponent implements OnInit {
   modalRef: any;
   confirm: any;
 
+
+
   constructor(private modalService: NgbModal, private modalActive: NgbActiveModal, private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService) { }
 
   ngOnInit() {
@@ -29,10 +32,9 @@ export class DashboardToDoComponent implements OnInit {
       localStorage.setItem('company', e[0].uid)
       return this.grabAllCompanyTasks()
     })
-
-
-
   }
+
+
 
   open(content) {
     this.modalRef = this.modalService.open(content)
