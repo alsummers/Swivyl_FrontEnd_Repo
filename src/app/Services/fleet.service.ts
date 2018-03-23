@@ -25,8 +25,12 @@ export class FleetService {
   fetchCompanyFleet(companyId){
     return this._http.get(`${Sql_Api}/fleet/company/${companyId}`, {headers: this.setHeader()})
   }
-  updateFleet(fleetInfo){
-    return this._http.put(`${Sql_Api}/fleet/${fleetInfo.id}`, fleetInfo, {headers:this.setHeader()})
+  updateFleet(fleetUpdatedInfo){
+    return this._http.put(`${Sql_Api}/fleet`, fleetUpdatedInfo, {headers:this.setHeader()})
+  }
+
+  deleteFleet(fleetId){
+    return this._http.delete(`${Sql_Api}/fleet/${fleetId}`, {headers:this.setHeader()})
   }
 }
   

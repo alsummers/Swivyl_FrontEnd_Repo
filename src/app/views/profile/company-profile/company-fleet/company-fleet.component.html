@@ -60,6 +60,8 @@
         <div class="col">
 
         <div class="input-group">
+            <button type="submit" className="mb-4 btn btn-primary">Save</button>
+            &nbsp;
           <label>Entity</label>
           <select>
             <option *ngFor="let entity of entities" value="{{entity.uid}}"> {{entity.entity_name}} </option>
@@ -67,12 +69,7 @@
         </div>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <button type="submit" class="mb-4 btn btn-primary">Save</button>
 
-        </div>
-      </div>
 
 
     </form>

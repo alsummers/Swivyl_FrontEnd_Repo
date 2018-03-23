@@ -29,7 +29,7 @@ export class CompanyFleetComponent implements OnInit {
     })
   }
 
-  fleetCreate(e) {
+fleetCreate(e) {
     const fleetInfo = {
       fleets: {
         year: e.target.elements[0].value,
@@ -51,5 +51,5 @@ export class CompanyFleetComponent implements OnInit {
     this._fleetService.createFleet(fleetInfo).subscribe(e => {
       console.log(e)
     })
-  }s
+  }
 }

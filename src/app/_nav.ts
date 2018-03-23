@@ -47,10 +47,5 @@ export const navigation = [
       variant: 'danger',
       text: '7'
     }
-  },
-  {
-    name: 'Notifications',
-    url: '/pages',
-    icon: 'icon-star'
   }
 ];

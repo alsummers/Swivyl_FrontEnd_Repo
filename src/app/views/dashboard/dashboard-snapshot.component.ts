@@ -13,7 +13,7 @@ import { AuthService } from '../../Services/auth.service';
       <div class="card-body">
 
      
-    <canvas baseChart width="auto"
+    <canvas baseChart width="auto" height="100"
                 [datasets]="lineChartData"
                 [labels]="lineChartLabels"
                 [options]="lineChartOptions"

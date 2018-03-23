@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable'
 import {Subject} from 'rxjs/Subject';
+import { first } from 'rxjs/operator/first';
 
 const Sql_Url = "http://localhost:3000/api/client/login"
 @Injectable()
@@ -17,6 +18,8 @@ export class AuthService {
     return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
 
       localStorage.setItem('token', `${loginInfo.client.token}`  )
+      localStorage.setItem('firstName', `${loginInfo.client.firstName}`  )
+      localStorage.setItem('lastName', `${loginInfo.client.lastName}`  )
       this._router.navigate(['/profile/company-welcome'])
     })
   }
@@ -50,6 +53,8 @@ export class AuthService {
 }
 interface Response {
   client:{
-    token:String
+    token:String,
+    firstName:String,
+    lastName:String
   }
 }
