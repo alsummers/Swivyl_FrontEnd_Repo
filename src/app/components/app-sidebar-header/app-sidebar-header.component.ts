@@ -6,9 +6,14 @@ import { Component, OnInit} from '@angular/core';
 })
 export class AppSidebarHeaderComponent {
   companyImage:string
+  firstName:string
+  lastName:string
   constructor(){}
   // https://www.communitylandtrust.ca/wp-content/uploads/2015/10/placeholder.png
-  NgOnInit(){
-  this.companyImage ='http://localhost:3000/api/company/profile/'+localStorage.getItem('img')
+  ngOnInit(){
+  this.companyImage ='http://localhost:3000/profile/'+localStorage.getItem('img')
+  this.firstName=localStorage.getItem('firstName')
+  this.lastName=localStorage.getItem('lastName')
+  console.log(this.firstName)
 }
  }
