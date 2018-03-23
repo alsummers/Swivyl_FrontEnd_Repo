@@ -3,7 +3,7 @@
           <div class="col-8">
           </div>
           <div class="col-4">
-              <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(updateVehicle)">Update</button>  <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="removeFleet($event)">Delete</button>
+              <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(updateVehicle)">Update</button>  <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(deleteVehicle)">Delete</button>
             </div>
       </div>
       <div class="row justify-content-start">
@@ -170,7 +170,7 @@
                           <label>Date Added:</label>
                         </div>
                         <div class="col"> 
-                            <input type="date" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+                            <input type="date">
                         </div>
                       </div>
                   
@@ -300,9 +300,36 @@
                           </div>
                         </div>
                           <hr>
-                            <button type="submit" className="btn btn-outline-dark">Update Fleet</button> 
+                            <button type="submit" class="btn btn-outline-dark">Update Fleet</button> 
                         </form>
           </div>
         </div>
     </ng-template>
   
+
+    <ng-template #deleteVehicle let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Vehicle</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="risk container">
+              <form (submit)="removeFleet($event)">
+                <div class="row justify-content-center">
+                  <h4>Are you do you want to delete?</h4>
+                </div>
+                <br>
+                <div class="row justify-content-end">
+                  <div class="col-7"></div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-outline-dark" value="delete" (click)="confirm = 'true'"> Delete </button> 
+                  <button class="btn btn-outline-dark" (click)="confirm = 'false'" (click)="d('Cross click')"> Cancel </button>   
+                 </div>
+                </div>
+              </form>
+  
+          </div> 
+        </div>
+    </ng-template>
