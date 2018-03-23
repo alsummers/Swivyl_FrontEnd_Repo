@@ -50,9 +50,9 @@
             Name: {{shareholder.firstname}} {{shareholder.lastname}}
             <br> Address: {{shareholder.address}}
           </div>
-          <div class='row justify-content-end'>
-            <button id='{{shareholder.uid}}' (click)='open(update)'>Update</button>
-            <button id='{{shareholder.uid}}' (click)='removeShareholder($event)'>Delete</button>
+          <div class='row justify-content-center'>
+            <button id='{{shareholder.uid}}' class="btn-sm btn-outline-dark" (click)='open(update)'>Update</button>
+            <button id='{{shareholder.uid}}' class="btn-sm btn-outline-dark" (click)='open(deleteLocation)'>Delete</button>
           </div>
         </div>
       </div>
@@ -108,9 +108,36 @@
           </div>
           <br>
           <div class='row justify-content-end'>
-            <button type="submit">Save</button>
+            <button type="submit" class="btn-sm btn-outline-dark">Save</button>
           </div>
         </form>
       </div>
     </ng-template>
+
+<ng-template #deleteLocation let-c="close" let-d="dismiss">
+    <div class="modal-header">
+      <h4 class="modal-title">Delete Location</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="risk container">
+          <form (submit)="removeShareholder($event)">
+            <div class="row justify-content-center">
+              <h4>Are you do you want to delete?</h4>
+            </div>
+            <br>
+            <div class="row justify-content-end">
+              <div class="col-7"></div>
+                <div class="col">
+                    <button type="submit" class="btn btn-outline-dark" value="delete" (click)="confirm = 'true'"> Delete </button> 
+              <button class="btn btn-outline-dark" (click)="confirm = 'false'" (click)="d('Cross click')"> Cancel </button>   
+             </div>
+            </div>
+          </form>
+
+      </div> 
+    </div>
+</ng-template>
 </div>
