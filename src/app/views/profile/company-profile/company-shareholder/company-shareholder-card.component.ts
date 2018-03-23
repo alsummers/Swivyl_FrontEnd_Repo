@@ -53,9 +53,8 @@ export class CompanyShareholderCardComponent implements OnInit {
     })
   }
   open(content) {
-    this.updateId = content.target.id
     this.modalService.open(content)
-    console.log(this.updateId)
+    this.updateId = event.srcElement.id
   }
   updateShareholder(e) {
     const address = `${e.target.elements[3].value} ${e.target.elements[4].value} ${e.target.elements[5].value} ${e.target.elements[6].value}`
@@ -71,6 +70,8 @@ export class CompanyShareholderCardComponent implements OnInit {
         uid: this.companyId
       }
     }
-
+    this._sholderService.updateShareholder(sholderInfo).subscribe(e => {
+      console.log(e)
+    })
   }
 }
