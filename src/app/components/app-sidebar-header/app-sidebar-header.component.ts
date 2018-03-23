@@ -1,4 +1,5 @@
-import { Component,  OnInit } from '@angular/core';
+
+import { Component, OnInit} from '@angular/core';
 
 
 @Component({
@@ -6,9 +7,17 @@ import { Component,  OnInit } from '@angular/core';
   templateUrl: './app-sidebar-header.component.html'
 })
 export class AppSidebarHeaderComponent {
-  companyLogo:string
+
+  companyImage:string
+  firstName:string
+  lastName:string
   constructor(){}
+  // https://www.communitylandtrust.ca/wp-content/uploads/2015/10/placeholder.png
   ngOnInit(){
-    this.companyLogo = 'http://localhost:3000/profile/'+localStorage.getItem('img')
-  }
+  this.companyImage ='http://localhost:3000/profile/'+localStorage.getItem('img')
+  this.firstName=localStorage.getItem('firstName')
+  this.lastName=localStorage.getItem('lastName')
+  console.log(this.firstName)
+}
+
  }
