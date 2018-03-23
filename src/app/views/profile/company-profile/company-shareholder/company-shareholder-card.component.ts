@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
+import { NgbModal, ModalDismissReasons, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
 import { CompanyService } from '../../../../Services/company.service';
 import { AuthService } from '../../../../Services/auth.service';
 import { ShareholderService } from '../../../../Services/shareholder.service';
@@ -14,6 +14,8 @@ export class CompanyShareholderCardComponent implements OnInit {
   companyId: string = localStorage.getItem('company')
   shareholders: object
   updateId: any
+  confirm: any
+  modalRef: any
   constructor(private modalService: NgbModal, private _companyService: CompanyService, private _auth: AuthService, private _sholderService: ShareholderService) { }
 
   ngOnInit() {
@@ -44,18 +46,23 @@ export class CompanyShareholderCardComponent implements OnInit {
       }
     }
     this._sholderService.createShareholder(sholderInfo).subscribe(e => {
-      console.log(e)
+      this.grabAllShareholders(this.companyId)
     })
   }
   removeShareholder(e) {
-    this._sholderService.deleteShareholder(e.target.id).subscribe(e => {
-      console.log('deleted shareholder')
-    })
+    if (this.confirm === 'true') {
+      this._sholderService.deleteShareholder(this.updateId).subscribe(e => {
+        this.grabAllShareholders(this.companyId)
+      this.closeModal()
+      })
+    }
   }
   open(content) {
-    this.modalService.open(content)
+    this.modalRef = this.modalService.open(content)
     this.updateId = event.srcElement.id
   }
+  closeModal() { this.modalRef.close(); }
+
   updateShareholder(e) {
     const address = `${e.target.elements[3].value} ${e.target.elements[4].value} ${e.target.elements[5].value} ${e.target.elements[6].value}`
     const sholderInfo = {
@@ -71,7 +78,8 @@ export class CompanyShareholderCardComponent implements OnInit {
       }
     }
     this._sholderService.updateShareholder(sholderInfo).subscribe(e => {
-      console.log(e)
+      this.grabAllShareholders(this.companyId)
+      this.closeModal()
     })
   }
 }
