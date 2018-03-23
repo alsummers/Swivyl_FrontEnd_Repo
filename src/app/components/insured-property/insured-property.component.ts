@@ -3,6 +3,31 @@ import { PropertyService } from '../../Services/property.service'
 import { EntityService } from '../../Services/entity.service';
 import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import { CompanyProfileRiskComponent } from '../../views/profile/company-profile/company-profile-risk/company-profile-risk.component'
+
+
+
+interface PropertyInterface {
+  clientUid: String;  
+  uid: String;
+  entityName: String;
+  address: String;
+  building_sprink: Boolean;
+  building_owner: String;
+  sqft_of_building: Number;
+  building_occ: Number;
+  location_employees: Number;
+  location_contents: Number;
+  location_inventory: Number;
+  entityId: String;
+  companyId: String;
+  owner: String;
+}
+
+interface Entity {
+  uid: String;
+  entity_name: String;
+}
+
 @Component({
   selector: 'app-insured-property',
   templateUrl: './insured-property.component.html',
@@ -10,22 +35,26 @@ import { CompanyProfileRiskComponent } from '../../views/profile/company-profile
 })
 export class InsuredPropertyComponent implements OnInit {
   companyId:string = localStorage.getItem('company')
-  properties:object
-  entities:object 
+  properties: any
+  entities: any
   currentId: any 
   constructor(private _propertyService: PropertyService, private _entityService: EntityService, private _companyProperty: CompanyProfileRiskComponent, private modalService: NgbModal) { }
 
   ngOnInit() {
    this.grabAllProperties()
 
+  this.grabAllEntities()
+
+    }
+
+
+grabAllEntities() {
   this._entityService.fetchAllEntities(this.companyId).subscribe(e =>{
     this.entities =e
-    
+    this.getEntityName()
 
   })
-
 }
-
 
 open(content) {
   this.modalService.open(content)
@@ -51,6 +80,18 @@ removeProperty(e){
     this.grabAllProperties()
   })
   
+}
+
+getEntityName() {
+  this.properties.map((properties: PropertyInterface) => {
+    const entityName: any[] = this.entities.filter((entity: Entity) => {
+
+      if (entity.uid === properties.entityId) {
+        return entity
+      }
+    })
+    properties.entityName = entityName[0].entity_name
+  })
 }
 
 
@@ -83,6 +124,8 @@ updateProperty(e) {
   })
 
 }
+
+
 
 
 

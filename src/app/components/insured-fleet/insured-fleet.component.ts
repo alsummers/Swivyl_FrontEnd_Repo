@@ -3,6 +3,20 @@ import {FleetService} from '../../Services/fleet.service';
 import { EntityService } from '../../Services/entity.service';
 import {NgbModal, ModalDismissReasons, NgbActiveModal} from '@ng-bootstrap/ng-bootstrap';
 import {CompanyFleetComponent} from '../../views/profile/company-profile/company-fleet/company-fleet.component'
+
+interface FleetInterface {
+  uid: String;
+  entityName: String;
+  entityId: String;
+  owner: String;
+}
+
+interface Entity {
+  uid: String;
+  entity_name: String;
+}
+
+
 @Component({
   selector: 'app-insured-fleet',
   templateUrl:'./insured-fleet.component.html',
@@ -10,8 +24,8 @@ import {CompanyFleetComponent} from '../../views/profile/company-profile/company
 })
 export class InsuredFleetComponent implements OnInit {
   companyId:string = localStorage.getItem('company')
-  fleets:object
-  entities:object
+  fleets:any
+  entities:any 
   currentId: any 
 
 
@@ -21,13 +35,29 @@ export class InsuredFleetComponent implements OnInit {
 
   this.grabAllFleets()
 
-  this._entityService.fetchAllEntities(this.companyId).subscribe(e =>{
-    this.entities =e
-    
-
-  })
+  this.grabAllEntities()
   }
 
+
+  grabAllEntities() {
+    this._entityService.fetchAllEntities(this.companyId).subscribe(e =>{
+      this.entities =e
+      this.getEntityName()
+  
+    })
+  }
+
+  getEntityName() {
+    this.fleets.map((fleets: FleetInterface) => {
+      const entityName: any[] = this.entities.filter((entity: Entity) => {
+  
+        if (entity.uid === fleets.entityId) {
+          return entity
+        }
+      })
+      fleets.entityName = entityName[0].entity_name
+    })
+  }
   open(content) {
     this.modalService.open(content)
     this.currentId = event.srcElement.id
