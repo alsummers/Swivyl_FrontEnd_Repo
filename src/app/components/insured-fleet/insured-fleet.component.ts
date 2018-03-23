@@ -12,6 +12,8 @@ export class InsuredFleetComponent implements OnInit {
   companyId:string = localStorage.getItem('company')
   fleets:object
   entities:object
+  currentId: any 
+
 
   constructor(private _fleetService: FleetService, private _entityService: EntityService, private modalService: NgbModal, private _companyFleet: CompanyFleetComponent) { }
 
@@ -28,6 +30,8 @@ export class InsuredFleetComponent implements OnInit {
 
   open(content) {
     this.modalService.open(content)
+    this.currentId = event.srcElement.id
+    console.log('target id:', this.currentId)
   }
 
 
@@ -48,6 +52,34 @@ export class InsuredFleetComponent implements OnInit {
       this.grabAllFleets()
     })
     
+  }
+
+  updateFleet(e) {
+    const fleetUpdatedInfo = {
+      fleets: {
+        year: e.target.elements[0].value,
+        make: e.target.elements[1].value,
+        model: e.target.elements[2].value,
+        vin: e.target.elements[3].value,
+        driver: e.target.elements[4].value,
+        gzip: e.target.elements[5].value,
+        date: e.target.elements[6].value,
+        titledto: e.target.elements[7].value,
+        uid: this.currentId
+      },
+      entity: {
+        uid: e.target.elements[8].value
+      },
+      company: {
+        uid: this.companyId
+      }
+    }
+    this._fleetService.updateFleet(fleetUpdatedInfo).subscribe(e=>{
+      console.log(e)
+      let fleets = this.grabAllFleets()
+      console.log('fleets', fleets)
+    })
+  
   }
   
 
