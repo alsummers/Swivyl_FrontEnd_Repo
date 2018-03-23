@@ -1,10 +1,13 @@
+
 import { Component, OnInit} from '@angular/core';
+
 
 @Component({
   selector: 'app-sidebar-header',
   templateUrl: './app-sidebar-header.component.html'
 })
 export class AppSidebarHeaderComponent {
+
   companyImage:string
   firstName:string
   lastName:string
@@ -16,4 +19,5 @@ export class AppSidebarHeaderComponent {
   this.lastName=localStorage.getItem('lastName')
   console.log(this.firstName)
 }
+
  }
