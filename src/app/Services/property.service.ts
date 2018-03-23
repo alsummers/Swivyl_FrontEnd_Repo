@@ -17,6 +17,13 @@ export class PropertyService {
     return this._http.post(`${Sql_Api}/property`, propertyInfo, {headers:this.getHeaders()})
   }
   fetchAllProperty(entityId){
-    return this._http.get(`${Sql_Api}/property/all/${entityId}`)
+    return this._http.get(`${Sql_Api}/property/company/${entityId}`, {headers:this.getHeaders()})
   }
+  deleteProperty(propertyId){
+    return this._http.delete(`${Sql_Api}/property/${propertyId}`, {headers:this.getHeaders()})
+  }
+  updatePropertyInfo(propertyUpdatedInfo){
+    return this._http.put(`${Sql_Api}/property`, propertyUpdatedInfo, {headers:this.getHeaders()})
+  }
+
 }

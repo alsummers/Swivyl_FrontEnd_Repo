@@ -33,9 +33,11 @@
     padding: $sidebar-header-padding-y $sidebar-header-padding-x;
     text-align: center;
     background: $sidebar-header-bg;
+    max-height: 220px;
   }
-  .companyHeaderTag { //Box where the compnay logo and username is
-
+  .companyHeaderTag { //Box where the company logo and username is
+    width: 50%;
+    display: inline
   }
 
   .companyLogo { // Company Logo/Image
@@ -46,12 +48,14 @@
   }
 
   .userFirst { //User First Name
-    margin: 60px 0 0 0;
-    font-size: 2vh;
+    margin: 3rem 0 0 0;
+    font-size: 1vw, 2vh;
+    // max-width: 50px;
   }
 
   .userLast { //User Last Name
-    font-size: 2vh;
+    font-size: 1vw, 2vh;
+    // max-width: 50px;
   }
 
   .sidebar-form .form-control {

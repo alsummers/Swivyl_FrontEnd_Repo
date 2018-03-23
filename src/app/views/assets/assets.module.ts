@@ -8,6 +8,9 @@ import { AssetsRoutingModule } from './assets.routes';
 import { InsuredPropertyComponent } from '../../components/insured-property/insured-property.component';
 import { InsuredFleetComponent } from '../../components/insured-fleet/insured-fleet.component';
 import { CommonModule } from '@angular/common';
+import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap'
+import { CompanyFleetComponent } from '../../views/profile/company-profile/company-fleet/company-fleet.component'
+import { CompanyProfileRiskComponent } from '../../views/profile/company-profile/company-profile-risk/company-profile-risk.component'
 
 @NgModule({
   imports: [
@@ -16,8 +19,11 @@ import { CommonModule } from '@angular/common';
     ChartsModule,
     BsDropdownModule,
     ButtonsModule.forRoot(),
-    CommonModule
+    CommonModule,
+    NgbModule.forRoot()
+    
   ],
-  declarations: [ AssetsComponent, InsuredPropertyComponent, InsuredFleetComponent ]
+  declarations: [ AssetsComponent, InsuredPropertyComponent, InsuredFleetComponent ],
+  providers: [ CompanyFleetComponent, CompanyProfileRiskComponent]
 })
 export class AssetsModule { }

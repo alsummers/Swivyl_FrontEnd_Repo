@@ -22,6 +22,8 @@ import { CompanyProfileSetupComponent } from './company-profile/company-profile-
 import { CompanyService } from '../../Services/company.service';
 import { PropertyService } from '../../Services/property.service';
 import { FleetService } from '../../Services/fleet.service';
+import { LogService } from '../../Services/log.service';
+import { ShareholderService } from '../../Services/shareholder.service';
 
 
 
@@ -54,7 +56,9 @@ import { FleetService } from '../../Services/fleet.service';
    providers: [
     FleetService,
     PropertyService,
-    CompanyService
+    CompanyService,
+    LogService,
+    ShareholderService
 ],
 bootstrap: [ ProfileComponent, CompanyProfileRiskComponent ]
 })

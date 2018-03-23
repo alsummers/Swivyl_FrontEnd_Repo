@@ -48,8 +48,8 @@ $navbar-border: (
 )  !default;
 $navbar-brand-width:                  220px !default;
 $navbar-brand-bg:                     $gray-800 !default;
-$navbar-brand-logo:                   url('../img/logo.png') !default; //Change this to the Swivyl Image
-$navbar-brand-logo-size:              70px auto !default;
+$navbar-brand-logo:                   url('../assets/img/swivyl-main.png') !default; //Change this to the Swivyl Image
+$navbar-brand-logo-size:              140px auto !default;
 $navbar-brand-border: (
   bottom: (
     size:                             0px,
@@ -60,7 +60,7 @@ $navbar-brand-border: (
 
 $navbar-brand-minimized-width:        50px !default;
 $navbar-brand-minimized-bg:           $navbar-brand-bg !default;
-$navbar-brand-minimized-logo:         url('../img/logo-symbol.png') !default;
+$navbar-brand-minimized-logo:         url('../assets/img/swivyl-black.png') !default;
 $navbar-brand-minimized-logo-size:    24px !default;
 $navbar-brand-minimized-border:       $navbar-brand-border !default;
 
