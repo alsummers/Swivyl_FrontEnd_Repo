@@ -39,6 +39,8 @@ export class AuthService {
     return this._http.get(`${Sql_Url}`).map((res: Response) => res)
     .catch((err: any) => Observable.throw(err || 'Server Error'))
   }
+
+  
   
 
 
