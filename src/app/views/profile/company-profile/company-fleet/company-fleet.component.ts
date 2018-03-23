@@ -51,5 +51,5 @@ fleetCreate(e) {
     this._fleetService.createFleet(fleetInfo).subscribe(e => {
       console.log(e)
     })
-  }s
+  }
 }
