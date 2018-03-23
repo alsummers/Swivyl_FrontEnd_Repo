@@ -28,7 +28,7 @@
     </div>
         
     <div class="card-footer to-do-footer dashboard-footer">
-        <button class="btn btn-lg btn-dark" (click)="open(viewall)" >View all items</button>
+        <button class="btn btn-lg btn-dark" (click)="open(viewall)" *ngIf="tasks.length >= 1">View all items</button>
         <button class="btn btn-lg btn-dark" (click)="open(createTask)">+Add Task</button>
     </div>
   
@@ -59,26 +59,31 @@
             <h6>ALL TASKS:</h6>
         
             <div *ngFor="let task of tasks">
-            <div *ngIf="show">
+            <div>
                 {{task.dateDue | date:"MM/dd/yy"}}: 
-                {{task.description}} <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="show = !show" (click)="currentId = task.uid">U</button> <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="removeTask($event)">X</button>
+                {{task.description}} <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="d('Cross click')" (click)="open(updateTask)">U</button> <button class="btn btn-outline-dark" id="{{task.uid}}" (click)="removeTask($event)">X</button>
             </div>
             </div>
-            <div *ngIf="!show" >
-                <div *ngFor="let task of tasks">
-                <div class="task container" *ngIf='task.uid == currentId'>
-                    <form (submit)="updateTask($event)">
-                    <input type="date" class="btn btn-outline-dark" value="{{task.dateDue}}">
-                    <input type="text" value="{{task.description}}" id="{{task.uid}}" class="btn btn-outline-dark">
-                    <button type="submit" class="btn btn-outline-dark" id="{{task.uid}}">Edit</button>
-                    <button type="button" class="btn btn-outline-dark" (click)="show = !show">Go Back</button>
-                    </form> 
-                </div> 
-                </div>
+        </div>    
+    </ng-template>   
+   
+    <ng-template #updateTask let-c="close" let-d="dismiss">
+            <div class="modal-header">
+              <h4 class="modal-title">To-Do Task</h4>
+              <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+            <div *ngFor="let task of tasks">
+            <div class="task container" *ngIf='task.uid == currentId'>
+                <form (submit)="updateTaskInfo($event)">
+                <h4>Update Task</h4>
+                <input type="date" class="btn btn-outline-dark" value="{{task.dateDue}}">
+                <input type="text" value="{{task.description}}" id="{{task.uid}}" class="btn btn-outline-dark">
+                <button type="submit" class="btn btn-outline-dark" id="{{task.uid}}">Edit</button>
+                </form> 
+            </div> 
             </div>
         </div>    
     </ng-template>
-  
-   
-  
-  

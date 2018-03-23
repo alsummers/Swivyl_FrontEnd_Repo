@@ -37,14 +37,15 @@ export class DashboardToDoComponent implements OnInit {
   open(content) {
     this.modalRef = this.modalService.open(content)
     this.currentId = event.srcElement.id
-  }
+    console.log('target id:', this.currentId)
+    }
   closeTaskModal() { this.modalRef.close(); }
 
 
   taskCreate(e) {
     console.log(this.companyId)
     console.log(this.date)
-    close()
+    this.closeTaskModal()
     // console.log(e.target.elements[0].value)
 
     var toDoTask = {
@@ -75,9 +76,9 @@ export class DashboardToDoComponent implements OnInit {
   }
 
 
-  updateTask(e) {
+  updateTaskInfo(e) {
     console.log(e)
-    this.currentId = event.srcElement.id
+    
     var toDoTask = {
       todo: {
         description: e.target.elements[1].value,
@@ -92,10 +93,10 @@ export class DashboardToDoComponent implements OnInit {
     this._toDoService.updateTask(toDoTask).subscribe(e => {
       console.log(e)
       let tasks = this.grabAllCompanyTasks()
-      console.log('tasks', tasks)
-      this.closeTaskModal()
+      console.log('tasks', tasks)      
     })
-
+    this.closeTaskModal()
+   
   }
 
 
@@ -103,8 +104,8 @@ export class DashboardToDoComponent implements OnInit {
     
     this._toDoService.deleteTask(e.target.id).subscribe(e => {
       this.grabAllCompanyTasks()
-      this.closeTaskModal()
+   
     })
-    
+    this.closeTaskModal()
   }
 }
