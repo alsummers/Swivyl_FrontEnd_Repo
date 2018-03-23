@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
 import { CompanyService } from '../../../../Services/company.service';
 import { AuthService } from '../../../../Services/auth.service';
 import { ShareholderService } from '../../../../Services/shareholder.service';
@@ -12,7 +13,8 @@ import { ShareholderService } from '../../../../Services/shareholder.service';
 export class CompanyShareholderCardComponent implements OnInit {
   companyId: string = localStorage.getItem('company')
   shareholders: object
-  constructor(private _companyService: CompanyService, private _auth: AuthService, private _sholderService: ShareholderService) { }
+  updateId: any
+  constructor(private modalService: NgbModal, private _companyService: CompanyService, private _auth: AuthService, private _sholderService: ShareholderService) { }
 
   ngOnInit() {
     this._companyService.fetchcompany().subscribe(e => {
@@ -28,7 +30,47 @@ export class CompanyShareholderCardComponent implements OnInit {
       this.shareholders = e
     })
   }
-  createShareholder(sholderInfo) {
-    
+  createShareholder(e) {
+    const address = `${e.target.elements[3].value} ${e.target.elements[4].value} ${e.target.elements[5].value} ${e.target.elements[6].value}`
+    const sholderInfo = {
+      shareholders: {
+        firstname: e.target.elements[0].value,
+        lastname: e.target.elements[1].value,
+        address: address,
+        ownership: e.target.elements[2].value
+      },
+      company: {
+        uid: this.companyId
+      }
+    }
+    this._sholderService.createShareholder(sholderInfo).subscribe(e => {
+      console.log(e)
+    })
+  }
+  removeShareholder(e) {
+    this._sholderService.deleteShareholder(e.target.id).subscribe(e => {
+      console.log('deleted shareholder')
+    })
+  }
+  open(content) {
+    this.updateId = content.target.id
+    this.modalService.open(content)
+    console.log(this.updateId)
+  }
+  updateShareholder(e) {
+    const address = `${e.target.elements[3].value} ${e.target.elements[4].value} ${e.target.elements[5].value} ${e.target.elements[6].value}`
+    const sholderInfo = {
+      shareholders: {
+        firstname: e.target.elements[0].value,
+        lastname: e.target.elements[1].value,
+        address: address,
+        ownership: e.target.elements[2].value,
+        uid: this.updateId
+      },
+      company: {
+        uid: this.companyId
+      }
+    }
+
   }
 }
