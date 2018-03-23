@@ -394,13 +394,13 @@
         <div class="risk container">
             <form (submit)="removeProperty($event)">
               <div class="row justify-content-center">
-                <h4>Are you do you want to delete?</h4>
+                <h4>Are you sure you want to delete?</h4>
               </div>
               <br>
               <div class="row justify-content-end">
                 <div class="col-7"></div>
                   <div class="col">
-                      <button type="submit" class="btn btn-outline-dark" value="delete" (click)="confirm = 'true'"> Delete </button> 
+                      <button type="submit" class="btn btn-outline-danger" value="delete" (click)="confirm = 'true'"> Delete </button> 
                 <button class="btn btn-outline-dark" (click)="confirm = 'false'" (click)="d('Cross click')"> Cancel </button>   
                </div>
               </div>
