@@ -16,7 +16,7 @@ import { CompanyShareholderComponent } from './company-profile/company-sharehold
 import { CompanyFleetComponent } from './company-profile/company-fleet/company-fleet.component';
 import { DashboardQuickConnectComponent, DashboardActivityComponent } from './activity-connect.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap'
-
+import { AlertModule } from 'ngx-bootstrap'
 import { CompanyShareholderCardComponent } from './company-profile/company-shareholder/company-shareholder-card.component';
 import { CompanyProfileSetupComponent } from './company-profile/company-profile-setup/company-profile-setup.component';
 import { CompanyService } from '../../Services/company.service';
@@ -36,7 +36,8 @@ import { ShareholderService } from '../../Services/shareholder.service';
     BsDropdownModule,
     ButtonsModule.forRoot(),
     CommonModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    AlertModule.forRoot()
 
   ],
   declarations: [ 

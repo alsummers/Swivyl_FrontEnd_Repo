@@ -12,6 +12,9 @@ import { PropertyService } from '../../../../Services/property.service';
   templateUrl: './company-profile-risk.component.html',
 })
 export class CompanyProfileRiskComponent implements OnInit {
+  added: Boolean
+  dismissible = true;
+  alert: any = 'Property has been added'
   //define where the get call will store the property data, and where the entities will be stored
   //since both of these will be objects they need to be defined as such.
   companyId:string = localStorage.getItem('company')
@@ -23,14 +26,14 @@ export class CompanyProfileRiskComponent implements OnInit {
   //for ngOnInit put any functions such as the get all function that will populate the lists,
   //you would also want to call any functions that store any data you may need
   ngOnInit() {
+    this.added = false
     this._entityService.fetchAllEntities(this.companyId).subscribe(e =>{
-      this.entities =e
-      
-
+      this.entities = e
     })
 
   }
   postProperty(e){
+    this.added = false
     //11 inputs accepted 
     //elements are targetable by calling the function on form submit and using 
     // e.target.elements[#]
@@ -58,13 +61,14 @@ export class CompanyProfileRiskComponent implements OnInit {
       }
 
     }
-    
     e.target.reset()
     this._propertService.createProperty(propertyInfo).subscribe(e=>{
-      console.log(e)
+      this.added = true
   })
 }
 
-
+onClosed(dismissedAlert: any): void {
+  this.alert = this.alert !== dismissedAlert;
+}
 
 }
