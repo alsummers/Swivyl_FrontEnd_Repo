@@ -1,5 +1,7 @@
+
 import { Component, OnInit} from '@angular/core';
 import { CompanyService } from '../../Services/company.service';
+
 
 
 @Component({
@@ -7,12 +9,14 @@ import { CompanyService } from '../../Services/company.service';
   templateUrl: './app-sidebar-header.component.html'
 })
 export class AppSidebarHeaderComponent {
+
   companyImage:string
   firstName:string
   lastName:string
   constructor(private _companyService:CompanyService){}
   // https://www.communitylandtrust.ca/wp-content/uploads/2015/10/placeholder.png
   ngOnInit(){
+
     this.companyImage ='http://localhost:3000/profile/'+localStorage.getItem('img')
     this.firstName=localStorage.getItem('firstName')
     this.lastName=localStorage.getItem('lastName')
@@ -34,4 +38,5 @@ export class AppSidebarHeaderComponent {
     })
   }
   
+
  }

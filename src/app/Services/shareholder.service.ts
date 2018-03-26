@@ -17,12 +17,13 @@ export class ShareholderService {
     return this._http.get(`${Sql_Api}/shareholders/all/${companyId}`, {headers: this.setHeader()})
   }
   fetchShareholder(sholderId){
-    return this._http.get(`${Sql_Api}/shareholders/${sholderId}`, {headers:this.setHeader()})
+    return this._http.get(`${Sql_Api}/shareholders/${sholderId}`, {headers: this.setHeader()})
   }
   updateShareholder(sholderInfo){
-    return this._http.put(`${Sql_Api}/shareholders`, sholderInfo, {headers:this.setHeader()})
+    return this._http.put(`${Sql_Api}/shareholders`, sholderInfo, {headers: this.setHeader()})
   }
   deleteShareholder(sholderId){
-    return this._http.delete(`${Sql_Api}/shareholders/${sholderId}`, {headers:this.setHeader()})
+    return this._http.delete(`${Sql_Api}/shareholders/${sholderId}`, {headers: this.setHeader()})
   }
+
 }

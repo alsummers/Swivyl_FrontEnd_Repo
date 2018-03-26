@@ -8,7 +8,7 @@ import { UserService } from '../../../../Services/user.service';
 @Component({
 
   templateUrl: './company-fleet.component.html',
-
+  styles: ['button{margin-top:11px}']
 })
 export class CompanyFleetComponent implements OnInit {
   companyId:string = localStorage.getItem('company')
@@ -51,5 +51,5 @@ fleetCreate(e) {
     this._fleetService.createFleet(fleetInfo).subscribe(e => {
       console.log(e)
     })
-  }s
+  }
 }

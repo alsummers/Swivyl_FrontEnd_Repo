@@ -3,7 +3,7 @@
           <div class="col-8">
           </div>
           <div class="col-4">
-              <button class="btn btn-outline-dark">Update</button>  <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="removeFleet($event)">Delete</button>
+              <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(updateVehicle)">Update</button>  <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(deleteVehicle)">Delete</button>
             </div>
       </div>
       <div class="row justify-content-start">
@@ -78,11 +78,18 @@
             {{fleet.titled_to}}
           </div>
       </div>
+
+      <div class="row justify-content-start">
+          <div class="col-2">
+            <label>Entity:</label>
+          </div>
+          <div class="col">
+            {{fleet.entityName}}
+          </div>
+      </div>
       <hr>
      
   </div>
-
-
    <div class="row">    
       <div class="col">
         <button type="reset" class="btn btn-outline-dark" (click)="open(addVehicle)">Add Vehicle</button> 
@@ -92,7 +99,7 @@
 
     <ng-template #addVehicle let-c="close" let-d="dismiss">
         <div class="modal-header">
-          <h4 class="modal-title">Add Vehicle</h4>
+          <h4 class="modal-title">Add Fleet</h4>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -104,77 +111,225 @@
               
                 </div>
                   <form (submit)="fleetCreate($event)">
-                    <div class="form-row">
-                      <div class="col">
-                        <label for="Year">Year</label>
-                        <div class="card">
-              
-                          <input placeholder="Year" class="form-control" type="number" min="2000">
+                    <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Year:</label>
                         </div>
-                      </div>
-                      <div class="col">
-                        <label for="Make">Make</label>
-                        <div class="card">
-                          <input placeholder="Make" class="form-control" type="text">
-                        </div>
-                      </div>
-                      <div class="col">
-                        <label for="Model">Model</label>
-                        <div class="card">
-                          <input placeholder="Model" class="form-control" type="text">
-                        </div>
-                      </div>
-                      <div class="col">
-                        <label for="VIN">VIN#</label>
-                        <div class="card">
-                          <input placeholder="Vin#" class="form-control" type="text">
-                        </div>
+                        <div class="col">
+                            <input placeholder="Year" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
                       </div>
                     </div>
-                    <div class="form-row">
-                      <div class="col">
-                        <label for="Driver">Driver</label>
-                        <div class="card">
-                          <input placeholder="Driver" class="form-control" type="text">
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Make:</label>
+                        </div>
+                        <div class="col">
+                          <input type="text" class=" bottom-form-input" placeholder="Make" aria-label="Owner name" aria-describedby="">
                         </div>
                       </div>
-                      <div class="col">
-                        <label for="ZIP">Garaging Zip</label>
-                        <div class="card">
-                          <input placeholder="Garaging Zip" class="form-control" type="text">
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Model:</label>
+                        </div>
+                        <div class="col">
+                            <input placeholder="Model" type="string" class="bottom-form-input" id="basic-url" step="50" aria-describedby="basic-addon3" min="0">
                         </div>
                       </div>
-                      <div class="col">
-                        <label for="Date">Date Added</label>
-                        <div class="card">
-                          <input id="date" class="form-control" type="date">
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Vin #:</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class=" bottom-form-input" placeholder="Vin #" aria-label="Owner name" aria-describedby="">
                         </div>
                       </div>
-                      <div class="col">
-                        <label for="Title">Titled To</label>
-                        <div class="card">
-                          <input placeholder="Titled To" class="form-control" type="text">
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Driver:</label>
                         </div>
+                        <div class="col">
+                            <input placeholder="Driver" type="text" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3" min="0">
+                        </div>
+                      </div>
+
+                      <div class="row justify-content-start">
+                          <div class="col-2">
+                            <label>Garaging Zip:</label>
+                          </div>
+                          <div class="col">
+                              <input placeholder="Garaging Zip Code" type="number" class="bottom-form-input" id="basic-url" step="50" aria-describedby="basic-addon3" min="0">
+                          </div>
+                        </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Date Added:</label>
+                        </div>
+                        <div class="col"> 
+                            <input type="date">
+                        </div>
+                      </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Titled To:</label>
+                        </div>
+                        <div class="col">
+                            <input placeholder="Titled To" type="text" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
                       </div>
                     </div>
-                    <div class="row">
-                      <div class="col">
-              
-                      <div class="input-group">
-                        <label>Entity</label>
-                        <select>
-                          <option *ngFor="let entity of entities" value="{{entity.uid}}"> {{entity.entity_name}} </option>
-                        </select>
-                      </div>
-                      </div>
-                    </div>
+                  
+                   
+                        <div class="row justify-content-start">
+                            <div class="col-2">
+                              <label>Select Entity:</label>
+                            </div>
+                            <div class="col">
+                              <select>
+                                <option *ngFor="let entity of entities" value="{{entity.uid}}" >{{entity.entity_name}}</option>      
+                              </select>
+                          </div>
+                        </div>
+                          <hr>
                     <div class="row">
                     <div class="col">
                       <button type="submit" class="btn btn-outline-dark">Save</button>
                   </div>
                 </div>
-            </form>     
+            </form>  
+            </div>
+            </div>   
+    </ng-template>
+
+    <ng-template #updateVehicle let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Update Fleet</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" *ngFor="let fleet of fleets">
+  
+            <div class="fleet container" *ngIf='fleet.uid == currentId'>
+                <form (submit)="updateFleet($event)">
+                    <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Year:</label>
+                        </div>
+                        <div class="col">
+                            <input value="{{fleet.year}}" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+                      </div>
+                    </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Make:</label>
+                        </div>
+                        <div class="col">
+                          <input type="text" class=" bottom-form-input" value="{{fleet.make}}" aria-label="Owner name" aria-describedby="">
+                        </div>
+                      </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Model:</label>
+                        </div>
+                        <div class="col">
+                            <input value="{{fleet.model}}" type="string" class="bottom-form-input" id="basic-url" step="50" aria-describedby="basic-addon3" min="0">
+                        </div>
+                      </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Vin #:</label>
+                        </div>
+                        <div class="col">
+                            <input type="text" class=" bottom-form-input" value="{{fleet.vin_number}}" aria-label="Owner name" aria-describedby="">
+                        </div>
+                      </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Driver:</label>
+                        </div>
+                        <div class="col">
+                            <input value="{{fleet.driver}}" type="text" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3" min="0">
+                        </div>
+                      </div>
+
+                      <div class="row justify-content-start">
+                          <div class="col-2">
+                            <label>Garaging Zip:</label>
+                          </div>
+                          <div class="col">
+                              <input value="{{fleet.garaging_zip}}" type="number" class="bottom-form-input" id="basic-url" step="50" aria-describedby="basic-addon3" min="0">
+                          </div>
+                        </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Date Added:</label>
+                        </div>
+                        <div class="col"> 
+                            <input value="{{fleet.date_added}}" type="date" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+                        </div>
+                      </div>
+                  
+                      <div class="row justify-content-start">
+                        <div class="col-2">
+                          <label>Titled To:</label>
+                        </div>
+                        <div class="col">
+                            <input value="{{fleet.titled_to}}" type="text" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+                      </div>
+                    </div>
+                  
+                   
+                        <div class="row justify-content-start">
+                            <div class="col-2">
+                              <label>Select Entity:</label>
+                            </div>
+                            <div class="col">
+                              <select>
+                                <option *ngFor="let entity of entities" value="{{entity.uid}}" >{{entity.entity_name}}</option>      
+                              </select>
+                          </div>
+                        </div>
+                          <hr>
+                            <button type="submit" class="btn btn-outline-dark">Update Fleet</button> 
+                        </form>
           </div>
         </div>
     </ng-template>
   
+
+    <ng-template #deleteVehicle let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Vehicle</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="risk container">
+              <form (submit)="removeFleet($event)">
+                <div class="row justify-content-center">
+                  <h4>Are you sure you want to delete?</h4>
+                </div>
+                <br>
+                <div class="row justify-content-end">
+                  <div class="col-7"></div>
+                    <div class="col">
+                        <button type="submit" class="btn btn-outline-danger" value="delete" (click)="confirm = 'true'"> Delete </button> 
+                  <button class="btn btn-outline-dark" (click)="confirm = 'false'" (click)="d('Cross click')"> Cancel </button>   
+                 </div>
+                </div>
+              </form>
+  
+          </div> 
+        </div>
+    </ng-template>
