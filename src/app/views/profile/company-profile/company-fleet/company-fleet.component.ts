@@ -48,6 +48,7 @@ fleetCreate(e) {
         uid: this.companyId
       }
     }
+    e.target.reset()
     this._fleetService.createFleet(fleetInfo).subscribe(e => {
       console.log(e)
     })
