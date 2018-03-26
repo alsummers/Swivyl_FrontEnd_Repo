@@ -16,6 +16,7 @@ export class AuthService {
 
   login(loginInfo){
     return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
+
       localStorage.setItem('token', `${loginInfo.client.token}`  )
       localStorage.setItem('firstName', `${loginInfo.client.firstName}`  )
       localStorage.setItem('lastName', `${loginInfo.client.lastName}`  )

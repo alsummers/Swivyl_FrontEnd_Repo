@@ -49,6 +49,7 @@ export class DashboardActivityComponent implements OnInit {
       console.log(e[0])
       this.companyId = e[0].uid
       localStorage.setItem('company', e[0].uid)
+      localStorage.setItem('img', e[0].img)
       return this.grabAllCompanyLogs()
       // return console.log("Company",this.companyId)
     })
