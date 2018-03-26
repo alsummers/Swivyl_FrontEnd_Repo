@@ -7,26 +7,27 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CompanyWelcomeProfileComponent implements OnInit {
 
-  constructor(){}
+  // constructor(){}
 
-  ngOnInit() {}
-// token: string;
-// lastname: string;
-// firstname: string;
-//   constructor(private route: ActivatedRoute) { 
-//     this.route.queryParams.subscribe(params => {
-//       this.token = params['token'];
-//       this.firstname = params['firstname'];
-//       this.lastname = params['lastname'];
-//   });
-//   }
+  // ngOnInit() {}
+token: string;
+lastname: string;
+firstname: string;
+  constructor(private route: ActivatedRoute) { 
+    this.route.queryParams.subscribe(params => {
+      this.token = params['token'];
+      this.firstname = params['firstname'];
+      this.lastname = params['lastname'];
+  });
+  }
 
-//   ngOnInit() {
+  ngOnInit() {
 
-//     localStorage.setItem('token', this.token)
-//     localStorage.setItem('firstName', this.firstname)
-//     localStorage.setItem('lastName', this.lastname)
+    // localStorage.setItem('token', this.token)
+    // localStorage.setItem('firstName', this.firstname)
+    // localStorage.setItem('lastName', this.lastname)
 
-//   }
+  }
+  
 
 }

@@ -16,28 +16,33 @@ export const navigation = [
   {
     name: 'Assets',
     url: '/assets',
-    icon: 'icon-pencil'
+    icon: 'icon-pencil',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Policy Corner',
     url: '/base',
-    icon: 'icon-puzzle'
+    icon: 'icon-puzzle',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Open Items',
     url: '/buttons',
-    icon: 'icon-cursor'
+    icon: 'icon-cursor',
+    canActivate: [LoggedInAuthGuard]
   },
   {
 
     name: 'Data Exchange',
     url: '/buttons',
-    icon: 'icon-cursor'
+    icon: 'icon-cursor',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Contact Agent',
     url: '/notifications',
-    icon: 'icon-bell'
+    icon: 'icon-bell',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Messages',

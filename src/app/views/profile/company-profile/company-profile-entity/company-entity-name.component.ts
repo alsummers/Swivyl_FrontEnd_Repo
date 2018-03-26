@@ -29,7 +29,7 @@ template: `
             </div>
 
           <div id="{{entity.uid}}" class="modal-body">
-            <input class="form-control">
+            <input class="form-control" value="{{entity.entity_name}}">
           </div>
           <div class="modal-footer" style="border-top:0">
             <button type="submit" class="btn btn-outline-dark" id="{{entity.uid}}">Edit</button>
@@ -40,10 +40,10 @@ template: `
     </ng-template>
   <div class="col-sm-5">
     <div class="entity-card card">
-      <div class="card-body" style="max-height:1rem; text-align:center">
+      <div class="card-newcard-body" style="max-height:1rem; text-align:center; padding-bottom:2em; padding-right:2em">
         <div class="row">
-          <div class="col">{{entity.entity_name}}</div>
-            <div class="col-1" ><i class="fa fa-trash " id="{{entity.uid}}" (click)="removeEntity($event)"></i></div>
+          <div class="col" style="padding:0">{{entity.entity_name}}</div>
+            <div class="col-1" style ><i class="fa fa-trash " id="{{entity.uid}}" (click)="removeEntity($event)"></i></div>
               <div class="col-1"><i class="fa fa-pencil" (click)="open(content)"></i></div>
               </div>
             </div>
