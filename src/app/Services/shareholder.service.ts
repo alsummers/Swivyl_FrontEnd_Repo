@@ -26,3 +26,4 @@ export class ShareholderService {
     return this._http.delete(`${Sql_Api}/shareholders/${sholderId}`, {headers: this.setHeader()})
   }
 
+}

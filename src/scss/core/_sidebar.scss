@@ -163,7 +163,7 @@
 
     &.active {
       color: $sidebar-nav-link-active-color;
-      background: #b1b1b1;
+      background: $body-bg;
       border-left: #a8c83e 0.4rem solid;
       @include borders($sidebar-nav-link-active-borders);
 
