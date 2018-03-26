@@ -2,10 +2,33 @@
       <div class="row justify-content-start">
           <div class="col-8">
           </div>
-          <div class="col-4">
-              <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(updateVehicle)">Update</button>  <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(deleteVehicle)">Delete</button>
-            </div>
+          
       </div>
+
+
+
+      <div class="row justify-content-start">
+          <div class="col-2">
+            <label>Titled To:</label>
+          </div>
+          <div class="col">
+            {{fleet.titled_to}}
+          </div>
+          <div class="col">
+              <button class="btn btn-outline-dark" (click)="show = !show" (click)="currentId = fleet.uid">{{show === true  && currentId === fleet.uid ? 'Hide' : 'View More'}}</button>
+              <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(updateVehicle)">Update</button> 
+              <button class="btn btn-outline-dark" id="{{fleet.uid}}" (click)="open(deleteVehicle)">Delete</button>
+          </div>
+      </div>
+      <div class="row justify-content-start">
+          <div class="col-2">
+            <label>Driver:</label>
+          </div>
+          <div class="col">
+            {{fleet.driver}}
+          </div>
+      </div>
+      <div *ngIf="show && currentId === fleet.uid">
       <div class="row justify-content-start">
           <div class="col-2">
             <label>Year:</label>
@@ -43,14 +66,7 @@
           </div>
       </div>
 
-      <div class="row justify-content-start">
-          <div class="col-2">
-            <label>Driver:</label>
-          </div>
-          <div class="col">
-            {{fleet.driver}}
-          </div>
-      </div>
+     
 
       <div class="row justify-content-start">
           <div class="col-2">
@@ -70,14 +86,7 @@
           </div>
       </div>
 
-      <div class="row justify-content-start">
-          <div class="col-2">
-            <label>Titled To:</label>
-          </div>
-          <div class="col">
-            {{fleet.titled_to}}
-          </div>
-      </div>
+     
 
       <div class="row justify-content-start">
           <div class="col-2">
@@ -86,6 +95,7 @@
           <div class="col">
             {{fleet.entityName}}
           </div>
+      </div>
       </div>
       <hr>
      

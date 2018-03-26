@@ -40,6 +40,7 @@ export class InsuredPropertyComponent implements OnInit {
   currentId: any 
   confirm: any
   modalRef: any
+  show: boolean = false;
 
   constructor(private _propertyService: PropertyService, private _entityService: EntityService, private _companyProperty: CompanyProfileRiskComponent, private modalService: NgbModal) { }
 
