@@ -40,7 +40,7 @@ template: `
     </ng-template>
   <div class="col-sm-5">
     <div class="entity-card card">
-      <div class="card-newcard-body" style="max-height:1rem; text-align:center; padding-bottom:2em; padding-right:2em">
+      <div class="card-newcard-body" style="max-height:1rem; text-align:center; padding:1em 2em 2.5em">
         <div class="row">
           <div class="col" style="padding:0">{{entity.entity_name}}</div>
             <div class="col-1" style ><i class="fa fa-trash " id="{{entity.uid}}" (click)="removeEntity($event)"></i></div>
