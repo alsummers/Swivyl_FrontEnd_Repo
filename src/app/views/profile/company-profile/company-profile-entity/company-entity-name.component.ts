@@ -29,7 +29,7 @@ template: `
             </div>
 
           <div id="{{entity.uid}}" class="modal-body">
-            <input class="form-control">
+            <input class="form-control" value="{{entity.entity_name}}">
           </div>
           <div class="modal-footer" style="border-top:0">
             <button type="submit" class="btn btn-outline-dark" id="{{entity.uid}}">Edit</button>
