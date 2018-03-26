@@ -107,13 +107,19 @@ interface Client {
         <p class="card-title">QUICK CONNECT</p>
       </div>
       <div class="card-body connect-box">
-        <style>::placeholder {
-          color: blue;
-          opacity: 0.35;
-          font-weight: bold;
-      }</style>
-          <textarea class="connect-textbox" rows="8" cols="75" placeholder="Need to contact your broker?&#10;Enter your message here."></textarea>
+    
+        <select (change)="onChange($event.target.value)">
+          <option value='default'> Select</option>
+          <option *ngFor="let option of options" value="{{option.id}}"> {{option.title}} </option>
+        </select>
+        <div *ngIf="!currentId || currentId === 'default'">
+          <textarea class="connect-textbox" rows="8" cols="75" placeholder="Please select whom to contact from above" disabled></textarea>
+        </div>
+        <div *ngFor="let description of descriptions">  
+            <textarea class="connect-textbox" rows="8" cols="75" placeholder={{description.description}} *ngIf="currentId === description.id"></textarea>
+        </div>
       </div>
+
       <div class="card-footer dashboard-footer">
       <button id="submit" class="btn btn-dark">Submit</button>
       </div>
@@ -121,10 +127,46 @@ interface Client {
   `
 })
 export class DashboardQuickConnectComponent implements OnInit {
+currentId: any
+options: Object[] = [
+  {
+    "id": 1,
+    "title": 'broker'
+    },
+  {
+    "id": 2,
+    "title": 'accountant'
+  },
+  {
+    "id": 3,
+    "title": 'HR'
+  }
+]
+descriptions: Object[] = [
+
+  {
+    "id": '1',
+    "description": 'Please type all broker related questions here.'
+  },
+  {
+    "id": '2',
+    "description": 'Please type all accountant related questions here.'
+  },
+  {
+    "id": '3',
+    "description": 'Please type all HR related questions here.'
+  }
+]
 
 
-  ngOnInit() { }
+  ngOnInit() {
+    
+   }
 
 
+  onChange(e) {
+    this.currentId = e
+    console.log(this.currentId)
+  }
 
 }
