@@ -39,10 +39,4 @@ export class CompanyService {
   deleteCompany(){
     return this._http.delete(`${Sql_Api}`, {headers:this.getHeaders()})
   }
-  getLogo(){
-    return this._http.get(`http://localhost:3000/api/company/profile`,
-     {headers:this.getHeaders()}).subscribe(e=>{
-       localStorage.setItem('img', e.img)
-     })
-  }
 }
