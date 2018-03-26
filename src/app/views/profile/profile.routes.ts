@@ -15,7 +15,6 @@ const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
-    canActivate: [LoggedInAuthGuard],
     data: {
       title: 'Profile'
     },
@@ -24,27 +23,27 @@ const routes: Routes = [
       {
         path: 'company-welcome',
         component: CompanyWelcomeProfileComponent,
-        canActivate: [LoggedInAuthGuard]
+        
       },
       {
         path: 'company-entity',
         component: CompanyProfileEntityComponent,
-        canActivate: [LoggedInAuthGuard]
+        
       },
       {
         path: 'fleet',
         component: CompanyFleetComponent,
-        canActivate: [LoggedInAuthGuard]
+        
       },
       {
         path: 'risk',
         component: CompanyProfileRiskComponent,
-        canActivate: [LoggedInAuthGuard]
+        
       },
       {
         path: 'company-shareholder',
         component: CompanyShareholderComponent,
-        canActivate: [LoggedInAuthGuard]
+        
       }
       
     ]
