@@ -10,7 +10,7 @@
   .navbar-brand {
     display: inline-block;
     width: $navbar-brand-width;
-    height: $navbar-height;
+    height: 55px;
     padding: $navbar-padding-y $navbar-padding-x;
     margin-right: 0;
     background-color: $navbar-brand-bg;
@@ -40,11 +40,18 @@
     align-items: center;
   }
 
+  .headerUser {
+    margin: 0.8rem 3rem 0 0;
+    font-size: 14px;
+  }
+  
+
   .nav-item {
     position: relative;
     min-width: 50px;
     margin: 0 !important;
     text-align: center;
+
 
     button {
       margin: 0 auto;

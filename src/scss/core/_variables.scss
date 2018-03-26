@@ -41,18 +41,23 @@ $navbar-height:                       55px !default;
 $navbar-bg:                           #fff !default;
 $navbar-border: (
   bottom: (
-    size:                             1px,
+    size:                             0px,
     style:                            solid,
     color:                            $border-color
   )
 )  !default;
-$navbar-brand-width:                  155px !default;
-$navbar-brand-bg:                     #fff !default;
-$navbar-brand-logo:                   url('../img/logo.png') !default;
+$navbar-brand-width:                  220px !default;
+$navbar-brand-bg:                     $gray-800 !default;
+<<<<<<< Updated upstream
+$navbar-brand-logo:                   url('../assets/img/swivyl-main.png') !default; //Change this to the Swivyl Image
+$navbar-brand-logo-size:              140px auto !default;
+=======
+$navbar-brand-logo:                   url('../../img/logo.png') !default; //Change this to the Swivyl Image
 $navbar-brand-logo-size:              70px auto !default;
+>>>>>>> Stashed changes
 $navbar-brand-border: (
   bottom: (
-    size:                             1px,
+    size:                             0px,
     style:                            solid,
     color:                            $border-color
   )
@@ -60,7 +65,7 @@ $navbar-brand-border: (
 
 $navbar-brand-minimized-width:        50px !default;
 $navbar-brand-minimized-bg:           $navbar-brand-bg !default;
-$navbar-brand-minimized-logo:         url('../img/logo-symbol.png') !default;
+$navbar-brand-minimized-logo:         url('../assets/img/swivyl-black.png') !default;
 $navbar-brand-minimized-logo-size:    24px !default;
 $navbar-brand-minimized-border:       $navbar-brand-border !default;
 
@@ -74,7 +79,7 @@ $navbar-toggler-icon-hover:           str-replace(url("data:image/svg+xml;charse
 
 // Sidebar
 
-$sidebar-width:                       200px !default;
+$sidebar-width:                       220px !default;
 $sidebar-padding:                     0 !default;
 $sidebar-minimized-width:             50px !default;
 $sidebar-minimized-height:            $sidebar-minimized-width !default;
@@ -87,8 +92,8 @@ $mobile-sidebar-width:                220px !default;
 
 // Sidebar Header
 
-$sidebar-header-height:               auto !default;
-$sidebar-header-bg:                   rgba(0,0,0,.2) !default;
+$sidebar-header-height:               180px !default;
+$sidebar-header-bg:                   linear-gradient(to top, #025886, #a4e3f0) !default;
 $sidebar-header-padding-y:            .75rem !default;
 $sidebar-header-padding-x:            1rem !default;
 
@@ -117,8 +122,8 @@ $sidebar-nav-link-hover-bg:           theme-color("primary") !default;
 $sidebar-nav-link-hover-icon-color:   #fff !default;
 $sidebar-nav-link-hover-borders:      0 !default;
 
-$sidebar-nav-link-active-color:       #fff !default;
-$sidebar-nav-link-active-bg:          lighten($sidebar-bg, 5%) !default;
+$sidebar-nav-link-active-color:       black !default;
+$sidebar-nav-link-active-bg:          #e4e5e6 !default;
 $sidebar-nav-link-active-icon-color:  theme-color("primary") !default;
 $sidebar-nav-link-active-borders:     0 !default;
 
@@ -133,9 +138,9 @@ $sidebar-nav-dropdown-indicator-hover:str-replace(url("data:image/svg+xml;charse
 // Sidebar Footer
 
 $sidebar-footer-height:               auto !default;
-$sidebar-footer-bg:                   rgba(0,0,0,.2) !default;
-$sidebar-footer-padding-y:            .75rem !default;
-$sidebar-footer-padding-x:            1rem !default;
+$sidebar-footer-bg:                   $gray-800 !default;
+$sidebar-footer-padding-y:            0.25rem !default;
+$sidebar-footer-padding-x:            0.25rem !default;
 $sidebar-footer-borders:              0 !default;
 
 // Sidebar Minimizer

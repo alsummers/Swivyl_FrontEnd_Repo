@@ -1,0 +1,87 @@
+<div class="fleet container">
+  <div class="row justify-content-center">
+
+  </div>
+  <form (submit)="fleetCreate($event)">
+    <div class="form-row">
+      <div class="col">
+        <label for="Year">Year</label>
+        <div class="card">
+
+          <input placeholder="Year" class="form-control" type="number" min="2000">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Make">Make</label>
+        <div class="card">
+          <input placeholder="Make" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Model">Model</label>
+        <div class="card">
+          <input placeholder="Model" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="VIN">VIN#</label>
+        <div class="card">
+          <input placeholder="Vin#" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col">
+        <label for="Driver">Driver</label>
+        <div class="card">
+          <input placeholder="Driver" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="ZIP">Garaging Zip</label>
+        <div class="card">
+          <input placeholder="Garaging Zip" class="form-control" type="text">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Date">Date Added</label>
+        <div class="card">
+          <input id="date" class="form-control" type="date">
+        </div>
+      </div>
+      <div class="col">
+        <label for="Title">Titled To</label>
+        <div class="card">
+          <input placeholder="Titled To" class="form-control" type="text">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+
+        <div class="input-group">
+          <label>Entity</label>
+          <select>
+            <option *ngFor="let entity of entities" value="{{entity.uid}}"> {{entity.entity_name}} </option>
+          </select>
+          
+        </div>
+      </div>
+    </div>
+    <button type="submit" className="mb-4 btn btn-primary">Save</button>
+
+
+  </form>
+
+</div>
+<!-- File upload for CSV, not for MVP -->
+<!-- <form action="">
+  <input class="" type="file"/>
+  <button  class="btn btn-dark" type="submit" >Upload</button>
+</form> -->
+
+
+<!-- end of cars -->
+<div class="row justify-content-end">
+  <a routerLink="../company-shareholder">Next</a>
+</div>

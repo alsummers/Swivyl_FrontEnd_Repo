@@ -28,6 +28,7 @@ app-root {
   flex-direction: row;
   flex-grow: 1;
   overflow-x: hidden;
+  margin-top: ($navbar-height * 1.8);
 
   .main {
     flex: 1;
@@ -56,9 +57,7 @@ app-root {
     z-index: $zindex-sticky;
     width: 100%;
   }
-  .app-body {
-    margin-top: $navbar-height;
-  }
+
 }
 
 //
@@ -76,11 +75,11 @@ app-root {
     z-index: $zindex-sticky - 1;
     width: $sidebar-width;
     height: calc(100vh - #{$navbar-height});
-    // margin-top: - $navbar-height;
+    margin-top: - ($navbar-height / 1.25);
 
-    // .sidebar-nav {
-    //   height: calc(100vh - #{$navbar-height});
-    // }
+    .sidebar-nav {
+      height: calc(100vh - #{$navbar-height});
+    }
   }
 
   .main, .app-footer {

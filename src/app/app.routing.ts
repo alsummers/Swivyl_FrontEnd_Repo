@@ -1,11 +1,13 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
 // Import Containers
 import {
   FullLayoutComponent,
   SimpleLayoutComponent
 } from './containers';
+import {
+  AppLoginRegisterComponent,
+} from './app-login-register/app-login-register.component'
 
 export const routes: Routes = [
   {
@@ -21,12 +23,8 @@ export const routes: Routes = [
     },
     children: [
       {
-        path: 'base',
-        loadChildren: './views/base/base.module#BaseModule'
-      },
-      {
-        path: 'buttons',
-        loadChildren: './views/buttons/buttons.module#ButtonsModule'
+        path: 'profile',
+        loadChildren: './views/profile/profile.module#ProfileModule'
       },
       {
         path: 'charts',
@@ -37,8 +35,8 @@ export const routes: Routes = [
         loadChildren: './views/dashboard/dashboard.module#DashboardModule'
       },
       {
-        path: 'icons',
-        loadChildren: './views/icons/icons.module#IconsModule'
+        path: 'assets',
+        loadChildren: './views/assets/assets.module#AssetsModule'
       },
       {
         path: 'notifications',
@@ -66,11 +64,17 @@ export const routes: Routes = [
         loadChildren: './views/pages/pages.module#PagesModule',
       }
     ]
+  },
+  {
+    path: 'login',
+    component: AppLoginRegisterComponent
   }
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes) ],
+  imports: [ RouterModule.forRoot(routes),
+             
+  ],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule {}

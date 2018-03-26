@@ -86,7 +86,7 @@ $enable-rounded:                  false;
 //
 // Settings for the `<body>` element.
 
-$body-bg:                         #e4e5e6;
+$body-bg:                         #ddd7d7; // previously #e4e5e6
 
 // Typography
 //
@@ -102,7 +102,7 @@ $breadcrumb-margin-bottom:        1.5rem;
 // Cards
 
 $card-border-color:               $gray-200;
-$card-cap-bg:                     $gray-100;
+$card-cap-bg:                     #fff;
 
 // Dropdowns
 

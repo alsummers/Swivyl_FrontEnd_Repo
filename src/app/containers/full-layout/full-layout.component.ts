@@ -4,4 +4,5 @@ import { Component } from '@angular/core';
   selector: 'app-dashboard',
   templateUrl: './full-layout.component.html'
 })
+
 export class FullLayoutComponent { }

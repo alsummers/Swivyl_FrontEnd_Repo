@@ -14,6 +14,7 @@ import 'rxjs/add/operator/filter';
     </li>
   </ng-template>`
 })
+
 export class AppBreadcrumbsComponent {
   breadcrumbs: Array<Object>;
   constructor(
@@ -21,7 +22,11 @@ export class AppBreadcrumbsComponent {
     private route: ActivatedRoute
   ) {
     this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event) => {
+
+      // empty array is set to be filled with items, these or the home/dashboard items in the top-middle of the page
       this.breadcrumbs = [];
+
+
       let currentRoute = this.route.root,
       url = '';
       do {
@@ -32,6 +37,8 @@ export class AppBreadcrumbsComponent {
           if (route.outlet === 'primary') {
             const routeSnapshot = route.snapshot;
             url += '/' + routeSnapshot.url.map(segment => segment.path).join('/');
+            console.log(route.outlet)
+
             this.breadcrumbs.push({
               label: route.snapshot.data,
               url:   url

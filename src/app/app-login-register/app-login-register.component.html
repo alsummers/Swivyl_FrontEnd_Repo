@@ -1,0 +1,28 @@
+<!-- to do, general styling purposes -->
+<header>
+  <div  class="container-fluid">
+    <img src="../../assets/img/Swivyl_Logo_Web_Black-Blue.png">
+    <button class="btn-lg btn-dark register-buttons" >Login</button>
+    <button class="btn-lg register-buttons" >Register</button>
+    
+  </div>
+</header>
+
+<div  class="jumbotron-fluid" id="landing-content">
+
+    <a href="http://localhost:3000/auth/google">SignIn</a>
+    <button id="googleBtn">Google Sign-In</button>
+    
+    <h3 class="display-3">Welcome to Swivyl</h3>
+    <p class="lead landing-p">Let's Get Started</p>
+    <form (submit)="loginUser($event)" >
+      <input class="smoothe-corner" type="text" placeholder="Name" required>
+      <input class="smoothe-corner" type="password" placeholder="PassWord" required >
+
+      <button class="smoothe-corner btn btn-dark">Confirm information</button>
+    </form>
+
+    
+</div>
+<div id="landing-footer"><p>Powered by &copy; 2017 Swivyl!</p></div>
+
