@@ -8,12 +8,14 @@ import { CompanyFleetComponent } from './company-profile/company-fleet/company-f
 import { CompanyProfileRiskComponent } from './company-profile/company-profile-risk/company-profile-risk.component'
 import { CompanyShareholderComponent } from './company-profile/company-shareholder/company-shareholder.component';
 import { CompanyProfileSetupComponent } from './company-profile/company-profile-setup/company-profile-setup.component';
+import { LoggedInAuthGuard } from "../../authguardservices";
 
 
 const routes: Routes = [
   {
     path: '',
     component: ProfileComponent,
+    canActivate: [LoggedInAuthGuard],
     data: {
       title: 'Profile'
     },
@@ -22,22 +24,27 @@ const routes: Routes = [
       {
         path: 'company-welcome',
         component: CompanyWelcomeProfileComponent,
+        canActivate: [LoggedInAuthGuard]
       },
       {
         path: 'company-entity',
-        component: CompanyProfileEntityComponent
+        component: CompanyProfileEntityComponent,
+        canActivate: [LoggedInAuthGuard]
       },
       {
         path: 'fleet',
-        component: CompanyFleetComponent
+        component: CompanyFleetComponent,
+        canActivate: [LoggedInAuthGuard]
       },
       {
         path: 'risk',
-        component: CompanyProfileRiskComponent
+        component: CompanyProfileRiskComponent,
+        canActivate: [LoggedInAuthGuard]
       },
       {
         path: 'company-shareholder',
-        component: CompanyShareholderComponent
+        component: CompanyShareholderComponent,
+        canActivate: [LoggedInAuthGuard]
       }
       
     ]
