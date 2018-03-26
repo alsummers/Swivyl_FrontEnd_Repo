@@ -3,6 +3,9 @@
         <div class="row justify-content-center">
           <h4>WHAT ARE YOUR CURRENT ASSETS?</h4>
         </div>
+        <div *ngIf='this.added'>
+            <alert type='success' [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{this.alert}}</alert>
+          </div>
         <div class="card-body">
         </div>
       <p>Location</p>

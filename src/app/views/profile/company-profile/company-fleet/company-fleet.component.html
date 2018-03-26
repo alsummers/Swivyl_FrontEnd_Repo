@@ -1,6 +1,11 @@
 <div class="fleet container">
   <div class="row justify-content-center">
-
+      <div class="row justify-content-center">
+          <h4>WHAT ARE YOUR CURRENT VEHICLES?</h4>
+        </div>
+    <div *ngIf='this.added'>
+      <alert type='success' [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{this.alert}}</alert>
+    </div>
   </div>
   <form (submit)="fleetCreate($event)">
     <div class="form-row">
@@ -64,7 +69,7 @@
           <select>
             <option *ngFor="let entity of entities" value="{{entity.uid}}"> {{entity.entity_name}} </option>
           </select>
-          
+
         </div>
       </div>
     </div>

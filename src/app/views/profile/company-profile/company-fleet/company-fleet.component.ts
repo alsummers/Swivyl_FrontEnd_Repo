@@ -14,11 +14,14 @@ export class CompanyFleetComponent implements OnInit {
   companyId:string = localStorage.getItem('company')
     fleets: Object[]
   entities: object
- 
+  added: Boolean
+  dismissible = true;
+  alert: any = 'Vehicle has been added'
 
   constructor(private _fleetService: FleetService, private _companyService: CompanyService, private _auth: AuthService, private _enitiyService: EntityService) { }
 
   ngOnInit() {
+    this.added = false
     this._companyService.fetchcompany().subscribe(e => {
       console.log(e[0])
       this.companyId = e[0].uid
@@ -30,6 +33,7 @@ export class CompanyFleetComponent implements OnInit {
   }
 
 fleetCreate(e) {
+  this.added = false
     const fleetInfo = {
       fleets: {
         year: e.target.elements[0].value,
@@ -48,8 +52,13 @@ fleetCreate(e) {
         uid: this.companyId
       }
     }
+    e.target.reset()
     this._fleetService.createFleet(fleetInfo).subscribe(e => {
-      console.log(e)
+      this.added = true
     })
+  }
+
+  onClosed(dismissedAlert: any): void {
+    this.alert = this.alert !== dismissedAlert;
   }
 }
