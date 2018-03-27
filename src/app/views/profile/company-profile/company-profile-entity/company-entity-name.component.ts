@@ -37,7 +37,7 @@ template: `
       <div class="card-newcard-body" style="text-align:center; padding:.5em 1em; font-size: 1rem;">
         <div class="row">
           <div class="col">{{entity.entity_name}}</div>
-            <div class="col-1"><i class="fa fa-trash " id="{{entity.uid}}" (click)="open(deleteLocation)"></i></div>
+            <div class="col-1"><i class="fa fa-trash " id="{{entity.uid}}" (click)="open(deleteEntity)"></i></div>
               <div class="col-1"><i class="fa fa-pencil"  (click)="open(content)"></i></div>
               </div>
             </div>
@@ -54,9 +54,9 @@ template: `
         <div class="row justify-content-end">
           <button (click)="grabAllCompanyEntities()" class="btn btn-dark">Add Entity</button>
         </div>
-        <ng-template #deleteLocation let-c="close" let-d="dismiss">
+        <ng-template #deleteEntity let-c="close" let-d="dismiss">
         <div class="modal-header">
-          <h4 class="modal-title">Delete Location</h4>
+          <h4 class="modal-title">Delete Entity</h4>
           <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
             <span aria-hidden="true">&times;</span>
           </button>
