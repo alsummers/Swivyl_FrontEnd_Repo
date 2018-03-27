@@ -22,36 +22,36 @@ export const navigation = [
   },
   {
     name: 'Policy Corner',
-    url: '/policy',
+    url: '/policy-corner',
     icon: 'icon-puzzle',
     canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Open Items',
-    url: '/buttons',
+    url: '/open-items',
     icon: 'icon-cursor',
     canActivate: [LoggedInAuthGuard]
   },
   {
 
     name: 'Data Exchange',
-    url: '/buttons',
+    url: '/data-exchange',
     icon: 'icon-cursor',
     canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Contact Agent',
-    url: '/agent',
+    url: '/contact-agent',
     icon: 'icon-bell',
     canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Messages',
-    url: '/widgets',
+    url: '/messages',
     icon: 'icon-calculator',
     badge: {
       variant: 'danger',
-      text: '7'
+      text: null
     }
   }
 ];

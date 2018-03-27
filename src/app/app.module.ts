@@ -77,6 +77,8 @@ import { CompanyService } from './Services/company.service';
 import { UserService } from './Services/user.service';
 import { LoggedInAuthGuard } from './authguardservices';
 import { GoogleLoginComponent } from './app-login-register/google-login.component';
+import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
+import { ContactComponent } from './views/contact/contact.component';
 
 
 
@@ -102,7 +104,10 @@ import { GoogleLoginComponent } from './app-login-register/google-login.componen
     ...APP_DIRECTIVES,
     AppLoginRegisterComponent,
     GoogleSignInComponent,
-    GoogleLoginComponent
+    GoogleLoginComponent,
+    PolicyCornerComponent,
+    ContactComponent,
+    
 
   ],
   providers: [
