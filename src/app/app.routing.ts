@@ -10,6 +10,8 @@ import {
 } from './app-login-register/app-login-register.component'
 import { LoggedInAuthGuard } from './authguardservices';
 import { GoogleLoginComponent } from './app-login-register/google-login.component';
+import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
+import { ContactComponent } from './views/contact/contact.component';
 
 export const routes: Routes = [
   {
@@ -42,6 +44,14 @@ export const routes: Routes = [
         path: 'assets',
         loadChildren: './views/assets/assets.module#AssetsModule'
       },
+      {
+        path: 'policy-corner',
+        component: PolicyCornerComponent
+      },
+      {
+        path: 'contact-agent',
+        component: ContactComponent
+      }
     ]
   },
   {
