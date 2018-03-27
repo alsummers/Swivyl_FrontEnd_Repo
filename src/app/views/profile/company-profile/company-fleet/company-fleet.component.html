@@ -1,11 +1,12 @@
+<div class="row justify-content-center">
+    <h4>WHAT ARE YOUR CURRENT VEHICLES?</h4>
+  </div>
+  <div class='row justify-content-center' *ngIf='this.added'>
+    <alert type='success' [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{this.alert}}</alert>
+  </div>
 <div class="fleet container">
   <div class="row justify-content-center">
-      <div class="row justify-content-center">
-          <h4>WHAT ARE YOUR CURRENT VEHICLES?</h4>
-        </div>
-    <div *ngIf='this.added'>
-      <alert type='success' [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{this.alert}}</alert>
-    </div>
+    
   </div>
   <form (submit)="fleetCreate($event)">
     <div class="form-row">
@@ -73,7 +74,7 @@
         </div>
       </div>
     </div>
-    <button type="submit" className="mb-4 btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-dark">Add Vehicle</button>
 
 
   </form>

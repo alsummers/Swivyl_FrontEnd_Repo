@@ -57,8 +57,8 @@ template: `
             </div>
           </div>
         </div>
-        <div class="row justify-content-end">
-          <button (click)="grabAllCompanyEntities()" class="btn">Next</button>
+        <div class="row justify-content-start">
+          <button (click)="grabAllCompanyEntities()" class="btn btn-dark">Add Entity</button>
         </div>
 </form>
 
