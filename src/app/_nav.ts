@@ -2,6 +2,7 @@ import { LoggedInAuthGuard } from "./authguardservices";
 
 export const navigation = [
   {
+    CanActivate: [LoggedInAuthGuard],
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer'
@@ -10,7 +11,7 @@ export const navigation = [
     name: 'Profile',
     url: '/profile/company-welcome',
     icon: 'icon-drop',
-    canActivate: [LoggedInAuthGuard]
+    CanActivate: [LoggedInAuthGuard]
     
   },
   {

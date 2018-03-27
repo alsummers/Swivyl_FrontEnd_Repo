@@ -8,16 +8,19 @@ import {
 import {
   AppLoginRegisterComponent,
 } from './app-login-register/app-login-register.component'
+import { LoggedInAuthGuard } from './authguardservices';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     path: '',
     component: FullLayoutComponent,
+    canActivate: [LoggedInAuthGuard],
     data: {
       title: 'Home'
     },
