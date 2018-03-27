@@ -19,7 +19,7 @@ import { AuthService } from '../../Services/auth.service';
       </div>
     </div>
     <div class="card-footer dashboard-footer">
-    <button class="btn btn-lg btn-dark" (click)="open(viewall)">View All Activity</button>
+    <a style="color:#a5c856; text-align: left; width:49%; display: inline-block; cursor: pointer;" (click)="open(viewall)">View All Activity</a>
         </div>
   </div>
   <ng-template #viewall let-c="close" let-d="dismiss">
@@ -104,7 +104,7 @@ interface Client {
       </div>
       <div class="card-body connect-box">
     
-        <select (change)="onChange($event.target.value)" style="width: 100% !important;">
+        <select (change)="onChange($event.target.value)" style="width: 100% !important; background-color: #fff">
           <option value='default' > Select</option>
           <option *ngFor="let option of options" value="{{option.id}}"> {{option.title}} </option>
         </select>
@@ -117,7 +117,7 @@ interface Client {
       </div>
 
       <div class="card-footer dashboard-footer">
-      <button id="submit" class="btn btn-dark">Submit</button>
+      <button class="btn btn-dark">Submit</button>
       </div>
     </div>
   `

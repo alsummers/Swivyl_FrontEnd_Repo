@@ -4,20 +4,14 @@
     </div>
 
     <div class="card-body" *ngIf="tasks.length >= 1">
-        <div *ngFor="let task of tasks | slice:0:5">
-            <div *ngIf="task.dateDue == date">
-                {{task.dateDue | date:"M-dd-yyyy"}}: 
-                {{task.description}} 
-            </div>
-        </div>
-        <h6>OVERDUE:</h6>
+        <h6 style="color:#a5c856">OVERDUE:</h6>
             <div *ngFor="let task of tasks | slice:0:5">
                 <div *ngIf="task.dateDue < date">
                     {{task.dateDue | date:"M-dd-yyyy"}}: 
                     {{task.description}} 
                 </div>
             </div> 
-        <h6>UPCOMING:</h6>
+        <h6 style="color:#a5c856">UPCOMING:</h6>
             <div *ngFor="let task of tasks | slice:0:6">
                 <div *ngIf="task.dateDue > date">
                     {{task.dateDue | date:"M-dd-yyyy"}}: 
@@ -27,8 +21,9 @@
     </div>
         
     <div class="card-footer to-do-footer dashboard-footer">
-        <button class="btn btn-lg btn-dark" (click)="open(viewall)" *ngIf="tasks.length >= 1">View all items</button>
-        <button class="btn btn-lg btn-dark" (click)="open(createTask)">+Add Task</button>
+            <a style="color:#a5c856; text-align: left; width:49%; display: inline-block; cursor: pointer;" (click)="open(viewall)" *ngIf="tasks.length >= 1">View all items</a>
+       
+            <a style="color:#a5c856; text-align: right; width:50%;  display: inline-block; cursor: pointer;"(click)="open(createTask)">+Add Task</a>
     </div>
   
     <ng-template #createTask let-c="close" let-d="dismiss">
