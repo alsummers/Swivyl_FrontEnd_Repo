@@ -6,9 +6,10 @@
   "copyright": "Copyright 2018 creativeLabs Łukasz Holeczek",
   "license": "MIT",
   "scripts": {
+    "preinstall": "npm install @angular/cli @angular/compiler-cli typescript",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build --prod",
+    "start": "ng serve /dist",
+    "build": "ng build aot --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
