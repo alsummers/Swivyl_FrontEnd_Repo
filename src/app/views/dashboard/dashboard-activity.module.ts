@@ -4,6 +4,10 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
 import { LogService } from '../../Services/log.service';
 import { CompanyService } from '../../Services/company.service';
 import { AuthService } from '../../Services/auth.service';
+
+
+
+
 @Component({
   selector: 'app-activity-timeline',
   template: `
@@ -59,6 +63,7 @@ export class DashboardActivityComponent implements OnInit {
     this._logService.fetchAllLogs(this.companyId).subscribe((e: Object[]) => {
       this.logs = e
       this.grabAllClients()
+      
 
     })
   }
@@ -92,6 +97,7 @@ interface LogInterface {
   message: String;
   uid: String;
   clientName: string;
+  createdAt: string;
 
 }
 interface Client {
