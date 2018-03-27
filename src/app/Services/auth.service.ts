@@ -15,13 +15,7 @@ export class AuthService {
   public redirectUrl: string
 
   login(loginInfo){
-    return this._http.post(`${Sql_Url}`, loginInfo).subscribe((loginInfo: Response) => {
-
-      localStorage.setItem('token', `${loginInfo.client.token}`  )
-      localStorage.setItem('firstName', `${loginInfo.client.firstName}`  )
-      localStorage.setItem('lastName', `${loginInfo.client.lastName}`  )
-      this._router.navigate(['/profile/company-welcome'])
-    })
+    return this._http.post(`${Sql_Url}`, loginInfo)
   }
   Register(userInfo){
     console.log(userInfo)
@@ -42,6 +36,9 @@ export class AuthService {
     return this._http.get(`${Sql_Url}`).map((res: Response) => res)
     .catch((err: any) => Observable.throw(err || 'Server Error'))
   }
+
+  
+  
 
 
 

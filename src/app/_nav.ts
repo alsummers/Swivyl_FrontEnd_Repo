@@ -2,6 +2,7 @@ import { LoggedInAuthGuard } from "./authguardservices";
 
 export const navigation = [
   {
+    CanActivate: [LoggedInAuthGuard],
     name: 'Dashboard',
     url: '/dashboard',
     icon: 'icon-speedometer'
@@ -10,42 +11,47 @@ export const navigation = [
     name: 'Profile',
     url: '/profile/company-welcome',
     icon: 'icon-drop',
-    canActivate: [LoggedInAuthGuard]
+    CanActivate: [LoggedInAuthGuard]
     
   },
   {
     name: 'Assets',
     url: '/assets',
-    icon: 'icon-pencil'
+    icon: 'icon-pencil',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Policy Corner',
-    url: '/base',
-    icon: 'icon-puzzle'
+    url: '/policy-corner',
+    icon: 'icon-puzzle',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Open Items',
-    url: '/buttons',
-    icon: 'icon-cursor'
+    url: '/open-items',
+    icon: 'icon-cursor',
+    canActivate: [LoggedInAuthGuard]
   },
   {
 
     name: 'Data Exchange',
-    url: '/buttons',
-    icon: 'icon-cursor'
+    url: '/data-exchange',
+    icon: 'icon-cursor',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Contact Agent',
-    url: '/notifications',
-    icon: 'icon-bell'
+    url: '/contact-agent',
+    icon: 'icon-bell',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     name: 'Messages',
-    url: '/widgets',
+    url: '/messages',
     icon: 'icon-calculator',
     badge: {
       variant: 'danger',
-      text: '7'
+      text: null
     }
   }
 ];

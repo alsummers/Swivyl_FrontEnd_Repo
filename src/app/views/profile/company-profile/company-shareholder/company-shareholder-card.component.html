@@ -1,44 +1,44 @@
-<form (submit)="createShareholder($event)">
+<form (submit)="createShareholder($event)" ngNativeValidate>
   <div class="row justify-content-center">
     <div class="col col-10">
       <div class="row">
         <div class="col">
           <label>First Name</label>
-          <input type="text" class="form-control" placeholder="First Name">
+          <input type="text" class="form-control" placeholder="First Name" required>
         </div>
         <div class="col">
           <label>Last Name</label>
-          <input type="text" class="form-control" placeholder="Last Name">
+          <input type="text" class="form-control" placeholder="Last Name" required>
         </div>
         <div class="col">
           <label>Ownership</label>
-          <input type="text" class="form-control" placeholder="Ownership">
+          <input type="text" class="form-control" placeholder="Ownership %" required>
         </div>
       </div>
       <br />
       <div class="row">
         <div class="col col-4">
           <label>Street Address</label>
-          <input type="text" class="form-control" placeholder="Street Address">
+          <input type="text" class="form-control" placeholder="Street Address" required>
         </div>
         <div class="col col-4">
           <label>City</label>
-          <input type="text" class="form-control" placeholder="City">
+          <input type="text" class="form-control" placeholder="City" required>
         </div>
         <div class="col col-2">
           <label>State</label>
-          <input type="text" class="form-control" placeholder="State">
+          <input type="text" class="form-control" placeholder="State" required>
         </div>
         <div class="col col-2">
           <label>Zip Code</label>
-          <input type="text" class="form-control" placeholder="Zip">
+          <input type="text" class="form-control" placeholder="Zip" required>
         </div>
       </div>
     </div>
   </div>
   <br>
   <div class='row justify-content-end'>
-    <button type="submit">Save</button>
+    <button type="submit" class='btn btn-dark'>Add Shareholder</button>
   </div>
 </form>
 <div class="row justify-content-center" *ngFor="let shareholder of shareholders">
@@ -47,7 +47,8 @@
       <div class="col">
         <div class="card">
           <div class="card-body">
-            Name: {{shareholder.firstname}} {{shareholder.lastname}}
+            Name: {{shareholder.firstname}} {{shareholder.lastname}} <br>
+            Ownership:{{shareholder.ownership}}
             <br> Address: {{shareholder.address}}
           </div>
           <div class='row justify-content-center'>
@@ -66,42 +67,30 @@
         <span aria-hidden="true">&times;</span>
       </button>
     </div>
-    <div class="modal-body">
-
+    <div class="modal-body" *ngFor="let shareholder of shareholders">
+      <div  *ngIf='shareholder.uid == updateId'>
       <form (submit)="updateShareholder($event)">
         <div class="row justify-content-center">
           <div class="col col-10">
             <div class="row">
               <div class="col">
                 <label>First Name</label>
-                <input type="text" class="form-control" placeholder="First Name">
+                <input type="text" class="form-control" value="{{shareholder.firstname}}">
               </div>
               <div class="col">
                 <label>Last Name</label>
-                <input type="text" class="form-control" placeholder="Last Name">
+                <input type="text" class="form-control" value="{{shareholder.lastname}}">
               </div>
               <div class="col">
                 <label>Ownership</label>
-                <input type="text" class="form-control" placeholder="Ownership">
+                <input type="text" class="form-control" value="{{shareholder.ownership}}" >
               </div>
             </div>
             <br />
             <div class="row">
-              <div class="col col-4">
-                <label>Street Address</label>
-                <input type="text" class="form-control" placeholder="Street Address">
-              </div>
-              <div class="col col-3">
-                <label>City</label>
-                <input type="text" class="form-control" placeholder="City">
-              </div>
-              <div class="col col-2">
-                <label>State</label>
-                <input type="text" class="form-control" placeholder="State">
-              </div>
-              <div class="col col-3">
-                <label>Zip</label>
-                <input type="text" class="form-control" placeholder="Zip">
+              <div class="col">
+                <label>Address</label>
+                <input type="text" class="form-control" value="{{shareholder.address}}">
               </div>
             </div>
           </div>
@@ -111,6 +100,7 @@
           <button type="submit" class="btn btn-outline-dark">Save</button>
         </div>
       </form>
+      </div>
     </div>
   </ng-template>
 

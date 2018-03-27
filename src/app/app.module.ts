@@ -7,6 +7,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import {GoogleSignInComponent} from 'angular-google-signin';
 
+
 // Import containers
 import {
   FullLayoutComponent,
@@ -42,7 +43,7 @@ const APP_COMPONENTS = [
   AppSidebarFormComponent,
   AppSidebarHeaderComponent,
   APP_SIDEBAR_NAV,
-  AppLoginRegisterComponent
+  AppLoginRegisterComponent,
 ]
 
 // Import directives
@@ -75,6 +76,9 @@ import { EntityService } from './Services/entity.service';
 import { CompanyService } from './Services/company.service';
 import { UserService } from './Services/user.service';
 import { LoggedInAuthGuard } from './authguardservices';
+import { GoogleLoginComponent } from './app-login-register/google-login.component';
+import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
+import { ContactComponent } from './views/contact/contact.component';
 
 
 
@@ -99,7 +103,11 @@ import { LoggedInAuthGuard } from './authguardservices';
     ...APP_COMPONENTS,
     ...APP_DIRECTIVES,
     AppLoginRegisterComponent,
-    GoogleSignInComponent
+    GoogleSignInComponent,
+    GoogleLoginComponent,
+    PolicyCornerComponent,
+    ContactComponent,
+    
 
   ],
   providers: [

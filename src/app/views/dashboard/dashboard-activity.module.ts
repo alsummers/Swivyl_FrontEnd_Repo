@@ -4,6 +4,10 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap'
 import { LogService } from '../../Services/log.service';
 import { CompanyService } from '../../Services/company.service';
 import { AuthService } from '../../Services/auth.service';
+
+
+
+
 @Component({
   selector: 'app-activity-timeline',
   template: `
@@ -19,7 +23,7 @@ import { AuthService } from '../../Services/auth.service';
       </div>
     </div>
     <div class="card-footer dashboard-footer">
-    <button class="btn btn-lg btn-dark" (click)="open(viewall)">View All Activity</button>
+    <a style="color:#a5c856; text-align: left; width:49%; display: inline-block; cursor: pointer;" (click)="open(viewall)">View All Activity</a>
         </div>
   </div>
   <ng-template #viewall let-c="close" let-d="dismiss">
@@ -49,6 +53,7 @@ export class DashboardActivityComponent implements OnInit {
       console.log(e[0])
       this.companyId = e[0].uid
       localStorage.setItem('company', e[0].uid)
+      localStorage.setItem('img', e[0].img)
       return this.grabAllCompanyLogs()
       // return console.log("Company",this.companyId)
     })
@@ -58,6 +63,7 @@ export class DashboardActivityComponent implements OnInit {
     this._logService.fetchAllLogs(this.companyId).subscribe((e: Object[]) => {
       this.logs = e
       this.grabAllClients()
+      
 
     })
   }
@@ -91,6 +97,7 @@ interface LogInterface {
   message: String;
   uid: String;
   clientName: string;
+  createdAt: string;
 
 }
 interface Client {
@@ -106,24 +113,66 @@ interface Client {
         <p class="card-title">QUICK CONNECT</p>
       </div>
       <div class="card-body connect-box">
-        <style>::placeholder {
-          color: blue;
-          opacity: 0.35;
-          font-weight: bold;
-      }</style>
-          <textarea class="connect-textbox" rows="8" cols="75" placeholder="Need to contact your broker?&#10;Enter your message here."></textarea>
+    
+        <select (change)="onChange($event.target.value)" style="width: 100% !important; background-color: white;">
+          <option value='default' > Select</option>
+          <option *ngFor="let option of options" value="{{option.id}}"> {{option.title}} </option>
+        </select>
+        <div *ngIf="!currentId || currentId === 'default'">
+          <textarea class="connect-textbox" rows="8" cols="75" placeholder="Please select whom to contact from above" disabled></textarea>
+        </div>
+        <div *ngFor="let description of descriptions">  
+            <textarea class="connect-textbox" rows="8" cols="75" placeholder={{description.description}} *ngIf="currentId === description.id"></textarea>
+        </div>
       </div>
+
       <div class="card-footer dashboard-footer">
-      <button id="submit" class="btn btn-dark">Submit</button>
+      <button type='submit' class="btn btn-dark">Submit</button>
       </div>
     </div>
   `
 })
 export class DashboardQuickConnectComponent implements OnInit {
+currentId: any
+options: Object[] = [
+  {
+    "id": 1,
+    "title": 'broker'
+    },
+  {
+    "id": 2,
+    "title": 'accountant'
+  },
+  {
+    "id": 3,
+    "title": 'HR'
+  }
+]
+descriptions: Object[] = [
+
+  {
+    "id": '1',
+    "description": 'Please type all broker related questions here.'
+  },
+  {
+    "id": '2',
+    "description": 'Please type all accountant related questions here.'
+  },
+  {
+    "id": '3',
+    "description": 'Please type all HR related questions here.'
+  }
+]
 
 
-  ngOnInit() { }
+  ngOnInit() {
+    
+   }
 
 
+  onChange(e) {
+    this.currentId = e
+    console.log(this.currentId)
+  }
 
 }

@@ -8,16 +8,22 @@ import {
 import {
   AppLoginRegisterComponent,
 } from './app-login-register/app-login-register.component'
+import { LoggedInAuthGuard } from './authguardservices';
+import { GoogleLoginComponent } from './app-login-register/google-login.component';
+import { PolicyCornerComponent } from './views/policy-corner/policy-corner.component';
+import { ContactComponent } from './views/contact/contact.component';
 
 export const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
     pathMatch: 'full',
+    canActivate: [LoggedInAuthGuard]
   },
   {
     path: '',
     component: FullLayoutComponent,
+    // canActivate: [LoggedInAuthGuard],
     data: {
       title: 'Home'
     },
@@ -39,35 +45,22 @@ export const routes: Routes = [
         loadChildren: './views/assets/assets.module#AssetsModule'
       },
       {
-        path: 'notifications',
-        loadChildren: './views/notifications/notifications.module#NotificationsModule'
+        path: 'policy-corner',
+        component: PolicyCornerComponent
       },
       {
-        path: 'theme',
-        loadChildren: './views/theme/theme.module#ThemeModule'
-      },
-      {
-        path: 'widgets',
-        loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      }
-    ]
-  },
-  {
-    path: 'pages',
-    component: SimpleLayoutComponent,
-    data: {
-      title: 'Pages'
-    },
-    children: [
-      {
-        path: '',
-        loadChildren: './views/pages/pages.module#PagesModule',
+        path: 'contact-agent',
+        component: ContactComponent
       }
     ]
   },
   {
     path: 'login',
     component: AppLoginRegisterComponent
+  },
+  {
+    path: 'googlelogin',
+    component: GoogleLoginComponent
   }
 ];
 

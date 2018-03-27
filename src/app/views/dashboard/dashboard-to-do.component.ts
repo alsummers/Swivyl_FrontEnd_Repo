@@ -13,23 +13,24 @@ import { elementAt } from 'rxjs/operators/elementAt';
 export class DashboardToDoComponent implements OnInit {
   closeResult: string;
   companyId: number;
-  tasks: object;
+  tasks: object[];
   show: boolean = true;
   taskValue: string = ''
-  date: any = new Date().toLocaleDateString("sq-AL")
+  date: any = new Date().toISOString().slice(0,10);
   currentId: any; 
   modalRef: any;
   confirm: any;
-
-
+ 
 
   constructor(private modalService: NgbModal, private modalActive: NgbActiveModal, private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService) { }
 
   ngOnInit() {
+    this.tasks = []
     this._companyService.fetchcompany().subscribe(e => {
       console.log(e[0].uid)
       this.companyId = e[0].uid
       localStorage.setItem('company', e[0].uid)
+      
       return this.grabAllCompanyTasks()
     })
   }
@@ -71,7 +72,7 @@ export class DashboardToDoComponent implements OnInit {
   }
 
   grabAllCompanyTasks() {
-    this._toDoService.fetchCompanyTasks(this.companyId).subscribe(e => {
+    this._toDoService.fetchCompanyTasks(this.companyId).subscribe((e : object[]) => {
       console.log('what is this', e)
       this.tasks = e
     })

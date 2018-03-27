@@ -1,32 +1,38 @@
+<div class="row justify-content-center">
+    <h4>WHAT ARE YOUR CURRENT VEHICLES?</h4>
+  </div>
+  <div class='row justify-content-center' *ngIf='this.added'>
+    <alert type='success' [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{this.alert}}</alert>
+  </div>
 <div class="fleet container">
   <div class="row justify-content-center">
-
+    
   </div>
-  <form (submit)="fleetCreate($event)">
+  <form (submit)="fleetCreate($event)" ngNativeValidate>
     <div class="form-row">
       <div class="col">
         <label for="Year">Year</label>
         <div class="card">
 
-          <input placeholder="Year" class="form-control" type="number" min="2000">
+          <input placeholder="Year" class="form-control" type="number" min="2000" required>
         </div>
       </div>
       <div class="col">
         <label for="Make">Make</label>
         <div class="card">
-          <input placeholder="Make" class="form-control" type="text">
+          <input placeholder="Make" class="form-control" type="text" required>
         </div>
       </div>
       <div class="col">
         <label for="Model">Model</label>
         <div class="card">
-          <input placeholder="Model" class="form-control" type="text">
+          <input placeholder="Model" class="form-control" type="text" required>
         </div>
       </div>
       <div class="col">
         <label for="VIN">VIN#</label>
         <div class="card">
-          <input placeholder="Vin#" class="form-control" type="text">
+          <input placeholder="Vin#" class="form-control" type="text" required>
         </div>
       </div>
     </div>
@@ -34,25 +40,25 @@
       <div class="col">
         <label for="Driver">Driver</label>
         <div class="card">
-          <input placeholder="Driver" class="form-control" type="text">
+          <input placeholder="Driver" class="form-control" type="text" required>
         </div>
       </div>
       <div class="col">
         <label for="ZIP">Garaging Zip</label>
         <div class="card">
-          <input placeholder="Garaging Zip" class="form-control" type="text">
+          <input placeholder="Garaging Zip" class="form-control" type="text" required>
         </div>
       </div>
       <div class="col">
         <label for="Date">Date Added</label>
         <div class="card">
-          <input id="date" class="form-control" type="date">
+          <input id="date" class="form-control" type="date" required>
         </div>
       </div>
       <div class="col">
         <label for="Title">Titled To</label>
         <div class="card">
-          <input placeholder="Titled To" class="form-control" type="text">
+          <input placeholder="Titled To" class="form-control" type="text" required>
         </div>
       </div>
     </div>
@@ -60,15 +66,17 @@
       <div class="col">
 
         <div class="input-group">
-          <label>Entity</label>
-          <select>
+          <label>Entity </label>
+          <select style="height: 35px; background-color: #fff; margin-left: 2%;">
             <option *ngFor="let entity of entities" value="{{entity.uid}}"> {{entity.entity_name}} </option>
           </select>
-          
+
         </div>
       </div>
     </div>
-    <button type="submit" className="mb-4 btn btn-primary">Save</button>
+    <div class="row justify-content-end">
+    <button type="submit" class="btn btn-dark">Add Vehicle</button>
+    </div>
 
 
   </form>
@@ -83,5 +91,5 @@
 
 <!-- end of cars -->
 <div class="row justify-content-end">
-  <a routerLink="../company-shareholder">Next</a>
+  <a routerLink="../company-shareholder" style="color:#a5c856; margin-top: 2%; margin-right: 2%;">Next</a>
 </div>

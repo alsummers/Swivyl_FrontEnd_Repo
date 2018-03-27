@@ -1,20 +1,23 @@
   <div class="risk container">
-      <form (submit)="postProperty($event)">
+      <form (submit)="postProperty($event)" ngNativeValidate>
         <div class="row justify-content-center">
           <h4>WHAT ARE YOUR CURRENT ASSETS?</h4>
         </div>
+        <div *ngIf='this.added'>
+            <alert type='success' [dismissible]="dismissible" (onClosed)="onClosed(alert)">{{this.alert}}</alert>
+          </div>
         <div class="card-body">
         </div>
       <p>Location</p>
     <div class="row address-form">
       <div class="col">
         <div type="text" class="card asset-address-info" >
-            <input placeholder="Street Address" >
+            <input placeholder="Street Address" required >
         </div>
       </div>
       <div class="col">
         <div type="text" class="card asset-address-info">
-            <input placeholder="City" >
+            <input placeholder="City" required>
         </div>
       </div>
       <div class="col">
@@ -78,7 +81,7 @@
       </div>
       <div class="col">
         <div type="text" class="card asset-address-info">
-            <input placeholder="ZIP" >
+            <input placeholder="ZIP" required minlength="5">
         </div>
       </div>
     </div>
@@ -99,7 +102,7 @@
         <label>Buildings Owner:</label>
       </div>
       <div class="col-1">
-        <input type="text" class=" bottom-form-input" placeholder="Owner name" aria-label="Owner name" aria-describedby="">
+        <input type="text" class=" bottom-form-input" placeholder="Owner name" aria-label="Owner name" aria-describedby="" required >
       </div>
     </div>
 
@@ -108,7 +111,7 @@
         <label>Buildings Sq Ft:</label>
       </div>
       <div class="col-1">
-          <input placeholder="EX:2800" type="number" class=" bottom-form-input" id="basic-url" step="50" aria-describedby="basic-addon3" min="0">
+          <input placeholder="EX:2800" type="number" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3" required >
       </div>
     </div>
 
@@ -117,7 +120,7 @@
         <label>Buildings Occupancy:</label>
       </div>
       <div class="col-1">
-          <input type="text" class=" bottom-form-input" placeholder="% Office/Warehouse" aria-label="Owner name" aria-describedby="">
+          <input type="text" class=" bottom-form-input" placeholder="% Office/Warehouse" aria-label="Owner name" aria-describedby="" required >
       </div>
     </div>
 
@@ -126,7 +129,7 @@
         <label>Location Employees:</label>
       </div>
       <div class="col-1">
-          <input placeholder="# of Employees" type="number" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3" min="0">
+          <input placeholder="# of Employees" type="number" class=" bottom-form-input" id="basic-url" aria-describedby="basic-addon3" min="0" required >
       </div>
     </div>
 
@@ -135,7 +138,7 @@
         <label>Location Contents:</label>
       </div>
       <div class="input-group col-1"> 
-          <input placeholder="$" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+          <input placeholder="$" type="number" class=" bottom-form-input" id="currency"  aria-describedby="basic-addon3" required >
       </div>
     </div>
 
@@ -144,7 +147,7 @@
         <label>Location Inventory:</label>
       </div>
       <div class="input-group col-1">
-          <input placeholder="$" type="number" class=" bottom-form-input" id="currency" step="100" aria-describedby="basic-addon3" min="0">
+          <input placeholder="$" type="number" class=" bottom-form-input" id="currency" aria-describedby="basic-addon3"  required >
     </div>
   </div>
 
@@ -160,12 +163,12 @@
         </div>
       </div>
   <hr>
-          <button type="submit" className="mb-4 btn btn-primary">Add Location</button> 
+          <button type="submit" class="btn btn-dark">Add Location</button> 
 
       </form>
 
       <div class="row justify-content-end">
-        <a routerLink="../fleet">Next</a>
+        <a routerLink="../fleet" style="color:#a5c856;">Next</a>
       </div>
 
 </div>    
