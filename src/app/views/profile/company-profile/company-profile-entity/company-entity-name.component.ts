@@ -91,7 +91,7 @@ closeResult: string
 targetedEntity: string
 modalRef: any;
 updateId: any
-
+confirm: any
 constructor(private _entityService: EntityService, private _companyService: CompanyService, private _auth: AuthService, private modalService: NgbModal) { }
 ngOnInit() {
 this._companyService.fetchcompany().subscribe(e => {
