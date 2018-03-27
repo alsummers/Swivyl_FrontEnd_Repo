@@ -108,7 +108,7 @@ interface Client {
       </div>
       <div class="card-body connect-box">
     
-        <select (change)="onChange($event.target.value)" style="width: 100% !important;">
+        <select (change)="onChange($event.target.value)" style="width: 100% !important; background-color: white;">
           <option value='default' > Select</option>
           <option *ngFor="let option of options" value="{{option.id}}"> {{option.title}} </option>
         </select>
