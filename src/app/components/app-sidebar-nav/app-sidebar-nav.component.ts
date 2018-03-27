@@ -44,7 +44,7 @@ export class AppSidebarNavComponent {
     return item.title ? true : false
   }
 
-  constructor(private _authservice:AuthService) { }
+  constructor(public _authservice:AuthService) { }
 }
 
 import { Router } from '@angular/router';

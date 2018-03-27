@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 
-import { PolicyCornerComponent } from './policy-corner.component';
 
 
 @NgModule({
   imports: [
    
   ],
-  declarations: [ PolicyCornerComponent],
+  declarations: [ ],
   providers: [
   
   ]

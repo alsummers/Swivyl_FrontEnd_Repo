@@ -12,10 +12,12 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
   },
   "private": true,
   "dependencies": {
+    "@angular/cli": "1.6.7",
     "@angular/animations": "5.2.3",
     "@angular/common": "5.2.3",
     "@angular/compiler": "5.2.3",
@@ -44,7 +46,6 @@
     "zone.js": "0.8.20"
   },
   "devDependencies": {
-    "@angular/cli": "1.6.7",
     "@angular/compiler-cli": "5.2.3",
     "@angular/language-service": "5.2.3",
     "@types/jasmine": "2.8.6",

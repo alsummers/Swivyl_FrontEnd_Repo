@@ -4,7 +4,7 @@ import { FormGroup, NgForm, FormsModule } from '@angular/forms'
 import { AuthService } from '../Services/auth.service'
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
-
+import { AppLoginRegisterComponent } from './app-login-register.component'
 
 
 @Component({
@@ -17,7 +17,7 @@ export class GoogleLoginComponent implements OnInit {
 token: string;
 lastname: string;
 firstname: string;
-  constructor(private route: ActivatedRoute, private _router: Router) { 
+  constructor(private route: ActivatedRoute, private _router: Router, private _login: AppLoginRegisterComponent) { 
     this.route.queryParams.subscribe(params => {
         this.token = params['token'];
         this.firstname = params['firstname'];
@@ -32,4 +32,8 @@ firstname: string;
     return this._router.navigate(['profile/company-welcome'])
   }
   
+
+  loginUser(e) {
+    this._login.loginUser(e)
+  }
 }
