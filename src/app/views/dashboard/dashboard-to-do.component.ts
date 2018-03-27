@@ -16,12 +16,11 @@ export class DashboardToDoComponent implements OnInit {
   tasks: object[];
   show: boolean = true;
   taskValue: string = ''
-  date: any = new Date().toLocaleDateString("sq-AL")
+  date: any = new Date().toISOString().slice(0,10);
   currentId: any; 
   modalRef: any;
   confirm: any;
-
-
+ 
 
   constructor(private modalService: NgbModal, private modalActive: NgbActiveModal, private _toDoService: ToDoService, private _companyService: CompanyService, private _auth: AuthService) { }
 
