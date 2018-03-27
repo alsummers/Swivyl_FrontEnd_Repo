@@ -4,7 +4,7 @@ import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http'
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable'
 import {Subject} from 'rxjs/Subject';
-const Sql_Api = "http://localhost:3000/api"
+const Sql_Api = "https://swivylback.herokuapp.com/api"
 
 @Injectable()
 export class PropertyService {

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { HttpClient, HttpHeaders, HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-const Sql_Api = "http://localhost:3000/api"
+const Sql_Api = "https://swivylback.herokuapp.com/api"
 @Injectable()
 export class LogService {
 

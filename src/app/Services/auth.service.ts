@@ -7,7 +7,7 @@ import { Observable } from 'rxjs/Observable'
 import {Subject} from 'rxjs/Subject';
 import { first } from 'rxjs/operator/first';
 
-const Sql_Url = "http://localhost:3000/api/client/login"
+const Sql_Url = "https://swivylback.herokuapp.com/api/client/login"
 @Injectable()
 export class AuthService {
   constructor(private _http: HttpClient, private _router:Router) {}
