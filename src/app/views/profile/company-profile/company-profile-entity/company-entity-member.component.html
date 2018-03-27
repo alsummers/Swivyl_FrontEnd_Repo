@@ -8,23 +8,23 @@
 
 
 
-<form (submit)="addSupervisor($event)">
+<form (submit)="addSupervisor($event)" ngNativeValidate>
   <div class="row justify-content-center">
     <div class="col-sm-8">
       <div class="row">
         <div class="col">
           <div class="input-group">
-            <input placeholder="Full Name" type="text" class="form-control" aria-describedby="basic-addon3">
+            <input placeholder="Full Name" type="text" class="form-control" aria-describedby="basic-addon3" required>
           </div>
         </div>
         <div class="col">
           <div class="input-group">
-            <input placeholder="email@email.com" type="email" class="form-control" aria-describedby="basic-addon3">
+            <input placeholder="email@email.com" type="email" class="form-control" aria-describedby="basic-addon3" required>
           </div>
         </div>
         <div class="col">
           <div class="input-group">
-            <input placeholder="password" type="password" class="form-control" aria-describedby="basic-addon3">
+            <input placeholder="password" type="password" class="form-control" aria-describedby="basic-addon3" required>
           </div>
         </div>
         <div class="col-sm-1">
