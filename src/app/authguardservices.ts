@@ -14,35 +14,22 @@ import { AuthService } from './Services/auth.service';
 
 export class LoggedInAuthGuard implements CanActivate {
 
-    public isLoggedIn: boolean = false;
-
-    public redirectUrl: string
-
-    constructor(private _router: Router, private _authService: AuthService) {
-
+    constructor(private _router: Router) {
+        
     }
 
-    public canActivate(_route: ActivatedRouteSnapshot, _state: RouterStateSnapshot){
-        this.redirectUrl = _state.url;
-        return this.checkLogin(this.redirectUrl)
+    public canActivate(): Observable<boolean> {
+        return new Observable<boolean>((observer) => {
+            console.log('HEEEEEOOOOOO')
+            if(!localStorage.getItem('token')) {
+                this._router.navigate(['/login'])
+                return observer.next(false)
+            } else {
+                return observer.next(true)
+            }
+        })
     }
 
-    checkLogin(url: string): boolean {
-        if (this.isLoggedIn) {
-            return true
-        } else {
-            this._authService.isLoggedIn().subscribe(
-                res => {
-                    this.isLoggedIn = true;
-                    this._router.navigateByUrl(url)
-                },
-                err => {
-                    this.isLoggedIn = false;
-                    this._authService.redirectUrl = url;
-                    this._router.navigate(['/login'])
-                }
-
-            )
-        }
-    }
+    
+    
 }
