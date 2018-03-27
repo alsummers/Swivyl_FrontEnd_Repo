@@ -37,8 +37,8 @@ template: `
       <div class="card-newcard-body" style="text-align:center; padding:.5em 1em; font-size: 1rem;">
         <div class="row">
           <div class="col">{{entity.entity_name}}</div>
-            <div class="col-1"><i class="fa fa-trash " id="{{entity.uid}}" (click)="removeEntity($event)"></i></div>
-              <div class="col-1"><i class="fa fa-pencil" (click)="open(content)"></i></div>
+            <div class="col-1"><i class="fa fa-trash " id="{{entity.uid}}" (click)="open(deleteLocation)"></i></div>
+              <div class="col-1"><i class="fa fa-pencil"  (click)="open(content)"></i></div>
               </div>
             </div>
           </div>
@@ -54,7 +54,31 @@ template: `
         <div class="row justify-content-end">
           <button (click)="grabAllCompanyEntities()" class="btn btn-dark">Add Entity</button>
         </div>
-      
+        <ng-template #deleteLocation let-c="close" let-d="dismiss">
+        <div class="modal-header">
+          <h4 class="modal-title">Delete Location</h4>
+          <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="risk container">
+            <form (submit)="removeEntity($event)">
+              <div class="row justify-content-center">
+                <h4>Are you sure you want to delete?</h4>
+              </div>
+              <br>
+              <div class="row justify-content-end">
+                <div class="col-7"></div>
+                <div class="col">
+                  <button type="submit" class="btn btn-outline-danger delete" value="delete" (click)="confirm = 'true'"> Delete </button>
+                  <button class="btn btn-outline-dark" (click)="confirm = 'false'" (click)="d('Cross click')"> Cancel </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </ng-template>
 </form>
 
 `,
@@ -66,6 +90,7 @@ entities: object
 closeResult: string
 targetedEntity: string
 modalRef: any;
+updateId: any
 
 constructor(private _entityService: EntityService, private _companyService: CompanyService, private _auth: AuthService, private modalService: NgbModal) { }
 ngOnInit() {
@@ -120,12 +145,17 @@ this.closeEntityModal()
 })
 }
 removeEntity(e) {
-this._entityService.deleteEntity(e.target.id).subscribe(e => {
-this.grabAllCompanyEntities()
-})
+  console.log('entity id', this.updateId)
+  if (this.confirm === 'true') {
+    this._entityService.deleteEntity(this.updateId).subscribe(e => {
+      this.grabAllCompanyEntities()
+    this.closeEntityModal()
+    })
+  }
 }
 open(content) {
   this.modalRef = this.modalService.open(content)
+  this.updateId = event.srcElement.id
 }
 closeEntityModal() { this.modalRef.close(); }
 
