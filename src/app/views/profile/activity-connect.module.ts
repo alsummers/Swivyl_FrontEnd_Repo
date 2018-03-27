@@ -117,7 +117,7 @@ interface Client {
       </div>
 
       <div class="card-footer dashboard-footer">
-      <button id="submit" class="btn btn-dark">Submit</button>
+      <button type="submit" class="btn btn-dark">Submit</button>
       </div>
     </div>
   `

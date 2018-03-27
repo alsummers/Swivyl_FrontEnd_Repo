@@ -37,8 +37,8 @@
     </div>
   </div>
   <br>
-  <div class='row justify-content-end'>
-    <button type="submit">Save</button>
+  <div class='row justify-content-start'>
+    <button type="submit" class='btn btn-dark'>Add Shareholder</button>
   </div>
 </form>
 <div class="row justify-content-center" *ngFor="let shareholder of shareholders">
@@ -82,7 +82,7 @@
               </div>
               <div class="col">
                 <label>Ownership</label>
-                <input type="text" class="form-control" placeholder="Ownership">
+                <input type="text" class="form-control" placeholder="Ownership %">
               </div>
             </div>
             <br />
