@@ -1,5 +1,5 @@
 import { Component, OnInit, Injectable, } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, NgForm, FormsModule } from '@angular/forms'
 import { AuthService } from '../Services/auth.service'
 import { HttpModule } from '@angular/http';
@@ -17,9 +17,15 @@ declare const gapi: any;
 })
 export class AppLoginRegisterComponent implements OnInit {
 //sanitze inputs
-  constructor(private authService: AuthService, private router: Router ) { 
-
-
+token: string;
+lastname: string;
+firstname: string;
+  constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute ) { 
+    this.route.queryParams.subscribe(params => {
+      this.token = params['token'];
+      this.firstname = params['firstname'];
+      this.lastname = params['lastname'];
+    })
   }
 
   ngOnInit() {
@@ -32,10 +38,19 @@ export class AppLoginRegisterComponent implements OnInit {
       email: e.target.elements[0].value,
       password: e.target.elements[1].value
     }
-    return this.authService.login(loginInfo)
+    return this.authService.login(loginInfo).subscribe((loginInfo: Response) => {
+
+      localStorage.setItem('token', `${loginInfo.client.token}`  )
+      localStorage.setItem('firstName', `${loginInfo.client.firstName}`  )
+      localStorage.setItem('lastName', `${loginInfo.client.lastName}`  )
+      this.router.navigate(['/profile/company-welcome'])
+    })
   }
-  googleUser(e){
-    this.router.navigate(['http://localhost:3000/auth/google'])
+  googleUser(){
+    this.router.navigateByUrl('https://localhost:3000/auth/google');
+    localStorage.setItem('token', this.token)
+    localStorage.setItem('firstName', this.firstname)
+    localStorage.setItem('lastName', this.lastname)
   }
 
 //   private clientId: string = '1010280495541-7bpornr688b32rqj145v91vhd7672h7r';
@@ -74,4 +89,11 @@ export class AppLoginRegisterComponent implements OnInit {
 //       this.googleInit();
 // }
 
+}
+interface Response {
+  client:{
+    token:String,
+    firstName:String,
+    lastName:String
+  }
 }

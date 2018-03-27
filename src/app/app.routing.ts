@@ -9,6 +9,7 @@ import {
   AppLoginRegisterComponent,
 } from './app-login-register/app-login-register.component'
 import { LoggedInAuthGuard } from './authguardservices';
+import { GoogleLoginComponent } from './app-login-register/google-login.component';
 
 export const routes: Routes = [
   {
@@ -20,7 +21,7 @@ export const routes: Routes = [
   {
     path: '',
     component: FullLayoutComponent,
-    canActivate: [LoggedInAuthGuard],
+    // canActivate: [LoggedInAuthGuard],
     data: {
       title: 'Home'
     },
@@ -46,6 +47,10 @@ export const routes: Routes = [
   {
     path: 'login',
     component: AppLoginRegisterComponent
+  },
+  {
+    path: 'googlelogin',
+    component: GoogleLoginComponent
   }
 ];
 
