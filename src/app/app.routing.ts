@@ -38,31 +38,6 @@ export const routes: Routes = [
         path: 'assets',
         loadChildren: './views/assets/assets.module#AssetsModule'
       },
-      {
-        path: 'notifications',
-        loadChildren: './views/notifications/notifications.module#NotificationsModule'
-      },
-      {
-        path: 'theme',
-        loadChildren: './views/theme/theme.module#ThemeModule'
-      },
-      {
-        path: 'widgets',
-        loadChildren: './views/widgets/widgets.module#WidgetsModule'
-      }
-    ]
-  },
-  {
-    path: 'pages',
-    component: SimpleLayoutComponent,
-    data: {
-      title: 'Pages'
-    },
-    children: [
-      {
-        path: '',
-        loadChildren: './views/pages/pages.module#PagesModule',
-      }
     ]
   },
   {

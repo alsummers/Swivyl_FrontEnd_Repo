@@ -40,7 +40,7 @@ export const navigation = [
   },
   {
     name: 'Contact Agent',
-    url: '/notifications',
+    url: '/agent',
     icon: 'icon-bell',
     canActivate: [LoggedInAuthGuard]
   },
