@@ -46,7 +46,7 @@ export class CompanyShareholderCardComponent implements OnInit {
         uid: this.companyId
       }
     }
-    this._sholderService.createShareholder(sholderInfo).subscribe(e => {å
+    this._sholderService.createShareholder(sholderInfo).subscribe(e => {
       this.grabAllShareholders(this.companyId)
     })
   }
