@@ -9,7 +9,7 @@ import { AuthService } from '../../../../Services/auth.service';
 @Component({
 selector: "app-entity-name",
 template: ` 
-<form (submit)="entitiyCreate($event)">
+<form  (submit)="entitiyCreate($event)">
   <div class="row justify-content-center">
     <h4>WHAT IS YOUR ENTITY NAME?</h4>
   </div>
@@ -53,7 +53,7 @@ template: `
         <div class="row justify-content-center">
           <div class="col-sm-5">
             <div class="input-group">
-              <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+              <input type="text" style="text-align:center; max-height:1rem; padding:1em 2em 1.5em" placeholder="Insert your new entity name here" class="form-control" id="basic-url" aria-describedby="basic-addon3">
             </div>
           </div>
         </div>
