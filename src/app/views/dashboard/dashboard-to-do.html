@@ -34,9 +34,9 @@
             </button>
         </div>
         <div class="modal-body">
-            <form (submit)="taskCreate($event)">
-                <input type="text" placeholder="to-do task" class="btn btn-outline-dark">
-                <input type="date" placeholder="due date" class="btn btn-outline-dark">
+            <form (submit)="taskCreate($event)" ngNativeValidate>
+                <input type="text" placeholder="to-do task" class="btn" required>
+                <input type="date" placeholder="due date" class="btn" required>
                 <button type="submit" class="btn btn-outline-dark">Submit</button>
             </form>
         </div>
@@ -71,10 +71,10 @@
             <div class="modal-body">
             <div *ngFor="let task of tasks">
             <div class="task container" *ngIf='task.uid == currentId'>
-                <form (submit)="updateTaskInfo($event)">
+                <form (submit)="updateTaskInfo($event)" ngNativeValidate>
                 <h4>Update Task</h4>
-                <input type="date" class="btn btn-outline-dark" value="{{task.dateDue}}">
-                <input type="text" value="{{task.description}}" id="{{task.uid}}" class="btn btn-outline-dark">
+                <input type="date" class="btn btn-outline-dark" value="{{task.dateDue}}" required>
+                <input type="text" value="{{task.description}}" id="{{task.uid}}" class="btn btn-outline-dark" required>
                 <button type="submit" class="btn btn-outline-dark" id="{{task.uid}}">Edit</button>
                 </form> 
             </div> 
