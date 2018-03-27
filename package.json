@@ -9,7 +9,7 @@
   "scripts": {
     "preinstall": "npm install @angular/cli @angular/compiler-cli typescript",
     "ng": "ng",
-    "start": "ng serve /dist",
+    "start": "ng serve",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
