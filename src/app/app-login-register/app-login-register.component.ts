@@ -17,7 +17,7 @@ declare const gapi: any;
 })
 export class AppLoginRegisterComponent implements OnInit {
 //sanitze inputs
-  constructor(private authService: AuthService, ) { 
+  constructor(private authService: AuthService, private router: Router ) { 
 
 
   }
@@ -33,6 +33,9 @@ export class AppLoginRegisterComponent implements OnInit {
       password: e.target.elements[1].value
     }
     return this.authService.login(loginInfo)
+  }
+  googleUser(e){
+    this.router.navigate(['http://localhost:3000/auth/google'])
   }
 
 //   private clientId: string = '1010280495541-7bpornr688b32rqj145v91vhd7672h7r';

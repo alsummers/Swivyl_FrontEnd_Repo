@@ -39,7 +39,7 @@ export class LoggedInAuthGuard implements CanActivate {
                 err => {
                     this.isLoggedIn = false;
                     this._authService.redirectUrl = url;
-                    this._router.navigateByUrl('/login')
+                    this._router.navigate(['/login'])
                 }
 
             )
