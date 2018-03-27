@@ -21,7 +21,7 @@ export const navigation = [
   },
   {
     name: 'Policy Corner',
-    url: '/base',
+    url: '/',
     icon: 'icon-puzzle',
     canActivate: [LoggedInAuthGuard]
   },
