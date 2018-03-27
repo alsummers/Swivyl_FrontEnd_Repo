@@ -4,6 +4,7 @@
   "description": "Swivyl Client Side",
   "copyright": "Copyright 2018 Swivyl",
   "license": "MIT",
+  "main": "app.js",
   "scripts": {
     "ng": "ng",
     "start": "node app.js",
